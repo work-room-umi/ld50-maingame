@@ -13,7 +13,7 @@ public class DrifterManager : MonoBehaviour
     [SerializeField]
     private int maxDrifterNum;
     [SerializeField]
-    private string drifterPrefab;
+    private List<string> drifterPrefabs;
 
     private List<GameObject> managedDrifters;
 
@@ -58,7 +58,7 @@ public class DrifterManager : MonoBehaviour
     void Update()
     {
         Vector3 shipPosition = ship.transform.position;
-        //GC(shipPosition);
+        GC(shipPosition);
         
         if (managedDrifters.Count<maxDrifterNum)
         {
@@ -66,7 +66,8 @@ public class DrifterManager : MonoBehaviour
             Vector3 basePosition = generateRandomBasePosition();
             Vector3 position = shipPosition + basePosition;
 
-            GameObject prefab = (GameObject)Resources.Load(drifterPrefab);
+            int index = Random.Range(0, drifterPrefabs.Count);
+            GameObject prefab = (GameObject)Resources.Load(drifterPrefabs[index]);
             GameObject drifter = Instantiate (prefab, position, Quaternion.identity);
             managedDrifters.Add(drifter);
         }
