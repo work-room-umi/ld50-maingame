@@ -24,7 +24,7 @@ namespace umi.ld50 {
             managedDrifters = new List<GameObject>();
         }
 
-        private Vector3 generateRandomBasePosition()
+        private Vector3 GenerateRandomBasePosition()
         {
             float generateComponent()
             {
@@ -64,7 +64,7 @@ namespace umi.ld50 {
             if (managedDrifters.Count<maxDrifterNum)
             {
                 // 漂流物の初期位置を計算する
-                Vector3 basePosition = generateRandomBasePosition();
+                Vector3 basePosition = GenerateRandomBasePosition();
                 Vector3 position = shipPosition + basePosition;
 
                 int index = Random.Range(0, drifterPrefabs.Count);
