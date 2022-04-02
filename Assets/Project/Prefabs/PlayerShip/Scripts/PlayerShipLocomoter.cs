@@ -43,7 +43,6 @@ public class PlayerShipLocomoter : MonoBehaviour
 		Vector3 targetDir = (nextPoint - transform.position).normalized;
 		// Quaternion targetRotation = Quaternion.LookRotation(targetDir);
 		// transform.rotation = Quaternion.RotateTowards(transform.rotation, targetRotation, 120f * Time.deltaTime);
-		Debug.Log(nextPoint);
 
 		_agent.SetDestination(nextPoint);
 		_agent.nextPosition = transform.position;
