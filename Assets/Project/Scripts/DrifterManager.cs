@@ -24,7 +24,7 @@ namespace umi.ld50 {
             managedDrifters = new List<GameObject>();
         }
 
-        private Vector3 generateRandomBasePosition()
+        private Vector3 GenerateRandomBasePosition()
         {
             float generateComponent()
             {
