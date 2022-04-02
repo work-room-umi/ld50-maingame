@@ -8,7 +8,7 @@
 			<value>0</value>
 		</property>
 		<relationship name="folder">
-			<destination>{be843808-8f07-4349-b012-78c2710de818}</destination>
+			<destination>{eb3c5d50-18db-45c4-a886-f55792a1e70d}</destination>
 		</relationship>
 		<relationship name="mixer">
 			<destination>{3a03abd9-32fd-4739-b649-831ca9db2272}</destination>
@@ -34,6 +34,9 @@
 		<relationship name="parameters">
 			<destination>{4a110c7d-b55e-4909-965a-d56e0831c1b0}</destination>
 		</relationship>
+		<relationship name="banks">
+			<destination>{f5c53a9a-264d-4caf-afc5-16c702b62426}</destination>
+		</relationship>
 	</object>
 	<object class="EventMixer" id="{3a03abd9-32fd-4739-b649-831ca9db2272}">
 		<relationship name="masterBus">
@@ -56,7 +59,7 @@
 			<destination>{b800c635-9b52-4aca-bfdf-0dc109fa722b}</destination>
 		</relationship>
 		<relationship name="output">
-			<destination>{3f1efc51-6dc8-4942-8f15-921a9193e2a9}</destination>
+			<destination>{8dce6339-db1a-461a-9bcb-c54ec1456d57}</destination>
 		</relationship>
 	</object>
 	<object class="EventAutomatableProperties" id="{6e04edf1-51bd-4dc7-b8d5-6f8d11e17383}" />
