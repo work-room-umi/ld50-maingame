@@ -51,7 +51,7 @@ jobs:
           $BUILD_ZIP = "Build/Build-${{ matrix.targetPlatform }}.zip"
           Compress-Archive -Path $BUILD_PATH -DestinationPath "$BUILD_ZIP"
           if(!(Test-Path $BUILD_ZIP)) {
-              throw 'Artifact not found'
+              throw 'Release artifact not found'
           }
       - uses: actions/upload-artifact@v2
         with:
