@@ -9,6 +9,8 @@
     "com.unity.textmeshpro": "3.0.6",
     "com.unity.timeline": "1.4.8",
     "com.unity.ugui": "1.0.0",
+    "dev.kyubuns.akyuiunity": "https://github.com/kyubuns/AkyuiUnity.git?path=Assets/AkyuiUnity",
+    "dev.kyubuns.akyuiunityxd": "https://github.com/kyubuns/AkyuiUnity.git?path=Assets/AkyuiUnity.Xd",
     "com.unity.modules.ai": "1.0.0",
     "com.unity.modules.androidjni": "1.0.0",
     "com.unity.modules.animation": "1.0.0",
