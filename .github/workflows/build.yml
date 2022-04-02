@@ -3,7 +3,7 @@ name: Build project
 on:
   pull_request:
     branches:
-      - 'main'
+      - 'dev'
     types: [opened, synchronize, closed]
   push:
     tags:
