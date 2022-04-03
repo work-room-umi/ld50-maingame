@@ -31,6 +31,9 @@ public class Waves : MonoBehaviour
 
         MeshFilter = gameObject.AddComponent<MeshFilter>();
         MeshFilter.mesh = Mesh;
+
+		var meshCollider = gameObject.AddComponent<MeshCollider>();
+		meshCollider.sharedMesh = Mesh;
     }
 
     public float GetHeight(Vector3 position)
@@ -159,7 +162,9 @@ public class Waves : MonoBehaviour
             }
         }
         Mesh.vertices = verts;
+		// Mesh.MarkDynamic();
         Mesh.RecalculateNormals();
+		// Mesh.UploadMeshData(false);
     }
 
     [Serializable]
