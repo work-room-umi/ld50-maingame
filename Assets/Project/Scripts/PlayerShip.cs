@@ -9,10 +9,13 @@ namespace umi.ld50
     public class PlayerShip : MonoBehaviour
     {
         private Stack<Fix> _parts;
-        private Drifter _shipDrifter;
         [SerializeField] private PlayerShipCollider shipCollider;
         [SerializeField]
         private int growthLevel = 0;
+
+        public event Action GetPartsAction;
+        public event Action AttackedAction;
+        public event Action BreakPartsAction;
 
         public float Hp => _parts.Select(p => p.Hp).Sum();
         public float NormalizedHp => _parts.Select(p => p.Hp).Sum() / _parts.Select(p => p.MaxHp).Sum();
@@ -38,7 +41,6 @@ namespace umi.ld50
             //子にあるFixをデフォルトのパーツとして登録/初期化
             var fixes = GetComponentsInChildren<Fix>().ToArray();
             _parts = new Stack<Fix>(fixes);
-            _shipDrifter = GetComponent<Drifter>();
             if (shipCollider == null)
                 shipCollider = FindObjectOfType<PlayerShipCollider>();
             InitShipCollider(shipCollider);
@@ -69,6 +71,8 @@ namespace umi.ld50
             DeployFix(newFix);//位置/回転計算
             _parts.Push(newFix);
             newFix.GetComponent<Collider>().enabled = false;
+
+            OnGetPartsAction();
             
             //Collider Growth
             var newLevel = _parts.Count / colliderGrowthPartsCount;
@@ -126,6 +130,7 @@ namespace umi.ld50
 
         private void OnAttacked(Attack attack)
         {
+            OnAttackedAction();
             // if (attack._attackableCount <= 0) return;
             // attack._attackableCount--;
             //
@@ -183,5 +188,20 @@ namespace umi.ld50
             }
         }
         #endregion
+
+        private void OnGetPartsAction()
+        {
+            GetPartsAction?.Invoke();
+        }
+
+        private void OnAttackedAction()
+        {
+            AttackedAction?.Invoke();
+        }
+
+        protected virtual void OnBreakPartsAction()
+        {
+            BreakPartsAction?.Invoke();
+        }
     }
 }
