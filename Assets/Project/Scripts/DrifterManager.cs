@@ -14,7 +14,7 @@ namespace umi.ld50 {
         [SerializeField]
         private int maxDrifterNum;
         [SerializeField]
-        private List<string> drifterPrefabs;
+        private List<GameObject> drifterPrefabs;
 
         private List<GameObject> managedDrifters;
 
@@ -43,15 +43,19 @@ namespace umi.ld50 {
 
         void GC(Vector3 shipPosition)
         {
-            foreach(GameObject drifter in managedDrifters)
+            //削除対象を集める(for/foreachの中で要素を削除するとエラーで怒られたり、要素数がずれたりするので、2周に分ける)
+            List<GameObject> removingObjects = new List<GameObject>();
+            foreach (var drifter in managedDrifters)
             {
-                    Vector3 position = drifter.transform.position;
-                    float dist = Vector3.Distance(position, shipPosition);
-                    if( deleteDist < dist )
-                    {
-                        managedDrifters.Remove(drifter);
-                        Destroy(drifter);
-                    }
+                Vector3 position = drifter.transform.position;
+                float dist = Vector3.Distance(position, shipPosition);
+                if (deleteDist < dist) removingObjects.Add(drifter);
+            }
+            //削除
+            foreach (var drifter in removingObjects)
+            {
+                managedDrifters.Remove(drifter);
+                Destroy(drifter);
             }
         }
 
@@ -68,7 +72,7 @@ namespace umi.ld50 {
                 Vector3 position = shipPosition + basePosition;
 
                 int index = Random.Range(0, drifterPrefabs.Count);
-                GameObject prefab = (GameObject)Resources.Load(drifterPrefabs[index]);
+                GameObject prefab = drifterPrefabs[index];
                 GameObject drifter = Instantiate (prefab, position, Quaternion.identity);
                 managedDrifters.Add(drifter);
             }
