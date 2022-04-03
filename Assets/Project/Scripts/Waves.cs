@@ -18,6 +18,8 @@ public class Waves : MonoBehaviour
 
     protected MeshCollider _meshCollider;
 
+    Vector3[] _vertices;
+    Vector3[] _normals;
     // Start is called before the first frame update
     void Start()
     {
@@ -71,11 +73,10 @@ public class Waves : MonoBehaviour
                  + (max - Vector3.Distance(p3, localPos))
                  + (max - Vector3.Distance(p4, localPos) + Mathf.Epsilon);
         //weighted sum
-        var vertices = Mesh.vertices;
-        var height = vertices[Index(p1.x, p1.z)].y * (max - Vector3.Distance(p1, localPos))
-                   + vertices[Index(p2.x, p2.z)].y * (max - Vector3.Distance(p2, localPos))
-                   + vertices[Index(p3.x, p3.z)].y * (max - Vector3.Distance(p3, localPos))
-                   + vertices[Index(p4.x, p4.z)].y * (max - Vector3.Distance(p4, localPos));
+        var height = _vertices[Index(p1.x, p1.z)].y * (max - Vector3.Distance(p1, localPos))
+                   + _vertices[Index(p2.x, p2.z)].y * (max - Vector3.Distance(p2, localPos))
+                   + _vertices[Index(p3.x, p3.z)].y * (max - Vector3.Distance(p3, localPos))
+                   + _vertices[Index(p4.x, p4.z)].y * (max - Vector3.Distance(p4, localPos));
 
         //scale
         return height * transform.lossyScale.y / dist;
@@ -110,11 +111,10 @@ public class Waves : MonoBehaviour
                  + (max - Vector3.Distance(p3, localPos))
                  + (max - Vector3.Distance(p4, localPos) + Mathf.Epsilon);
 
-        Vector3[] normals = Mesh.normals;
-        Vector3 normal = normals[Index(p1.x, p1.z)] * (max - Vector3.Distance(p1, localPos))
-                   + normals[Index(p2.x, p2.z)] * (max - Vector3.Distance(p2, localPos))
-                   + normals[Index(p3.x, p3.z)] * (max - Vector3.Distance(p3, localPos))
-                   + normals[Index(p4.x, p4.z)] * (max - Vector3.Distance(p4, localPos));
+        Vector3 normal = _normals[Index(p1.x, p1.z)] * (max - Vector3.Distance(p1, localPos))
+                   + _normals[Index(p2.x, p2.z)] * (max - Vector3.Distance(p2, localPos))
+                   + _normals[Index(p3.x, p3.z)] * (max - Vector3.Distance(p3, localPos))
+                   + _normals[Index(p4.x, p4.z)] * (max - Vector3.Distance(p4, localPos));
         return normal;
     }
 
@@ -210,6 +210,8 @@ public class Waves : MonoBehaviour
         //_meshCollider.sharedMesh = Mesh;
         Mesh.RecalculateNormals();
         // Mesh.UploadMeshData(false);
+        _vertices = verts;
+        _normals = Mesh.normals;
     }
 
     [Serializable]
