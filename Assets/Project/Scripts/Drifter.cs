@@ -6,27 +6,25 @@ public class Drifter : MonoBehaviour
 {
 	Transform _child;
 
-	[SerializeField]
-	float _freq;
-	[SerializeField]
-	float _amp;
-	[SerializeField]
-	Vector3 _frontDir;
-	[SerializeField]
-	float _noiseMoveAmp=0;
-	[SerializeField]
-	bool _noiseRotate=false;
-	[SerializeField]
-	float _noiseScale=1;
-	[SerializeField]
-	float _noiseTimeScale=1;
-	[SerializeField]
-	GameObject _wave;
+	public float _freq;
+	public float _amp;
+	//public Vector3 _frontDir;
+	public float _noiseMoveAmp=0;
+	//public bool _noiseRotate=false;
+	public float _noiseScale=1;
+	public float _noiseTimeScale=1;
+	private Waves _wave;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		_child = transform.GetChild(0);
+    	_wave = (Waves)FindObjectOfType(typeof(Waves));
+	}
+
+	public Transform GetChild()
+	{
+		return _child;
 	}
 
 	Vector3 GetNoiseDir(Vector3 pos)
@@ -48,10 +46,9 @@ public class Drifter : MonoBehaviour
 		// transform.rotation = targetRorationNoise;
 		transform.position = new Vector3(transform.position.x + moveDir.x * _noiseMoveAmp, transform.position.y,  transform.position.z + moveDir.z * _noiseMoveAmp);
 
-		Waves wave = _wave.GetComponent<Waves>();
 		_child.rotation = Quaternion.identity;
-		float height = wave.GetHeight(_child.position);
-		Vector3 normal = wave.GetNormal(_child.position);
+		float height = _wave.GetHeight(_child.position);
+		Vector3 normal = _wave.GetNormal(_child.position);
 		Quaternion targetRotationXZ = Quaternion.FromToRotation(_child.forward, transform.forward);
 		Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
 		_child.rotation = targetRotationXZ*targetRotation;
