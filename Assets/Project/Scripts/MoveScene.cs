@@ -7,8 +7,9 @@ namespace umi.ld50
 {
     public class MoveScene : MonoBehaviour
     {
-        private static Canvas fadeCanvas;
-        private static Image fadeImage;
+        private Canvas fadeCanvas;
+        private Image fadeImage;
+        public Sprite fadeSprite;
         private static float alpha = 0.0f;
 
         public string nextScene;
@@ -31,46 +32,54 @@ namespace umi.ld50
             //n秒かけて切り替わる(ディゾルブ)
             FadeOut();
         }
-        static void Init()
+
+        void Init()
         {
             //フェード用のCanvas生成
             GameObject FadeCanvasObject = new GameObject("CanvasFade");
             fadeCanvas = FadeCanvasObject.AddComponent<Canvas>();
             FadeCanvasObject.AddComponent<GraphicRaycaster>();
             fadeCanvas.renderMode = RenderMode.ScreenSpaceOverlay;
-            FadeCanvasObject.AddComponent<MoveScene>();
 
             //最前面になるよう適当なソートオーダー設定
             fadeCanvas.sortingOrder = 100;
 
             //フェード用のImage生成
             fadeImage = new GameObject("ImageFade").AddComponent<Image>();
+            fadeImage.sprite = fadeSprite;
             fadeImage.transform.SetParent(fadeCanvas.transform, false);
             fadeImage.rectTransform.anchoredPosition = Vector3.zero;
 
             //Imageサイズは適当に大きく設定してください
-            fadeImage.rectTransform.sizeDelta = new Vector2(9999, 9999);
+            fadeImage.rectTransform.sizeDelta = new Vector2(1280, 720);
         }
 
         private void FadeIn()
         {
             if (fadeImage == null) Init();
-            fadeImage.color = Color.black;
+            if (fadeSprite == null)
+            {
+                fadeImage.color = Color.black;
+            }
             isFadeIn = true;
         }
 
         private void FadeOut()
         {
             if (fadeImage == null) Init();
-            fadeImage.color = Color.clear;
+            if (fadeSprite == null)
+            {
+                fadeImage.color = Color.clear;
+            }
             fadeCanvas.enabled = true;
             isFadeOut = true;
         }
 
-        // void Start()
-        // {
-        //     FadeIn();
-        // }
+        void Start()
+        {
+            FadeIn();
+        }
+
         void Update()
         {
             if (isFadeIn)
@@ -84,7 +93,7 @@ namespace umi.ld50
                     fadeCanvas.enabled = false; 
                 }
 
-                fadeImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
+                fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
             }
             else if(isFadeOut)
             {
@@ -97,7 +106,7 @@ namespace umi.ld50
 
                     SceneManager.LoadScene(nextScene);
                 }
-                fadeImage.color = new Color(0.0f, 0.0f, 0.0f, alpha);
+                fadeImage.color = new Color(fadeImage.color.r, fadeImage.color.g, fadeImage.color.b, alpha);
             }
         }
     }
