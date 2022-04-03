@@ -513,13 +513,33 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6630669607829099214, guid: d2104e1875271db458e52639f77f8036, type: 3}
+      propertyPath: m_Speed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630669607829099214, guid: d2104e1875271db458e52639f77f8036, type: 3}
       propertyPath: m_Acceleration
-      value: 1
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6630669607829099214, guid: d2104e1875271db458e52639f77f8036, type: 3}
+      propertyPath: m_AngularSpeed
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 6724196984263275509, guid: d2104e1875271db458e52639f77f8036, type: 3}
       propertyPath: _target
       value: 
       objectReference: {fileID: 139035497}
+    - target: {fileID: 6724196984263275509, guid: d2104e1875271db458e52639f77f8036, type: 3}
+      propertyPath: _lifeTime
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724196984263275509, guid: d2104e1875271db458e52639f77f8036, type: 3}
+      propertyPath: _speedAmp
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6724196984263275509, guid: d2104e1875271db458e52639f77f8036, type: 3}
+      propertyPath: _speedFreq
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2104e1875271db458e52639f77f8036, type: 3}
 --- !u!1001 &4695543182618644849
