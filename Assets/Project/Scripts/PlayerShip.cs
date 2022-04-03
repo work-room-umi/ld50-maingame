@@ -73,10 +73,17 @@ namespace umi.ld50
             //Collider Growth
             var newLevel = _parts.Count / colliderGrowthPartsCount;
             growthLevel = newLevel;
-            var width = shipCollider.gameObject.GetComponent<MeshRenderer>().bounds.extents.x * 2f;
+            var width = 1.75f;
             var targetWidth = width + growthWidth * newLevel;
-            var scale = targetWidth / width;
-            shipCollider.gameObject.transform.localScale = new Vector3(scale, scale,scale);
+            var maxCount = 1000f;
+            var maxScaleX = 6f;
+            var maxScaleZ = 4f;
+            // var scale = targetWidth / width;
+            var normalizedScale = Mathf.Clamp01((_parts.Count-20) / maxCount);
+            normalizedScale = Mathf.Pow(normalizedScale, 1f);
+            var scaleX = 1f + normalizedScale*(maxScaleX-1f);
+            var scaleZ = 1f + normalizedScale*(maxScaleZ-1f);
+            shipCollider.gameObject.transform.localScale = new Vector3(scaleX, 1,scaleZ);
         }
 
         private void DeployFix(Fix fix)
