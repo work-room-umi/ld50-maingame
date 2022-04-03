@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{4f5683c0-5ed7-45a1-b5e9-b1aa9b89bd6d}">
+		<property name="name">
+			<value>creak_sound</value>
+		</property>
+		<relationship name="folder">
+			<destination>{16afdc43-5d90-4657-aa62-4b24565db143}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{4aa7a12d-56db-458b-a91d-dbe5fda67058}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{4aa7a12d-56db-458b-a91d-dbe5fda67058}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+		<relationship name="modulators">
+			<destination>{33665f66-9f72-4374-935c-ecc7ded840b2}</destination>
+		</relationship>
+	</object>
+	<object class="SidechainModulator" id="{33665f66-9f72-4374-935c-ecc7ded840b2}">
+		<property name="nameOfPropertyBeingModulated">
+			<value>cursorPosition</value>
+		</property>
+	</object>
+</objects>
