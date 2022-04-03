@@ -41,16 +41,20 @@ public class Drifter : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		var transform = this.transform;
+		transform.rotation = Quaternion.identity;
+		Vector3 moveDir = GetNoiseDir(_child.position);
+		Quaternion targetRorationNoise = Quaternion.FromToRotation(_frontDir, moveDir * (_noiseRotate? 1f : 0f));
+		transform.rotation = targetRorationNoise;
+		transform.position = new Vector3(transform.position.x + moveDir.x * _noiseMoveAmp, transform.position.y,  transform.position.z + moveDir.z * _noiseMoveAmp);
+
 		Waves wave = _wave.GetComponent<Waves>();
 		_child.rotation = Quaternion.identity;
 		float height = wave.GetHeight(_child.position);
 		Vector3 normal = wave.GetNormal(_child.position);
-		Vector3 moveDir = GetNoiseDir(_child.position);
-
 		Quaternion targetRotationXZ = Quaternion.FromToRotation(_child.forward, transform.forward);
 		Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
-		Quaternion targetRorationNoise = Quaternion.FromToRotation(_frontDir, moveDir * (_noiseRotate? 1f : 0f));
-		_child.rotation = targetRotationXZ*targetRotation*targetRorationNoise;
-		_child.position = new Vector3(_child.position.x + moveDir.x * _noiseMoveAmp, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z + moveDir.z * _noiseMoveAmp);
+		_child.rotation = targetRotationXZ*targetRotation;
+		_child.position = new Vector3(_child.position.x, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z);
 	}
 }
