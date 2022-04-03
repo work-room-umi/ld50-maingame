@@ -38,4 +38,8 @@ public class PlayerShipLocomoter : MonoBehaviour
         _agent.SetDestination(nextPoint);
         _agent.nextPosition = transform.position;
     }
+
+    public float CurrentSpeedRate(){
+        return _agent.velocity.magnitude/_agent.speed;
+    }
 }
