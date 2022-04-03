@@ -181,6 +181,7 @@ public class Waves : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        var t = Time.time;
         var verts = Mesh.vertices;
         for (int x = 0; x <= Dimension; x++)
         {
@@ -192,11 +193,11 @@ public class Waves : MonoBehaviour
                     if (Octaves[o].alternate)
                     {
                         var perl = Mathf.PerlinNoise((x * Octaves[o].scale.x) / Dimension, (z * Octaves[o].scale.y) / Dimension) * Mathf.PI * 2f;
-                        y += Mathf.Cos(perl + Octaves[o].speed.magnitude * Time.time) * Octaves[o].height;
+                        y += Mathf.Cos(perl + Octaves[o].speed.magnitude * t) * Octaves[o].height;
                     }
                     else
                     {
-                        var perl = Mathf.PerlinNoise((x * Octaves[o].scale.x + Time.time * Octaves[o].speed.x) / Dimension, (z * Octaves[o].scale.y + Time.time * Octaves[o].speed.y) / Dimension) - 0.5f;
+                        var perl = Mathf.PerlinNoise((x * Octaves[o].scale.x + t * Octaves[o].speed.x) / Dimension, (z * Octaves[o].scale.y + t * Octaves[o].speed.y) / Dimension) - 0.5f;
                         y += perl * Octaves[o].height;
                     }
                 }
