@@ -15,6 +15,8 @@ namespace umi.ld50
         private static ScoreManager instance;
 
         private Score totalScore = new Score();
+        public Score TotalScore { get { return totalScore; } }
+
         private ScoreManager()
         {
             Debug.Log("Create ScoreManager GameObject instance.");
