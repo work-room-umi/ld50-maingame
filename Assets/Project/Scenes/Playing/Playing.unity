@@ -287,7 +287,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1203385535270022179, guid: cd4ffc5473210454b87459d2480138bf, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.3876474
+      value: -45.3
       objectReference: {fileID: 0}
     - target: {fileID: 1203385535270022179, guid: cd4ffc5473210454b87459d2480138bf, type: 3}
       propertyPath: m_LocalPosition.y
@@ -295,7 +295,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1203385535270022179, guid: cd4ffc5473210454b87459d2480138bf, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.5834502
+      value: -38.1
       objectReference: {fileID: 0}
     - target: {fileID: 1203385535270022179, guid: cd4ffc5473210454b87459d2480138bf, type: 3}
       propertyPath: m_LocalRotation.w
@@ -474,7 +474,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1416654217970290025, guid: d2104e1875271db458e52639f77f8036, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: -5.43
       objectReference: {fileID: 0}
     - target: {fileID: 1416654217970290025, guid: d2104e1875271db458e52639f77f8036, type: 3}
       propertyPath: m_LocalPosition.y
@@ -482,7 +482,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1416654217970290025, guid: d2104e1875271db458e52639f77f8036, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.887
+      value: -10.32
       objectReference: {fileID: 0}
     - target: {fileID: 1416654217970290025, guid: d2104e1875271db458e52639f77f8036, type: 3}
       propertyPath: m_LocalRotation.w
@@ -512,6 +512,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6724196984263275509, guid: d2104e1875271db458e52639f77f8036, type: 3}
+      propertyPath: _target
+      value: 
+      objectReference: {fileID: 139035497}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2104e1875271db458e52639f77f8036, type: 3}
 --- !u!1001 &4695543182618644849
