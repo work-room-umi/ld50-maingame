@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,6 +16,8 @@ namespace umi.ld50 {
         private int maxDrifterNum;
         [SerializeField]
         private List<GameObject> drifterPrefabs;
+        [SerializeField]
+        private DriftParameter driftParameter;
 
         private List<GameObject> managedDrifters;
 
@@ -28,8 +31,8 @@ namespace umi.ld50 {
         {
             float generateComponent()
             {
-                float c = Random.Range(spawnDist, deleteDist);
-                if (Random.value < .5)
+                float c = UnityEngine.Random.Range(spawnDist, deleteDist);
+                if (UnityEngine.Random.value < .5)
                 {
                     return c;
                 }
@@ -71,11 +74,26 @@ namespace umi.ld50 {
                 Vector3 basePosition = GenerateRandomBasePosition();
                 Vector3 position = shipPosition + basePosition;
 
-                int index = Random.Range(0, drifterPrefabs.Count);
+                int index = UnityEngine.Random.Range(0, drifterPrefabs.Count);
                 GameObject prefab = drifterPrefabs[index];
                 GameObject drifter = Instantiate (prefab, position, Quaternion.identity);
+                drifter.transform.parent = gameObject.transform;
+
+                Drifter _drifter = drifter.AddComponent<Drifter>();
+                _drifter._freq = driftParameter.freq;
+                _drifter._amp = driftParameter.amp;
+                _drifter._wave = driftParameter.wave;
+
                 managedDrifters.Add(drifter);
             }
+        }
+
+        [Serializable]
+        public struct DriftParameter
+        {
+            public float freq;
+            public float amp;
+            public GameObject wave;
         }
     }
 }
