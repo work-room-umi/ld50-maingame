@@ -41,11 +41,11 @@ public class Drifter : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		var transform = this.transform;
-		transform.rotation = Quaternion.identity;
+		// var transform = this.transform;
+		// transform.rotation = Quaternion.identity;
 		Vector3 moveDir = GetNoiseDir(_child.position);
-		Quaternion targetRorationNoise = Quaternion.FromToRotation(_frontDir, moveDir * (_noiseRotate? 1f : 0f));
-		transform.rotation = targetRorationNoise;
+		// Quaternion targetRorationNoise = Quaternion.FromToRotation(_frontDir, moveDir * (_noiseRotate? 1f : 0f));
+		// transform.rotation = targetRorationNoise;
 		transform.position = new Vector3(transform.position.x + moveDir.x * _noiseMoveAmp, transform.position.y,  transform.position.z + moveDir.z * _noiseMoveAmp);
 
 		Waves wave = _wave.GetComponent<Waves>();
