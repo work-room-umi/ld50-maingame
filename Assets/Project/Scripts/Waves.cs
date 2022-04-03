@@ -16,7 +16,7 @@ public class Waves : MonoBehaviour
     protected MeshFilter MeshFilter;
     protected Mesh Mesh;
 
-	protected MeshCollider _meshCollider;
+    protected MeshCollider _meshCollider;
 
     // Start is called before the first frame update
     void Start()
@@ -33,9 +33,9 @@ public class Waves : MonoBehaviour
 
         MeshFilter = gameObject.AddComponent<MeshFilter>();
         MeshFilter.mesh = Mesh;
-		
+        
 
-		//_meshCollider = gameObject.AddComponent<MeshCollider>();
+        //_meshCollider = gameObject.AddComponent<MeshCollider>();
     }
 
     public float GetHeight(Vector3 position)
@@ -201,10 +201,10 @@ public class Waves : MonoBehaviour
             }
         }
         Mesh.vertices = verts;
-		// Mesh.MarkDynamic();
-		//_meshCollider.sharedMesh = Mesh;
+        // Mesh.MarkDynamic();
+        //_meshCollider.sharedMesh = Mesh;
         Mesh.RecalculateNormals();
-		// Mesh.UploadMeshData(false);
+        // Mesh.UploadMeshData(false);
     }
 
     [Serializable]
