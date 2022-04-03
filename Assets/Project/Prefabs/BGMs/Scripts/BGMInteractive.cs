@@ -21,7 +21,7 @@ namespace umi.ld50
         {
             if (playerShip != null)
             {
-                float value = playerShip.NormalizedHp;
+                float value = 1 - playerShip.NormalizedHp;
                 emitter.EventInstance.setParameterByName("interactive_bgm", value);
             }
         }
