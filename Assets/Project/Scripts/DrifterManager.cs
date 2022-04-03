@@ -19,12 +19,9 @@ namespace umi.ld50 {
         [SerializeField]
         private DriftParameter driftParameter;
 
-        private List<GameObject> managedDrifters;
-
         // Start is called before the first frame update
         private void Start()
         {
-            managedDrifters = new List<GameObject>();
         }
 
         private Vector3 GenerateRandomBasePosition()
@@ -44,31 +41,12 @@ namespace umi.ld50 {
             return new Vector3(generateComponent(), 0, generateComponent());
         }
 
-        void GC(Vector3 shipPosition)
-        {
-            //削除対象を集める(for/foreachの中で要素を削除するとエラーで怒られたり、要素数がずれたりするので、2周に分ける)
-            List<GameObject> removingObjects = new List<GameObject>();
-            foreach (var drifter in managedDrifters)
-            {
-                Vector3 position = drifter.transform.position;
-                float dist = Vector3.Distance(position, shipPosition);
-                if (deleteDist < dist) removingObjects.Add(drifter);
-            }
-            //削除
-            foreach (var drifter in removingObjects)
-            {
-                managedDrifters.Remove(drifter);
-                Destroy(drifter);
-            }
-        }
-
         // Update is called once per frame
         void Update()
         {
             Vector3 shipPosition = ship.transform.position;
-            GC(shipPosition);
             
-            if (managedDrifters.Count<maxDrifterNum)
+            if (this.transform.childCount<maxDrifterNum)
             {
                 // 漂流物の初期位置を計算する
                 Vector3 basePosition = GenerateRandomBasePosition();
@@ -83,8 +61,6 @@ namespace umi.ld50 {
                 _drifter._freq = driftParameter.freq;
                 _drifter._amp = driftParameter.amp;
                 _drifter._wave = driftParameter.wave;
-
-                managedDrifters.Add(drifter);
             }
         }
 
