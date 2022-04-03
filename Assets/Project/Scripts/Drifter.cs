@@ -10,6 +10,8 @@ public class Drifter : MonoBehaviour
 	float _freq;
 	[SerializeField]
 	float _amp;
+	[SerializeField]
+	GameObject _wave;
 
 	// Start is called before the first frame update
 	void Start()
@@ -20,22 +22,13 @@ public class Drifter : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Raycast(Vector3.up);
-		Raycast(Vector3.down);
-	}
-
-	void Raycast(Vector3 rayDir){
-		RaycastHit hit;
-		Ray ray = new Ray(transform.position, rayDir);
-		int layerMask = LayerMask.GetMask(new string[] { "Water"});
-		Physics.queriesHitBackfaces = true;
-		if(Physics.Raycast(ray, out hit, 10f, layerMask)){
-			_child.rotation = Quaternion.identity;
-			Quaternion targetRotation = Quaternion.FromToRotation(_child.up, SmoothedNormal(hit));
-			_child.rotation = targetRotation;
-			_child.position = new Vector3(_child.position.x, hit.point.y + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z);
-		}
-		Physics.queriesHitBackfaces = false;
+		Waves wave = _wave.GetComponent<Waves>();
+		_child.rotation = Quaternion.identity;
+		float height = wave.GetHeight(_child.position);
+		Vector3 normal = wave.GetNormal(_child.position);
+		Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
+		_child.rotation = targetRotation;
+		_child.position = new Vector3(_child.position.x, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z);
 	}
 
 	Vector3 SmoothedNormal(RaycastHit aHit)
