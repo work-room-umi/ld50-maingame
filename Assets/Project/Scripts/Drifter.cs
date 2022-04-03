@@ -6,27 +6,24 @@ public class Drifter : MonoBehaviour
 {
 	Transform _child;
 
-	[SerializeField]
-	float _freq;
-	[SerializeField]
-	float _amp;
-	[SerializeField]
-	Vector3 _frontDir;
-	[SerializeField]
-	float _noiseMoveAmp=0;
-	[SerializeField]
-	bool _noiseRotate=false;
-	[SerializeField]
-	float _noiseScale=1;
-	[SerializeField]
-	float _noiseTimeScale=1;
-	[SerializeField]
-	GameObject _wave;
+	public float _freq;
+	public float _amp;
+	//public Vector3 _frontDir;
+	public float _noiseMoveAmp=0;
+	//public bool _noiseRotate=false;
+	public float _noiseScale=1;
+	public float _noiseTimeScale=1;
+	public GameObject _wave;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		_child = transform.GetChild(0);
+	}
+
+	public Transform GetChild()
+	{
+		return _child;
 	}
 
 	Vector3 GetNoiseDir(Vector3 pos)
