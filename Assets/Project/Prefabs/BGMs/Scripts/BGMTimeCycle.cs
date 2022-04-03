@@ -9,6 +9,9 @@ namespace umi.ld50
     {
         private StudioEventEmitter emitter;
 
+        private float elapsedTime;
+        private float sinOffset = Mathf.PI / 2;
+
         [SerializeField]
         public float timeCycle = 60.0f;
 
@@ -17,10 +20,16 @@ namespace umi.ld50
             emitter = GetComponent<StudioEventEmitter>();
         }
 
+        public void Start()
+        {
+            elapsedTime = 0;
+        }
+
         void Update()
         {
+            elapsedTime += Time.deltaTime;
             float Hz = 1.0f / timeCycle;
-            float value = Mathf.Sin(2 * Mathf.PI * Hz * Time.time) / 2 + 0.5f;
+            float value = Mathf.Sin(2 * Mathf.PI * Hz * elapsedTime - sinOffset) / 2 + 0.5f;
             emitter.EventInstance.setParameterByName("time_cycle", value);
             Debug.Log(value);
         }
