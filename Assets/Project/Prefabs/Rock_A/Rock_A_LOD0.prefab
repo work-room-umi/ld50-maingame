@@ -67,5 +67,28 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rock_A_LOD0
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11975d5199181a244ab052f545b8d240, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 4294967295
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 11975d5199181a244ab052f545b8d240, type: 3}
+--- !u!1 &1260986968636644682 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11975d5199181a244ab052f545b8d240, type: 3}
+  m_PrefabInstance: {fileID: 2143296872808636443}
+  m_PrefabAsset: {fileID: 0}
+--- !u!64 &9094378882410032668
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1260986968636644682}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -5800951358545044507, guid: 11975d5199181a244ab052f545b8d240, type: 3}
