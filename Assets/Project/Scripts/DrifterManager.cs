@@ -17,8 +17,6 @@ namespace umi.ld50 {
         private int _maxDrifterNum;
         [SerializeField]
         private List<GameObject> _drifterPrefabs;
-        [SerializeField]
-        private DriftParameter _driftParameter;
 
         // Start is called before the first frame update
         private void Start()
@@ -72,29 +70,11 @@ namespace umi.ld50 {
 
                 int index = UnityEngine.Random.Range(0, _drifterPrefabs.Count);
                 GameObject prefab = _drifterPrefabs[index];
+
                 // TODO ランダムで大きさ&向きを変える
                 GameObject driftObj = Instantiate (prefab, position, Quaternion.identity);
                 driftObj.transform.parent = gameObject.transform;
-
-                var drifter = driftObj.AddComponent<Drifter>();
-                drifter._freq = _driftParameter._freq;
-                drifter._amp = _driftParameter._amp;
-                drifter._noiseMoveAmp = _driftParameter._noiseMoveAmp;
-                drifter._noiseScale = _driftParameter._noiseScale;
-                drifter._noiseTimeScale = _driftParameter._noiseTimeScale;
-                drifter._wave = _driftParameter._wave==null? ((Waves)FindObjectOfType(typeof(Waves))).gameObject : _driftParameter._wave;
             }
-        }
-
-        [Serializable]
-        public struct DriftParameter
-        {
-            public float _freq;
-            public float _amp;
-            public float _noiseMoveAmp;
-            public float _noiseScale;
-            public float _noiseTimeScale;
-            public GameObject _wave;
         }
     }
 }

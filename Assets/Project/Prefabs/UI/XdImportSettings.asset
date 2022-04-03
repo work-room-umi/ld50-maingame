@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b87b7045c01a40039c29111029704d7, type: 3}
+  m_Name: XdImportSettings
+  m_EditorClassIdentifier: 
+  prefabOutputPath: Assets/Project/Prefabs/UI/{name}
+  assetOutputDirectoryPath: Assets/Project/Prefabs/UI/{name}/
+  metaOutputPath: Assets/Project/Prefabs/UI/{name}Meta
+  fontDirectoryPath: Assets/Project/Prefabs/UI/Fonts
+  texturePreset: {fileID: 0}
+  triggers: []
+  spriteSaveScale: 1
+  reimportLayout: 0
+  reimportAsset: 0
+  logType: 0
+  objectParsers: []
+  groupParsers: []
+  xdTriggers: []
+  akyuiOutputPath: 
