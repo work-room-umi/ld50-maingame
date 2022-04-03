@@ -72,6 +72,7 @@ namespace umi.ld50 {
 
                 int index = UnityEngine.Random.Range(0, drifterPrefabs.Count);
                 GameObject prefab = drifterPrefabs[index];
+                // TODO ランダムで大きさ&向きを変える
                 GameObject drifter = Instantiate (prefab, position, Quaternion.identity);
                 drifter.transform.parent = gameObject.transform;
 
