@@ -563,11 +563,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 271aad5fd0a33a9449b4ab16ab1ca60c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneName: Title
-  waitFade: 0.5
-  fadeImage: {fileID: 0}
-  isFadeIn: 0
-  isFadeOut: 0
+  nextScene: Title
 --- !u!114 &1245082077
 MonoBehaviour:
   m_ObjectHideFlags: 0
