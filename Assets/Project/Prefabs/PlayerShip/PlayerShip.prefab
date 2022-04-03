@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1184079126}
   - component: {fileID: 1184079127}
   - component: {fileID: 139035498}
+  - component: {fileID: 1100095184}
   m_Layer: 0
   m_Name: PlayerShip
   m_TagString: Untagged
@@ -115,9 +116,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85edf45c43a2fbc4c8828caddd4f84b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _child: {fileID: 0}
   _freq: 5
   _amp: 0.05
   _wave: {fileID: 0}
+--- !u!114 &1100095184
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1684715914913641712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af22659a7a9c7d48a775903b5c04774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debug: 0
+  deployYAngleRange: 45
+  deployMaxRange: 20
+  deployRotationRandomContribution: 0.1
+  debugPrefabs: []
 --- !u!1 &4631336631805534967
 GameObject:
   m_ObjectHideFlags: 0
