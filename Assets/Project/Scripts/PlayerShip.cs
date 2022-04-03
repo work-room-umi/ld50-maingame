@@ -61,7 +61,7 @@ namespace umi.ld50
             trans.localRotation = Quaternion.identity;
             //船体の外からSphereCast
             var shipCenter = trans.position;
-            var castStartPos = CalRandomCastStart() + shipCenter;
+            var castStartPos = CalCastStart() + shipCenter;
             var dir = (shipCenter - castStartPos).normalized;
             var ray = new Ray(castStartPos, dir);
             var isHit = Physics.SphereCast(ray, fix.GetBoundingRadius(), out var hit, deployMaxRange);
@@ -74,12 +74,18 @@ namespace umi.ld50
             //少しランダム回転を付ける
             Quaternion.Lerp(fixTrans.rotation, Random.rotation, deployRotationRandomContribution);
         }
-
-        private Vector3 CalRandomCastStart()
+        
+        private Vector3 CalCastStart()
         {
-            var yRangeScale = deployYAngleRange / 90f; 
-            var xzRad = Random.Range(0, Mathf.PI * 2.0f);//0~360
-            var yRad  = Random.Range(0, Mathf.PI * yRangeScale);//0~deployYAngleRange(要調整)
+            var yRangeScale = deployYAngleRange / 90f;
+            return CalCastStart(
+                Random.Range(0, Mathf.PI * 2f),//0~360
+                Random.Range(0, Mathf.PI * yRangeScale)//0~deployYAngleRange(要調整)
+                );
+        }
+
+        private Vector3 CalCastStart(float xzRad, float yRad)
+        {
             var z = Mathf.Sin(xzRad);
             var x = Mathf.Cos(xzRad);
             var y = Mathf.Sin(yRad);
@@ -123,6 +129,24 @@ namespace umi.ld50
                 {
                     FinalizeFix(t);
                 }
+            }
+        }
+
+        private void OnDrawGizmosSelected()
+        {
+            //設置Rayの領域をDebug
+            var shipCenter = transform.position;
+            var yRangeScale = deployYAngleRange / 90f;
+            var resolution = 36f;
+            for (var i = 0; i < resolution; i++)
+            {
+                var ration = i / resolution;
+                var xzRad = Mathf.PI * 2f * ration;
+                var yRad  = Mathf.PI * yRangeScale;
+                var castStartPosTop    = CalCastStart(xzRad, yRad) + shipCenter;
+                var castStartPosBottom = CalCastStart(xzRad, 0) + shipCenter;
+                Gizmos.DrawLine(shipCenter,castStartPosTop);
+                Gizmos.DrawLine(shipCenter,castStartPosBottom);
             }
         }
     }
