@@ -13,14 +13,13 @@ public class Drifter : MonoBehaviour
 	//public bool _noiseRotate=false;
 	public float _noiseScale=1;
 	public float _noiseTimeScale=1;
-	private GameObject _wave;
+	private Waves _wave;
 
 	// Start is called before the first frame update
 	void Start()
 	{
 		_child = transform.GetChild(0);
-    	Waves wave = (Waves)FindObjectOfType(typeof(Waves));
-		_wave = wave.gameObject;
+    	_wave = (Waves)FindObjectOfType(typeof(Waves));
 	}
 
 	public Transform GetChild()
@@ -47,10 +46,9 @@ public class Drifter : MonoBehaviour
 		// transform.rotation = targetRorationNoise;
 		transform.position = new Vector3(transform.position.x + moveDir.x * _noiseMoveAmp, transform.position.y,  transform.position.z + moveDir.z * _noiseMoveAmp);
 
-		Waves wave = _wave.GetComponent<Waves>();
 		_child.rotation = Quaternion.identity;
-		float height = wave.GetHeight(_child.position);
-		Vector3 normal = wave.GetNormal(_child.position);
+		float height = _wave.GetHeight(_child.position);
+		Vector3 normal = _wave.GetNormal(_child.position);
 		Quaternion targetRotationXZ = Quaternion.FromToRotation(_child.forward, transform.forward);
 		Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
 		_child.rotation = targetRotationXZ*targetRotation;
