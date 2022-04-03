@@ -43,7 +43,7 @@ public class PlayerShipLocomoter : MonoBehaviour
     }
 
     public float CurrentSpeedRate(){
-        return _agent.velocity.magnitude/_agent.speed;
+        return Mathf.Clamp01(_agent.velocity.magnitude/_agent.speed);
     }
 
     public float CurrentTiltingRate(){
