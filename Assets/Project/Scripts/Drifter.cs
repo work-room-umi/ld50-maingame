@@ -11,7 +11,7 @@ public class Drifter : MonoBehaviour
 	[SerializeField]
 	float _amp;
 	[SerializeField]
-	GameObject wave;
+	GameObject _wave;
 
 	// Start is called before the first frame update
 	void Start()
@@ -22,10 +22,10 @@ public class Drifter : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
-		Waves _wave = wave.GetComponent<Waves>();
+		Waves wave = _wave.GetComponent<Waves>();
 		_child.rotation = Quaternion.identity;
-		float height = _wave.GetHeight(_child.position);
-		Vector3 normal = _wave.GetNormal(_child.position);
+		float height = wave.GetHeight(_child.position);
+		Vector3 normal = wave.GetNormal(_child.position);
 		Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
 		_child.rotation = targetRotation;
 		_child.position = new Vector3(_child.position.x, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z);
