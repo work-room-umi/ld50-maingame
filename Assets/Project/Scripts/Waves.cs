@@ -36,6 +36,10 @@ public class Waves : MonoBehaviour
         
 
         //_meshCollider = gameObject.AddComponent<MeshCollider>();
+        var pos = transform.position;
+        pos.x -= Dimension / 2;
+        pos.z -= Dimension / 2;
+        transform.position = pos;
     }
 
     public float GetHeight(Vector3 position)
