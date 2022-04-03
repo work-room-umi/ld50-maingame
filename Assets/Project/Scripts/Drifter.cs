@@ -48,6 +48,5 @@ public class Drifter : MonoBehaviour
 		Quaternion frontRotation = Quaternion.FromToRotation(_frontDir, moveDir);
 		_child.rotation = upRotation * frontRotation;
 		_child.position = new Vector3(_child.position.x + moveDir.x * _moveAmp, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z + moveDir.z * _moveAmp);
-
 	}
 }
