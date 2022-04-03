@@ -2,7 +2,10 @@ using UnityEngine;
 
 namespace umi.ld50
 {
-    [RequireComponent(typeof(MeshRenderer), typeof(MeshCollider), typeof(Rigidbody))]
+    [RequireComponent(typeof(MeshFilter))]
+    [RequireComponent(typeof(MeshRenderer))]
+    [RequireComponent(typeof(MeshCollider))]
+    [RequireComponent(typeof(Rigidbody))]
     public class Fix : MonoBehaviour
     {
         [SerializeField]
@@ -28,7 +31,8 @@ namespace umi.ld50
             var meshRenderer = GetComponent<MeshRenderer>();
             var extents = meshRenderer.bounds.extents;
             var minExtent = Mathf.Min(Mathf.Min(extents.x, extents.y), extents.z);
-            return minExtent;
+            var maxExtent = Mathf.Max(Mathf.Max(extents.x, extents.y), extents.z);
+            return (minExtent + maxExtent) * 0.5f;
         }
 
         private void OnCollisionEnter(Collision collision)

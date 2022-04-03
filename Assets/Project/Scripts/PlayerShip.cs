@@ -14,12 +14,15 @@ namespace umi.ld50
 
         #region Adjust
 
+        [SerializeField] private bool debug;
+
         [SerializeField]
         [Range(0,90)]
         private float deployYAngleRange = 45;
 
         [SerializeField] private float deployMaxRange = 20;
         [SerializeField] private float deployRotationRandomContribution = 0.1f;
+        [SerializeField] private Mesh[] debugMeshes;
         #endregion
         
         private void Start()
@@ -47,8 +50,10 @@ namespace umi.ld50
 
         private void AddFix(Fix newFix)
         {
+            if (_parts.Contains(newFix)) return;
             //子に追加して位置/回転を調整
             newFix.transform.parent = transform;
+            newFix.GetComponent<Rigidbody>().isKinematic = true;
             InitFix(newFix);
             DeployFix(newFix);//位置/回転計算
             _parts.Add(newFix);
@@ -64,15 +69,16 @@ namespace umi.ld50
             var castStartPos = CalCastStart() + shipCenter;
             var dir = (shipCenter - castStartPos).normalized;
             var ray = new Ray(castStartPos, dir);
-            var isHit = Physics.SphereCast(ray, fix.GetBoundingRadius(), out var hit, deployMaxRange);
+            var radius = fix.GetBoundingRadius();
+            var isHit = Physics.SphereCast(ray, radius, out var hit, deployMaxRange);
             if (!isHit) 
                 throw new Exception("回収した漂着物の設置位置計算失敗。船のドームのコライダーに当たるはずなので設定ミスてるかも？");
             
             var fixTrans = fix.transform;
-            fixTrans.position = hit.point;
-            fixTrans.LookAt(hit.point + hit.normal*5f);
+            fixTrans.position = hit.point + hit.normal * radius;
+            fixTrans.LookAt(hit.point + hit.normal * 5f);
             //少しランダム回転を付ける
-            Quaternion.Lerp(fixTrans.rotation, Random.rotation, deployRotationRandomContribution);
+            fixTrans.rotation = Quaternion.Lerp(fixTrans.rotation, Random.rotation, deployRotationRandomContribution);
         }
         
         private Vector3 CalCastStart()
@@ -132,8 +138,28 @@ namespace umi.ld50
             }
         }
 
+        #region Debug
+        
+        [ContextMenu("AddFix")]
+        public void AddRandomFix()
+        {   
+            var go = new GameObject("TestFix");
+            var newFix = go.AddComponent<Fix>();
+            var filter = go.GetComponent<MeshFilter>();
+            var meshRenderer = go.GetComponent<MeshRenderer>();
+            if (debugMeshes.Length == 0)
+            {
+                Debug.LogError("Debug Meshが設定されていないので、Fixの設置テストが出来ません。PlayerShipのInspectorからDebugMeshesを設定して下さい。");
+                return;
+            }
+            var index = Random.Range(0, debugMeshes.Length);
+            filter.mesh = debugMeshes[index];
+            meshRenderer.material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
+            AddFix(newFix);
+        }
         private void OnDrawGizmosSelected()
         {
+            if(!debug) return;
             //設置Rayの領域をDebug
             var shipCenter = transform.position;
             var yRangeScale = deployYAngleRange / 90f;
@@ -149,5 +175,7 @@ namespace umi.ld50
                 Gizmos.DrawLine(shipCenter,castStartPosBottom);
             }
         }
+                    
+        #endregion
     }
 }
