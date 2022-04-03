@@ -17,7 +17,7 @@ namespace umi.ld50
             emitter = GetComponent<StudioEventEmitter>();
         }
 
-        //TODO プロパティ実装してもらったらコメント解除
+        //TODO playerShipLocomoter.CurrentSpeedRate繧貞ｮ溯｣�縺励※繧ゅｉ縺｣縺溘ｉ繧ｳ繝｡繝ｳ繝郁ｧ｣髯､
         //void Update()
         //{
         //    if (playerShipLocomoter != null)
