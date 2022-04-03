@@ -932,6 +932,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sea
       objectReference: {fileID: 0}
+    - target: {fileID: 8161256040685470761, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 8161256040685470762, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 8739712731606153507, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -975,6 +983,14 @@ PrefabInstance:
     - target: {fileID: 8739712731606153507, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044339594511941256, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
+      propertyPath: m_Layer
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 9044339595388956442, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
+      propertyPath: m_Layer
+      value: 4
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
