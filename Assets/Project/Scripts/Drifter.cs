@@ -42,13 +42,15 @@ public class Drifter : MonoBehaviour
 	void Update()
 	{
 		Waves wave = _wave.GetComponent<Waves>();
+		_child.rotation = Quaternion.identity;
 		float height = wave.GetHeight(_child.position);
 		Vector3 normal = wave.GetNormal(_child.position);
 		Vector3 moveDir = GetNoiseDir(_child.position);
 
-		Quaternion upRotation = Quaternion.FromToRotation(_child.up, normal);
-		Quaternion frontRotation = Quaternion.FromToRotation(_frontDir, moveDir * (_noiseRotate? 1f : 0f));
-		_child.rotation = upRotation * frontRotation;
+		Quaternion targetRotationXZ = Quaternion.FromToRotation(_child.forward, transform.forward);
+		Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
+		Quaternion targetRorationNoise = Quaternion.FromToRotation(_frontDir, moveDir * (_noiseRotate? 1f : 0f));
+		_child.rotation = targetRotationXZ*targetRotation*targetRorationNoise;
 		_child.position = new Vector3(_child.position.x + moveDir.x * _noiseMoveAmp, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z + moveDir.z * _noiseMoveAmp);
 	}
 }
