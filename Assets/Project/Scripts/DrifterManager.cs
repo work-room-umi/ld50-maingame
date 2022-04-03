@@ -7,7 +7,8 @@ using UnityEngine;
 namespace umi.ld50 {
     public class DrifterManager : MonoBehaviour
     {
-        private PlayerShipLocomoter ship;
+        [SerializeField]
+        private PlayerShip ship;
         [SerializeField]
         private float deleteDist;
         [SerializeField]
@@ -22,7 +23,8 @@ namespace umi.ld50 {
         // Start is called before the first frame update
         private void Start()
         {
-            ship =  (PlayerShip)FindObjectOfType(typeof(PlayerShip));
+            if (ship==null)
+                ship =  (PlayerShip)FindObjectOfType(typeof(PlayerShip));
         }
 
         private Vector3 GenerateRandomBasePosition()
