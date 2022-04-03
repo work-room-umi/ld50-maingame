@@ -13,7 +13,9 @@ public class Drifter : MonoBehaviour
 	[SerializeField]
 	Vector3 _frontDir;
 	[SerializeField]
-	float _moveAmp=0;
+	float _noiseMoveAmp=0;
+	[SerializeField]
+	bool _noiseRotate=false;
 	[SerializeField]
 	float _noiseScale=1;
 	[SerializeField]
@@ -45,9 +47,9 @@ public class Drifter : MonoBehaviour
 		Vector3 moveDir = GetNoiseDir(_child.position);
 
 		Quaternion upRotation = Quaternion.FromToRotation(_child.up, normal);
-		Quaternion frontRotation = Quaternion.FromToRotation(_frontDir, moveDir);
+		Quaternion frontRotation = Quaternion.FromToRotation(_frontDir, moveDir * (_noiseRotate? 1f : 0f));
 		_child.rotation = upRotation * frontRotation;
-		_child.position = new Vector3(_child.position.x + moveDir.x * _moveAmp, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z + moveDir.z * _moveAmp);
+		_child.position = new Vector3(_child.position.x + moveDir.x * _noiseMoveAmp, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z + moveDir.z * _noiseMoveAmp);
 
 	}
 }
