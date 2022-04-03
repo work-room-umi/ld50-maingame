@@ -46,7 +46,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _freq: 5
   _amp: 0.05
-  _wave: {fileID: 0}
+  _noiseMoveAmp: 0
+  _noiseScale: 1
+  _noiseTimeScale: 1
 --- !u!1001 &21786256482797860
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -12,6 +12,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dfb716945631ee141855bc29873da0d9, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dfb716945631ee141855bc29873da0d9, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dfb716945631ee141855bc29873da0d9, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: dfb716945631ee141855bc29873da0d9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -29,15 +41,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dfb716945631ee141855bc29873da0d9, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dfb716945631ee141855bc29873da0d9, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dfb716945631ee141855bc29873da0d9, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0
+      value: -0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: dfb716945631ee141855bc29873da0d9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -54,6 +66,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: dfb716945631ee141855bc29873da0d9, type: 3}
       propertyPath: m_Name
       value: Log_A_LOD0
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: dfb716945631ee141855bc29873da0d9, type: 3}
+      propertyPath: m_Layer
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfb716945631ee141855bc29873da0d9, type: 3}
@@ -104,4 +120,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _hp: 5
-  _maxHp: 5
+  _maxHp: 0
