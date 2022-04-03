@@ -11,7 +11,15 @@ public class Drifter : MonoBehaviour
 	[SerializeField]
 	float _amp;
 	[SerializeField]
-	float _noiseScale=0;
+	Vector3 _frontDir;
+	[SerializeField]
+	float _moveAmp=0;
+	[SerializeField]
+	float _rotationAmp=0;
+	[SerializeField]
+	float _noiseScale=1;
+	[SerializeField]
+	float _noiseTimeScale=1;
 	[SerializeField]
 	GameObject _wave;
 
@@ -23,8 +31,9 @@ public class Drifter : MonoBehaviour
 
 	Vector3 GetNoiseDir(Vector3 pos)
 	{
-		float noise = Mathf.PerlinNoise(pos.x, pos.z);
-		Vector3 noiseDir = new Vector3(Mathf.Cos(noise * Mathf.PI), Mathf.Sin(noise * Mathf.PI), Mathf.Sin(noise * Mathf.PI));
+		float time = Time.time * _noiseTimeScale;
+		float noise = Mathf.PerlinNoise((pos.x + time) * _noiseScale, (pos.z + time) * _noiseScale);
+		Vector3 noiseDir = new Vector3(Mathf.Cos(noise * Mathf.PI), 0, Mathf.Sin(noise * Mathf.PI));
 		Vector3 dir = Vector3.Normalize(noiseDir);
 		return dir;
 	}
@@ -35,12 +44,13 @@ public class Drifter : MonoBehaviour
 		Waves wave = _wave.GetComponent<Waves>();
 		float height = wave.GetHeight(_child.position);
 		Vector3 normal = wave.GetNormal(_child.position);
-		Vector3 moveDir = GetNoiseDir(_child.position) * _noiseScale;
+		Vector3 moveDir = GetNoiseDir(_child.position);
 
 		_child.rotation = Quaternion.identity;
-		Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
-		_child.rotation = targetRotation;
-		_child.position = new Vector3(_child.position.x + moveDir.x, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z + moveDir.z);
+		Quaternion upRotation = Quaternion.FromToRotation(_child.up, normal);
+		Quaternion frontRotation = Quaternion.FromToRotation(_frontDir, moveDir * _rotationAmp);
+		_child.rotation = upRotation * frontRotation;
+		_child.position = new Vector3(_child.position.x + moveDir.x * _moveAmp, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z + moveDir.z * _moveAmp);
 
 	}
 }
