@@ -19,7 +19,7 @@ public class Drifter : MonoBehaviour
 	void Start()
 	{
 		_child = transform.GetChild(0);
-        Waves wave =  (Waves)FindObjectOfType(typeof(Waves));
+    	Waves wave = (Waves)FindObjectOfType(typeof(Waves));
 		_wave = wave.gameObject;
 	}
 
