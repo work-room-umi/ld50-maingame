@@ -31,7 +31,6 @@ namespace umi.ld50
         [SerializeField] private float deployMaxRange = 20;
         [SerializeField] private float deployRotationRandomContribution = 0f;
         [SerializeField] private bool debug;
-        [SerializeField] private GameObject[] debugPrefabs;
         #endregion
         
         private void Start()
@@ -92,8 +91,6 @@ namespace umi.ld50
                 Debug.Log("レイは当たりませんでした");
                 return;
             }
-            Debug.Log(hit.collider.gameObject.layer);
-            Debug.Log(hit.collider.gameObject.name);
             var fixTrans = fix.transform;
             fixTrans.position = hit.point;
             fixTrans.LookAt(hit.point + hit.normal * 5f);
@@ -160,26 +157,6 @@ namespace umi.ld50
         }
 
         #region Debug
-        
-        // [ContextMenu("AddFix")]
-        // public void AddRandomFix()
-        // {
-        //     if (debugPrefabs.Length == 0)
-        //     {
-        //         Debug.LogError("Debug Prefabsが設定されていないので、Fixの設置テストが出来ません。PlayerShipのInspectorからDebugPrefabsを設定して下さい。");
-        //         return;
-        //     }
-        //     var index = Random.Range(0, debugPrefabs.Length);
-        //     var gameObject = Instantiate(debugPrefabs[index]);;
-        //     var fix = gameObject.GetComponent<Fix>();
-        //     if (fix == null){
-        //         Debug.LogError("DebugPrefabsにFixコンポーネントがアタッチされていないので付けてね！");
-        //         Destroy(gameObject);
-        //         return;
-        //     }
-        //     
-        //     AddFix(fix);
-        // }
         private void OnDrawGizmos()
         {
             if(!debug) return;
