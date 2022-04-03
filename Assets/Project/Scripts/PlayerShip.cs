@@ -175,7 +175,6 @@ namespace umi.ld50
                 Gizmos.DrawLine(shipCenter,castStartPosBottom);
             }
         }
-                    
         #endregion
     }
 }
