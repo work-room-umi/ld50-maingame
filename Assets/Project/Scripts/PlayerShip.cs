@@ -22,7 +22,7 @@ namespace umi.ld50
 
         [SerializeField] private float deployMaxRange = 20;
         [SerializeField] private float deployRotationRandomContribution = 0.1f;
-        [SerializeField] private Mesh[] debugMeshes;
+        [SerializeField] private GameObject[] debugPrefabs;
         #endregion
         
         private void Start()
@@ -142,20 +142,22 @@ namespace umi.ld50
         
         [ContextMenu("AddFix")]
         public void AddRandomFix()
-        {   
-            var go = new GameObject("TestFix");
-            var newFix = go.AddComponent<Fix>();
-            var filter = go.GetComponent<MeshFilter>();
-            var meshRenderer = go.GetComponent<MeshRenderer>();
-            if (debugMeshes.Length == 0)
+        {
+            if (debugPrefabs.Length == 0)
             {
-                Debug.LogError("Debug Meshが設定されていないので、Fixの設置テストが出来ません。PlayerShipのInspectorからDebugMeshesを設定して下さい。");
+                Debug.LogError("Debug Prefabsが設定されていないので、Fixの設置テストが出来ません。PlayerShipのInspectorからDebugPrefabsを設定して下さい。");
                 return;
             }
-            var index = Random.Range(0, debugMeshes.Length);
-            filter.mesh = debugMeshes[index];
-            meshRenderer.material = new Material(Shader.Find("Universal Render Pipeline/Lit"));
-            AddFix(newFix);
+            var index = Random.Range(0, debugPrefabs.Length);
+            var gameObject = Instantiate(debugPrefabs[index]);;
+            var fix = gameObject.GetComponent<Fix>();
+            if (fix == null){
+                Debug.LogError("DebugPrefabsにFixコンポーネントがアタッチされていないので付けてね！");
+                Destroy(gameObject);
+                return;
+            }
+            
+            AddFix(fix);
         }
         private void OnDrawGizmosSelected()
         {

@@ -534,8 +534,9 @@ MonoBehaviour:
   deployYAngleRange: 20
   deployMaxRange: 20
   deployRotationRandomContribution: 0.1
-  debugMeshes:
-  - {fileID: -247068090076588807, guid: 6da54a67d380e1f4d83ba69bb0b63037, type: 3}
+  debugPrefabs:
+  - {fileID: 7594064911122596897, guid: 0a4d8919d701769428beb8035ad3cd8a, type: 3}
+  - {fileID: 8818061192889253787, guid: 79faf06141480a94b8b662198597975c, type: 3}
 --- !u!1 &538041074
 GameObject:
   m_ObjectHideFlags: 0
@@ -600,7 +601,6 @@ GameObject:
   - component: {fileID: 541248409}
   - component: {fileID: 541248414}
   - component: {fileID: 541248413}
-  - component: {fileID: 541248412}
   m_Layer: 0
   m_Name: Floor
   m_TagString: Untagged
@@ -671,19 +671,6 @@ Transform:
   m_Father: {fileID: 495221740}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &541248412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 541248407}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f3ad47383fb6ff44e9b4ef01e8e14f9b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _hp: 5
 --- !u!54 &541248413
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -1518,9 +1505,9 @@ GameObject:
   - component: {fileID: 1876988562}
   - component: {fileID: 1876988561}
   - component: {fileID: 1876988560}
-  - component: {fileID: 1876988565}
   - component: {fileID: 1876988564}
   - component: {fileID: 1876988563}
+  - component: {fileID: 1876988559}
   m_Layer: 0
   m_Name: DoomCollider
   m_TagString: Untagged
@@ -1528,6 +1515,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!65 &1876988559
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1876988558}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.99999994, y: 1, z: 0.99999994}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!23 &1876988560
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1620,20 +1620,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!64 &1876988565
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1876988558}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!1 &1962865856
 GameObject:
   m_ObjectHideFlags: 0

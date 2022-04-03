@@ -4,7 +4,7 @@ namespace umi.ld50
 {
     [RequireComponent(typeof(MeshFilter))]
     [RequireComponent(typeof(MeshRenderer))]
-    [RequireComponent(typeof(MeshCollider))]
+    [RequireComponent(typeof(Collider))]
     [RequireComponent(typeof(Rigidbody))]
     public class Fix : MonoBehaviour
     {
@@ -42,9 +42,10 @@ namespace umi.ld50
             if (attack == null && fix == null) return;
 
             var isAttacked = fix == null;
-            if (isAttacked)
+            if (isAttacked && onTouchAttack != null)
                 onTouchAttack(attack, this);//PlayerShipが処理
-            else 
+            
+            if (!isAttacked && onTouchFix != null)
                 onTouchFix(fix);//PlayerShipが処理
         }
 
