@@ -20,8 +20,13 @@ public class Drifter : MonoBehaviour
 	// Update is called once per frame
 	void Update()
 	{
+		Raycast(Vector3.up);
+		Raycast(Vector3.down);
+	}
+
+	void Raycast(Vector3 rayDir){
 		RaycastHit hit;
-		Ray ray = new Ray(transform.position, Vector3.up);
+		Ray ray = new Ray(transform.position, rayDir);
 		int layerMask = LayerMask.GetMask(new string[] { "Water"});
 		Physics.queriesHitBackfaces = true;
 		if(Physics.Raycast(ray, out hit, 10f, layerMask)){
