@@ -48,7 +48,7 @@ Material:
     - Vector1_2: 2.01
     - Vector1_4139657f09bb4d60bbc775ee1ed33b1e: -0.33
     - Vector1_5227c5e47c984e93b2e683acd0f64896: 0.33
-    - Vector1_5e1cca51ce8246d49cc3bcf449081ba0: 44
+    - Vector1_5e1cca51ce8246d49cc3bcf449081ba0: 20
     - Vector1_7816d763be864227b714b96967600ebf: 1
     - Vector1_f76b0a1e96b24d2aa12939e151e36201: 100
     - _Depth: 0.02
@@ -57,14 +57,14 @@ Material:
     - _SceneColorMultiply: 0.738
     - _Smoothness: 0.9
     - _Strength: 0.433
-    - _VertexMove: 0.15
+    - _VertexMove: 0
     - _VertexMoveScroll: 0.001
     - _VertexMoveSize: 93.5
     m_Colors:
     - Color_207d849051b34a98834bf974140a6e0c: {r: 0.20392153, g: 0.69803923, b: 0.68235296, a: 1}
     - Color_3bce5aef1ce84ad592a52cf4daee5489: {r: 0.17647052, g: 0.27843133, b: 0.3843137, a: 1}
     - Vector2_1: {r: 1, g: 1, b: 0, a: 0}
-    - Vector2_505e72f204c44ccc8ccf0dacaeab718e: {r: 2, g: 4, b: 0, a: 0}
+    - Vector2_505e72f204c44ccc8ccf0dacaeab718e: {r: 0.1, g: 0.2, b: 0, a: 0}
     - Vector2_5539e6accf12485597e271dfb78169b3: {r: 0.001, g: -0.004, b: 0, a: 0}
-    - _ScrollSpeed: {r: 0.002, g: -0.0003, b: 0, a: 0}
+    - _ScrollSpeed: {r: 0.001, g: -0.0015, b: 0, a: 0}
   m_BuildTextureStacks: []
