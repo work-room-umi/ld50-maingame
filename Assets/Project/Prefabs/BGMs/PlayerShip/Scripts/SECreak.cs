@@ -17,12 +17,13 @@ namespace umi.ld50
             emitter = GetComponent<StudioEventEmitter>();
         }
 
+        //TODO playerShip.CurrentTiltingRateを実装してもらったらコメント解除
         void Update()
         {
             if (playerShip != null)
             {
-                float value = 1 - playerShip.NormalizedHp;
-                emitter.EventInstance.setParameterByName("creak_sound", value);
+                //float value = playerShip.CurrentTiltingRate();
+                //emitter.EventInstance.setParameterByName("creak_sound", value);
             }
         }
     }

@@ -18,13 +18,13 @@ namespace umi.ld50
         }
 
         //TODO playerShipLocomoter.CurrentSpeedRateを実装してもらったらコメント解除
-        //void Update()
-        //{
-        //    if (playerShipLocomoter != null)
-        //    {
-        //        float value = playerShipLocomoter.CurrentSpeedRate;
-        //        emitter.EventInstance.setParameterByName("ship_speed", value);
-        //    }
-        //}
+        void Update()
+        {
+            if (playerShipLocomoter != null)
+            {
+                //float value = playerShipLocomoter.CurrentSpeedRate();
+                //emitter.EventInstance.setParameterByName("ship_speed", value);
+            }
+        }
     }
 }
