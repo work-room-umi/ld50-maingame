@@ -22,7 +22,7 @@ namespace umi.ld50 {
         // Start is called before the first frame update
         private void Start()
         {
-            ship =  (PlayerShipLocomoter)FindObjectOfType(typeof(PlayerShipLocomoter));
+            ship =  (PlayerShip)FindObjectOfType(typeof(PlayerShip));
         }
 
         private Vector3 GenerateRandomBasePosition()
