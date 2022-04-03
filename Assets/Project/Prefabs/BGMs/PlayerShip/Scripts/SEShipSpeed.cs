@@ -10,7 +10,7 @@ namespace umi.ld50
         private StudioEventEmitter emitter;
 
         [SerializeField]
-        public PlayerShip playerShip;
+        public PlayerShipLocomoter playerShipLocomoter;
 
         public void Awake()
         {
@@ -20,9 +20,9 @@ namespace umi.ld50
         //TODO プロパティ実装してもらったらコメント解除
         //void Update()
         //{
-        //    if (playerShip != null)
+        //    if (playerShipLocomoter != null)
         //    {
-        //        float value = playerShip.Speed;
+        //        float value = playerShipLocomoter.CurrentSpeedRate;
         //        emitter.EventInstance.setParameterByName("ship_speed", value);
         //    }
         //}
