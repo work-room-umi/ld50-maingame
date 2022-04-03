@@ -338,6 +338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 244993113814625923, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
+      propertyPath: ship
+      value: 
+      objectReference: {fileID: 4564865145931054306}
     - target: {fileID: 2570031494361256162, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -453,6 +457,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+--- !u!1 &4564865145931054306 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1684715914913641712, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+  m_PrefabInstance: {fileID: 4564865145931054305}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4624150287902544518
 PrefabInstance:
   m_ObjectHideFlags: 0
