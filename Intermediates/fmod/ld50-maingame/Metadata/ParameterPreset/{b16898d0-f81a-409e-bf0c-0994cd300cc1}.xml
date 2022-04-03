@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.02.02.00">
+	<object class="ParameterPreset" id="{b16898d0-f81a-409e-bf0c-0994cd300cc1}">
+		<property name="name">
+			<value>interactive_bgm</value>
+		</property>
+		<relationship name="folder">
+			<destination>{16afdc43-5d90-4657-aa62-4b24565db143}</destination>
+		</relationship>
+		<relationship name="parameter">
+			<destination>{556f96e9-05c0-4fcc-83c4-ee1bf5bdaa10}</destination>
+		</relationship>
+	</object>
+	<object class="GameParameter" id="{556f96e9-05c0-4fcc-83c4-ee1bf5bdaa10}">
+		<property name="initialValue">
+			<value>0</value>
+		</property>
+	</object>
+</objects>
