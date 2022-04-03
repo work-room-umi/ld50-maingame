@@ -9,9 +9,8 @@ namespace umi.ld50
     {
         private StudioEventEmitter emitter;
 
-        //TODO PlayerShipがコミットされたら、コメントを解除
-        //[SerializeField]
-        //public PlayerShip playerShip;
+        [SerializeField]
+        public PlayerShip playerShip;
 
         public void Awake()
         {
@@ -20,11 +19,11 @@ namespace umi.ld50
 
         void Update()
         {
-            //if (playerShip != null)
-            //{
-            //    float value = playerShip.NormalizedHp;
-            //    emitter.EventInstance.setParameterByName("interactive_bgm", value);
-            //}
+            if (playerShip != null)
+            {
+                float value = playerShip.NormalizedHp;
+                emitter.EventInstance.setParameterByName("interactive_bgm", value);
+            }
         }
     }
 }
