@@ -64,6 +64,7 @@ namespace umi.ld50
             isFadeIn = true;
         }
 
+
         private void FadeOut()
         {
             if (fadeImage == null) Init();
