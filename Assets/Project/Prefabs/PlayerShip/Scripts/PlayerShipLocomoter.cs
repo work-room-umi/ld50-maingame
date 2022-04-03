@@ -24,15 +24,6 @@ public class PlayerShipLocomoter : MonoBehaviour
 
 	void Update()
 	{
-		if (Keyboard.current.wKey.wasPressedThisFrame)
-		{
-			Debug.Log("w key pressed");
-		}
-		if (Keyboard.current.sKey.wasPressedThisFrame)
-		{
-			Debug.Log("s key pressed");
-		}
-
 		var cameraPosOnPlane = _camera.position; cameraPosOnPlane.y = 0f;
 		var forwardDirFromCam = (transform.position - cameraPosOnPlane).normalized;
 		var leftDirFromCam    = Vector3.Cross(Vector3.up, forwardDirFromCam).normalized;
