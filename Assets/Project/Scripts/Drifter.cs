@@ -21,6 +21,11 @@ public class Drifter : MonoBehaviour
 		_child = transform.GetChild(0);
 	}
 
+	public Transform GetChild()
+	{
+		return _child;
+	}
+
 	Vector3 GetNoiseDir(Vector3 pos)
 	{
 		float time = Time.time * _noiseTimeScale;
