@@ -6,9 +6,11 @@ using Random = UnityEngine.Random;
 
 namespace umi.ld50
 {
+    [RequireComponent(typeof(Drifter))]
     public class PlayerShip : MonoBehaviour
     {
         private List<Fix> _parts;
+        private Drifter _shipDrifter;
 
         public float Hp => _parts.Select(p => p.Hp).Sum();
         public float NormalizedHp => _parts.Select(p => p.Hp).Sum() / _parts.Select(p => p.MaxHp).Sum();
@@ -33,6 +35,7 @@ namespace umi.ld50
             _parts = new List<Fix>();
             _parts.AddRange(fixes);
             _parts.ForEach(InitFix);
+            _shipDrifter = GetComponent<Drifter>();
         }
 
         private void InitFix(Fix fix)
@@ -42,7 +45,7 @@ namespace umi.ld50
             fix.onTouchAttack += OnAttacked;
             fix.onTouchFix += AddFix;
         }
-
+        
         private void FinalizeFix(Fix fix)
         {
             _parts.Remove(fix);
@@ -53,7 +56,7 @@ namespace umi.ld50
         {
             if (_parts.Contains(newFix)) return;
             //子に追加して位置/回転を調整
-            newFix.transform.parent = transform;
+            newFix.transform.parent = _shipDrifter._child;
             newFix.GetComponent<Rigidbody>().isKinematic = true;
             InitFix(newFix);
             DeployFix(newFix);//位置/回転計算
@@ -70,13 +73,17 @@ namespace umi.ld50
             var castStartPos = CalCastStart() + shipCenter;
             var dir = (shipCenter - castStartPos).normalized;
             var ray = new Ray(castStartPos, dir);
-            var radius = fix.GetBoundingRadius();
-            var isHit = Physics.SphereCast(ray, radius, out var hit, deployMaxRange);
+            var bb = fix.GetBoundingBox();
+            var fixTrans = fix.transform; 
+            fixTrans.position = castStartPos;
+            fixTrans.LookAt(shipCenter);
+            //var isHit = Physics.SphereCast(ray, radius, out var hit, deployMaxRange);
+            var isHit = Physics.BoxCast(castStartPos, bb.extents, dir, out var hit, fixTrans.rotation,
+                deployMaxRange);
             if (!isHit) 
                 throw new Exception("回収した漂着物の設置位置計算失敗。船のドームのコライダーに当たるはずなので設定ミスてるかも？");
             
-            var fixTrans = fix.transform;
-            fixTrans.position = hit.point + hit.normal * radius;
+            fixTrans.position = hit.point;
             fixTrans.LookAt(hit.point + hit.normal * 5f);
             //少しランダム回転を付ける
             fixTrans.rotation = Quaternion.Lerp(fixTrans.rotation, Random.rotation, deployRotationRandomContribution);

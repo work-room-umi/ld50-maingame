@@ -12,7 +12,7 @@ namespace umi.ld50
         [SerializeField]
         private float _hp = 5;
 
-        [SerializeField] private float _maxHp;
+        [SerializeField] private float _maxHp = 5;
         public float MaxHp => _maxHp;
         public float Hp => _hp;
 
@@ -42,6 +42,12 @@ namespace umi.ld50
             var minExtent = Mathf.Min(Mathf.Min(extents.x, extents.y), extents.z);
             var maxExtent = Mathf.Max(Mathf.Max(extents.x, extents.y), extents.z);
             return (minExtent + maxExtent) * 0.5f;
+        }
+        
+        public Bounds GetBoundingBox()
+        {
+            var meshRenderer = GetComponent<MeshRenderer>();
+            return meshRenderer.bounds;
         }
 
         private void OnCollisionEnter(Collision collision)
