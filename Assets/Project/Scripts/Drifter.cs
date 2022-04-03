@@ -47,7 +47,6 @@ public class Drifter : MonoBehaviour
 		// transform.rotation = targetRorationNoise;
 		transform.position = new Vector3(transform.position.x + moveDir.x * _noiseMoveAmp, transform.position.y,  transform.position.z + moveDir.z * _noiseMoveAmp);
 
-		var fuga = _wave;
 		Waves wave = _wave.GetComponent<Waves>();
 		_child.rotation = Quaternion.identity;
 		float height = wave.GetHeight(_child.position);
