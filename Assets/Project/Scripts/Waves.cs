@@ -35,7 +35,7 @@ public class Waves : MonoBehaviour
 
         MeshFilter = gameObject.AddComponent<MeshFilter>();
         MeshFilter.mesh = Mesh;
-        
+        UpdateMesh();
 
         //_meshCollider = gameObject.AddComponent<MeshCollider>();
         var pos = transform.position;
@@ -180,6 +180,11 @@ public class Waves : MonoBehaviour
 
     // Update is called once per frame
     void Update()
+    {
+        UpdateMesh();
+    }
+
+    private void UpdateMesh()
     {
         var t = Time.time;
         var verts = Mesh.vertices;
