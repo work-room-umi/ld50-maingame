@@ -11,6 +11,7 @@ namespace umi.ld50
         private List<Fix> _parts;
 
         public float Hp => _parts.Select(p => p.Hp).Sum();
+        public float NormalizedHp => _parts.Select(p => p.Hp).Sum() / _parts.Select(p => p.MaxHp).Sum();
 
         #region Adjust
 

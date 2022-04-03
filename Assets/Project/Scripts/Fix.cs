@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 namespace umi.ld50
@@ -10,6 +11,9 @@ namespace umi.ld50
     {
         [SerializeField]
         private float _hp = 5;
+
+        [SerializeField] private float _maxHp;
+        public float MaxHp => _maxHp;
         public float Hp => _hp;
 
         public delegate void OnTouchAttack(Attack attack, Fix touchFix);
@@ -17,6 +21,11 @@ namespace umi.ld50
 
         public OnTouchAttack onTouchAttack;
         public OnTouchFix onTouchFix;
+
+        private void Start()
+        {
+            _maxHp = _hp;
+        }
 
         public bool AddDamage(float damage)
         {
