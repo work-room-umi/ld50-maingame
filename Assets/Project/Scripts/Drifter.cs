@@ -8,9 +8,9 @@ public class Drifter : MonoBehaviour
 
 	public float _freq;
 	public float _amp;
-	public Vector3 _frontDir;
+	//public Vector3 _frontDir;
 	public float _noiseMoveAmp=0;
-	public bool _noiseRotate=false;
+	//public bool _noiseRotate=false;
 	public float _noiseScale=1;
 	public float _noiseTimeScale=1;
 	public GameObject _wave;
