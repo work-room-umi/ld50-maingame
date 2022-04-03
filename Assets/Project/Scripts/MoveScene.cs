@@ -41,9 +41,9 @@ namespace umi.ld50
             {
 
             }
-            else if(isfadeout)
+            else if(isFadeOut)
             {
-                
+
             }
             SceneManager.LoadScene(sceneName);
 
