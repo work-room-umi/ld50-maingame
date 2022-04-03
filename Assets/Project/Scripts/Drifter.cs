@@ -26,8 +26,9 @@ public class Drifter : MonoBehaviour
 		_child.rotation = Quaternion.identity;
 		float height = wave.GetHeight(_child.position);
 		Vector3 normal = wave.GetNormal(_child.position);
+		Quaternion targetRotationXZ = Quaternion.FromToRotation(_child.forward, transform.forward);
 		Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
-		_child.rotation = targetRotation;
+		_child.rotation = targetRotationXZ*targetRotation;
 		_child.position = new Vector3(_child.position.x, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z);
 	}
 
