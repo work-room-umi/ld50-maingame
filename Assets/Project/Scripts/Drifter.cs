@@ -37,11 +37,6 @@ public class Drifter : MonoBehaviour
 		return dir;
 	}
 
-	public void SetWave(GameObject wave)
-	{
-		_wave = wave;
-	}
-
 	// Update is called once per frame
 	void Update()
 	{
