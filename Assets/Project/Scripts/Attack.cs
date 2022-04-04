@@ -16,7 +16,7 @@ namespace umi.ld50
         //氷山とかは
         //クールタイム付けて
         public float _attackInterval = 1f; // default 1sec
-        //繰り返しダメージ与える?
+        //繰り返しダメージ与える
         public bool _repeatAttack;
 
         PlayerShip _ship;
