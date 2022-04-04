@@ -148,7 +148,8 @@ namespace umi.ld50
                 }
             }
             if(emitBreakEvent) OnBreakPartsAction();
-            
+
+            attack.InformDoneAttacking();
         }
 
         public void AddDamage(Attack attack)
