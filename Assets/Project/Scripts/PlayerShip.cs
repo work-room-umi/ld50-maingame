@@ -144,6 +144,7 @@ namespace umi.ld50
                 else
                 {
                     _parts.Push(latest);
+                    break;
                 }
             }
             if(emitBreakEvent) OnBreakPartsAction();
