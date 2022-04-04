@@ -17,5 +17,5 @@ MonoBehaviour:
     weight: 1
   numberOfPrefabsToCreate: 5
   spawnDist: 30
-  firstSpawnDeley: 60
+  firstSpawnDeley: 0
   spawnInterval: 1
