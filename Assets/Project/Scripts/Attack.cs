@@ -22,10 +22,16 @@ namespace umi.ld50
 
         PlayerShip _ship;
         float _attackTrigger=0;
+
+        private Collider collider;
         public event Action OnAttacked;
+
+        [SerializeField] private VFXEmitterComponent vfxEmitter;
         void Start()
         {
-            // 船へ連続的なダメージを与えるためにshipを取得する
+            if (vfxEmitter == null)
+                vfxEmitter = GetComponentInChildren<VFXEmitterComponent>();
+            collider = GetComponent<Collider>();
         }
 
         void Update()
@@ -47,6 +53,27 @@ namespace umi.ld50
         public void InformDoneAttacking()
         {
             OnAttacked?.Invoke();
+        }
+
+        private void EmitVFX(Vector3 position)
+        {
+            if(vfxEmitter == null) return;
+            vfxEmitter.gameObject.transform.position = position;
+            vfxEmitter.Emit();
+        }
+
+        private void OnCollisionEnter(Collision collision)
+        {
+            var isColliedToShip = collision.gameObject.layer == LayerMask.NameToLayer("ShipCollider");
+            if(!isColliedToShip) return;
+            
+            var sum = Vector3.zero;
+            foreach (var point in collision.contacts)
+            {
+                sum += point.point;
+            }
+            var averagePos = sum / collision.contacts.Length;
+            EmitVFX(averagePos);
         }
     }
 }
