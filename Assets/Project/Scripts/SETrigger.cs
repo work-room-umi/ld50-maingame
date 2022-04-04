@@ -16,6 +16,10 @@ namespace umi.ld50
 
         private void OnCollisionEnter(Collision collision)
         {
+            if(collision.gameObject.layer != LayerMask.NameToLayer("ShipCollider"))
+            {
+                return;
+            }
             OnSoundPlay?.Invoke();
         }
     }

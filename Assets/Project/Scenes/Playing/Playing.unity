@@ -268,6 +268,10 @@ PrefabInstance:
       propertyPath: wave
       value: 
       objectReference: {fileID: 1454302862}
+    - target: {fileID: 1293431698164999428, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 5559935861138829963}
     - target: {fileID: 5559935860458613024, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
       propertyPath: m_Name
       value: '[Player]'
@@ -318,6 +322,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
+--- !u!4 &5559935861138829963 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4699946647610901961, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
+  m_PrefabInstance: {fileID: 5559935861138829962}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7641998951604734649
 PrefabInstance:
   m_ObjectHideFlags: 0
