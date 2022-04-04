@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 21786256274692202}
   - component: {fileID: 21786256274692201}
   m_Layer: 0
-  m_Name: LogDriftable_A
+  m_Name: LogDriftable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

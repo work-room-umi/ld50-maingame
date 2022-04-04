@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1203385535270022179}
   - component: {fileID: 1203385535270022178}
   m_Layer: 0
-  m_Name: WoodenBoardDriftable_A
+  m_Name: WoodenBoardDriftable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
