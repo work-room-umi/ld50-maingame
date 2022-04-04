@@ -1,0 +1,54 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 6
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: SailDissolve
+  m_Shader: {fileID: -6465566751694194690, guid: 482ba97aea5cdb04f80fedc7dc786390, type: 3}
+  m_ShaderKeywords: 
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - Texture2D_27e062b7da5e401586efb2888a121b3c:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_438055e6cbbe4242be9624154e5413fd:
+        m_Texture: {fileID: 2800000, guid: 418ad688a24753c4796ee52943aea15a, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - Texture2D_bb28fae0374c47e3b1894926c130f08e:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_Lightmaps:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_LightmapsInd:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - unity_ShadowMasks:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Floats:
+    - Vector1_1: 0
+    - Vector1_59efdb3ddd564c32853e9cf5335fe4a6: 0
+    - Vector1_e7b6dd1a025f4054928e553cef5d6b35: 0
+    m_Colors:
+    - Color_e43996d393484cab8ae29c8cec3fd526: {r: 1, g: 1, b: 1, a: 1}
+    - Color_e719d58b3a994774bd98bfb7f40bf170: {r: 0, g: 0, b: 0, a: 0}
+    - Vector4_f562a13f50cd4575b7d0260007fdf60b: {r: 3.55, g: 1, b: 0, a: 0}
+  m_BuildTextureStacks: []
