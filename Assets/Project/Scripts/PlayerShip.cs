@@ -10,8 +10,6 @@ namespace umi.ld50
     {
         private Stack<Fix> _parts;
         [SerializeField] private PlayerShipCollider shipCollider;
-        [SerializeField]
-        private int growthLevel = 0;
 
         public event Action GetPartsAction;
         public event Action AttackedAction;
@@ -21,9 +19,6 @@ namespace umi.ld50
         public float NormalizedHp => _parts.Select(p => p.Hp).Sum() / _parts.Select(p => p.MaxHp).Sum();
 
         #region Adjust
-
-        [SerializeField] private float growthWidth = 0.1f;
-        [SerializeField] private int colliderGrowthPartsCount = 90;
         [SerializeField, Range(0, 1)]
         private float shipCenterYOffset = 0.3f;
         [SerializeField,Range(-90,90)]
@@ -74,14 +69,9 @@ namespace umi.ld50
             OnGetPartsAction();
             
             //Collider Growth
-            var newLevel = _parts.Count / colliderGrowthPartsCount;
-            growthLevel = newLevel;
-            var width = 1.75f;
-            var targetWidth = width + growthWidth * newLevel;
             var maxCount = 1000f;
             var maxScaleX = 6f;
-            var maxScaleZ = 4f;
-            // var scale = targetWidth / width;
+            var maxScaleZ = 3f;
             var normalizedScale = Mathf.Clamp01((_parts.Count-20) / maxCount);
             normalizedScale = Mathf.Pow(normalizedScale, 1f);
             var scaleX = 1f + normalizedScale*(maxScaleX-1f);
