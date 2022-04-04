@@ -41,6 +41,10 @@ jobs:
               }
               $ext = $_.Extension
               if($ext.ToLower() -eq '.meta') {
+                  $isDir = $null -ne (Get-Content $_.FullName | Where-Object {$_ -eq 'folderAsset: yes'})
+                  if($isDir) {
+                      return $false
+                  }
                   $asset = "$($_.Directory.FullName)\$($_.BaseName)"
                   return !(Test-Path $asset)
               }
