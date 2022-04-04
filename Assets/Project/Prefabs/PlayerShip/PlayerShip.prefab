@@ -163,6 +163,14 @@ PrefabInstance:
       propertyPath: m_Convex
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1299335198659935597, guid: 6b14d36126800eb428de9b31ea530393, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2464668280704305083, guid: 6b14d36126800eb428de9b31ea530393, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3039201960959334369, guid: 6b14d36126800eb428de9b31ea530393, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -248,7 +256,7 @@ PrefabInstance:
       value: Ship_LOD0
       objectReference: {fileID: 0}
     m_RemovedComponents:
-    - {fileID: 196374191766049151, guid: 6b14d36126800eb428de9b31ea530393, type: 3}
+    - {fileID: 3039201960959334369, guid: 6b14d36126800eb428de9b31ea530393, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6b14d36126800eb428de9b31ea530393, type: 3}
 --- !u!4 &6689601739725922848 stripped
 Transform:
