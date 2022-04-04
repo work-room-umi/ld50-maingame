@@ -49,7 +49,7 @@ namespace umi.ld50 {
             var shipPositionDir = _ship.transform.position.normalized;
             var spawnZoneCenter = -shipPositionDir * _spawnZoneCenterRadius;
             var spawnPointOnCircleZone = spawnZoneCenter + PointOncircle(UnityEngine.Random.Range(-180f,180f), UnityEngine.Random.Range(0f,_spawnZoneCenterRadius));
-            return spawnPointOnCircleZone;
+            return AdjustedSpawnPosition(spawnPointOnCircleZone);
         }
 
         Vector3 PointOncircle(in float angle, in float radius){
@@ -102,6 +102,19 @@ namespace umi.ld50 {
             // スケールは可変のオブジェクトとそうでないものがあるのでPrefab側でバリエーションを設定した方が良さそうです
             // driftObj.transform.localScale = dirft*randomScale;
             driftObj.transform.parent = gameObject.transform;
+        }
+
+         Vector3 AdjustedSpawnPosition(in Vector3 spawnPosition){
+            RaycastHit hit;
+            Ray ray = new Ray(spawnPosition, new Vector3(0, 1, 0));
+            int layerMask = LayerMask.GetMask(new string[] { "Obstacle"});
+            Physics.queriesHitBackfaces = true;
+            var result = spawnPosition;
+            if (Physics.Raycast(ray, out hit, 10f, layerMask)){
+                MeshCollider collider = hit.transform.gameObject.GetComponent<MeshCollider>();
+                result += new Vector3(collider.bounds.max.x, 0, collider.bounds.max.z);
+            }
+            return result;
         }
     }
 }
