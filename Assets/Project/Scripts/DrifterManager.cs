@@ -157,6 +157,8 @@ namespace umi.ld50 {
             var randomScale = UnityEngine.Random.Range(-1,2.5f);
             var pos = SpawnPosition();
             GameObject driftObj = Instantiate (prefab, SpawnPosition(), Quaternion.identity);
+            var destroyer = driftObj.AddComponent<DeleyTimeDestroyer>();
+            destroyer.time = 120;
             driftObj.transform.rotation   = randomOrientation;
             driftObj.transform.position   = pos;
             // スケールは可変のオブジェクトとそうでないものがあるのでPrefab側でバリエーションを設定した方が良さそうです
