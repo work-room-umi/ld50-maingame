@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine;
 public class Drifter : MonoBehaviour
 {
 	Transform _child;
+	GameObject _childObject;
+	bool _visible = true;
 
 	public float _freq;
 	public float _amp;
@@ -19,6 +22,7 @@ public class Drifter : MonoBehaviour
 	void Start()
 	{
 		_child = transform.GetChild(0);
+		_childObject = _child.gameObject;
     	_wave = (Waves)FindObjectOfType(typeof(Waves));
 	}
 
@@ -46,12 +50,26 @@ public class Drifter : MonoBehaviour
 		// transform.rotation = targetRorationNoise;
 		transform.position = new Vector3(transform.position.x + moveDir.x * _noiseMoveAmp, transform.position.y,  transform.position.z + moveDir.z * _noiseMoveAmp);
 
-		_child.rotation = Quaternion.identity;
-		float height = _wave.GetHeight(_child.position);
-		Vector3 normal = _wave.GetNormal(_child.position);
-		Quaternion targetRotationXZ = Quaternion.FromToRotation(_child.forward, transform.forward);
-		Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
-		_child.rotation = targetRotationXZ*targetRotation;
-		_child.position = new Vector3(_child.position.x, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z);
+		try
+		{
+			_child.rotation = Quaternion.identity;
+			float height = _wave.GetHeight(_child.position);
+			Vector3 normal = _wave.GetNormal(_child.position);
+			Quaternion targetRotationXZ = Quaternion.FromToRotation(_child.forward, transform.forward);
+			Quaternion targetRotation = Quaternion.FromToRotation(_child.up, normal);
+			_child.rotation = targetRotationXZ*targetRotation;
+			_child.position = new Vector3(_child.position.x, height + Mathf.Sin(Time.time*_freq)*_amp, _child.position.z);
+
+			if (!_visible)
+			{
+				_childObject.SetActive(true);
+				_visible = true;
+			}
+		}
+		catch(NullReferenceException)
+		{
+			_childObject.SetActive(false);
+			_visible = false;
+		}
 	}
 }
