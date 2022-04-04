@@ -1,6 +1,7 @@
 using umi.ld50;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 namespace umi.ld50 {
@@ -14,16 +15,24 @@ namespace umi.ld50 {
         // Start is called before the first frame update
         void Start()
         {
-            if (_ship==null)
+            if (_ship==null){
                 _ship =  (PlayerShip)FindObjectOfType(typeof(PlayerShip));
+            }
+            AsyncSpawnWithInterval();
         }
 
         // Update is called once per frame
         void Update()
         {
-            if (this.transform.childCount < enemyManagerValues.numberOfPrefabsToCreate)
-            {
-                SpawnEnemy();
+        }
+
+        async void AsyncSpawnWithInterval(){
+            while(true){
+                if (this.transform.childCount < enemyManagerValues.numberOfPrefabsToCreate)
+                {
+                    SpawnEnemy();
+                }
+                await Task.Delay((int)(enemyManagerValues.spawnInterval*1000f));
             }
         }
 
