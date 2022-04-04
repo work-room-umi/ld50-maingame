@@ -12,6 +12,9 @@ namespace umi.ld50
         [SerializeField]
         public PlayerShip playerShip;
 
+        [SerializeField]
+        public DistanceMeasure distanceMeasure;
+
         public void Awake()
         {
             emitter = GetComponent<StudioEventEmitter>();
@@ -23,6 +26,8 @@ namespace umi.ld50
             {
                 float value = 1 - playerShip.NormalizedHp;
                 emitter.EventInstance.setParameterByName("interactive_bgm", value);
+                float dist = 1 - distanceMeasure.NormalizedShipDistance();
+                emitter.EventInstance.setParameterByName("battle_bgm", dist);
             }
         }
     }

@@ -123,6 +123,17 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 23800000, guid: 605c9a543f4e704419343ff33500d2b4, type: 2}
+--- !u!114 &88366743 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3467423945762784635, guid: b20ebb627d35cd244b10f0d893de76b6, type: 3}
+  m_PrefabInstance: {fileID: 3649156942616304400}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 57f359c4cb208cb44ba16cd5ceb55ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &139035497 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 646013574487768371, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
@@ -367,10 +378,10 @@ PrefabInstance:
       propertyPath: wave
       value: 
       objectReference: {fileID: 1454302862}
-    - target: {fileID: 1293431698164999428, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
-      propertyPath: _camera
+    - target: {fileID: 1692909266898821931, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
+      propertyPath: _enemyManager
       value: 
-      objectReference: {fileID: 5559935861138829963}
+      objectReference: {fileID: 88366743}
     - target: {fileID: 5559935860458613024, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
       propertyPath: m_Name
       value: '[Player]'
@@ -421,11 +432,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
---- !u!4 &5559935861138829963 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4699946647610901961, guid: fd16373f880427e4ca432dc30ef6c158, type: 3}
-  m_PrefabInstance: {fileID: 5559935861138829962}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7641998951604734649
 PrefabInstance:
   m_ObjectHideFlags: 0
