@@ -1,6 +1,7 @@
 using umi.ld50;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -11,6 +12,16 @@ namespace umi.ld50 {
         private PlayerShip _ship;
         [SerializeField]
         private EnemyManagerScriptableObject enemyManagerValues;
+
+        [SerializeField] private float enemyNormalizedMaxDistance = 25f;
+        private List<GameObject> enemies = new List<GameObject>();
+        public float NormalizedShipDistance()
+        {
+            enemies = enemies.Where(e => e != null).ToList();
+            var  nearestDist = enemies.Select(e => Vector3.Distance(e.transform.position, _ship.transform.position)).Min();
+            var normalizedDist = Mathf.Clamp01(nearestDist / enemyNormalizedMaxDistance);
+            return normalizedDist;
+        }
 
         // Start is called before the first frame update
         void Start()
@@ -29,6 +40,7 @@ namespace umi.ld50 {
 
         async void AsyncSpawnWithInterval(){
             while(true){
+                if (enemyManagerValues == null) return; 
                 if (this.transform.childCount < enemyManagerValues.numberOfPrefabsToCreate)
                 {
                     SpawnEnemy();
@@ -70,6 +82,8 @@ namespace umi.ld50 {
             enemy.transform.parent = gameObject.transform;
             enemy.transform.LookAt(_ship.gameObject.transform);
             enemy.layer = LayerMask.NameToLayer("Obstacle");
+            enemies.Add(enemy);
+            
             // Sharklocomoterにshipを追従させる
             SharkLocomoter sharkLocomoter = enemy.GetComponent<SharkLocomoter>();
             sharkLocomoter.SetTarget(_ship.gameObject.transform);
