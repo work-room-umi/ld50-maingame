@@ -44,13 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9b41a0cf8b347838cc3df031dda1163, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hash: 3227740804
+  hash: 4234075729
   root: {fileID: 4830727215149693799}
   assets:
   - {fileID: 2800000, guid: 87b715a589528cc409f9ba2d3d02a6bc, type: 3}
   - {fileID: 2800000, guid: dd3da4c2ab444824aae03e2689cae31c, type: 3}
-  - {fileID: 2800000, guid: 7643dbfdf5d605345ac34158161c782d, type: 3}
-  - {fileID: 2800000, guid: 992b39b9926bf85489268ae3f1fd5d0b, type: 3}
+  - {fileID: 2800000, guid: d53d6478256e8024cb086c88512d94ae, type: 3}
+  - {fileID: 2800000, guid: 5b4df0b22622aed4c9e48ef292cf126b, type: 3}
   - {fileID: 2800000, guid: 01e79c65066a39247a238785974b6bcb, type: 3}
   - {fileID: 2800000, guid: 42001d29e1458934991b99cd59e388da, type: 3}
   - {fileID: 2800000, guid: 3186454a3508a6f438b084feee87afbf, type: 3}
@@ -59,9 +59,10 @@ MonoBehaviour:
   - {fileID: 2800000, guid: f2dee36fa8bebd946a9eba9279c852e3, type: 3}
   - {fileID: 2800000, guid: 8e38fc234a93abb48bbe36b0895bebc9, type: 3}
   - {fileID: 2800000, guid: 4a0dd8ba5de97854899a7d5d020aa348, type: 3}
+  - {fileID: 2800000, guid: baa4637cddb4d5646a109780dc4bba04, type: 3}
   userData:
   - key: xd_hash
-    value: 1608702227
+    value: 1529059084
   eidToObjects:
   - eid: 0
     gameObject: {fileID: 4830727215149693799}
@@ -75,8 +76,6 @@ MonoBehaviour:
     gameObject: {fileID: 8039483428604379174}
   - eid: 4162751511
     gameObject: {fileID: 8778738237651429214}
-  - eid: 4018068818
-    gameObject: {fileID: 2087846977338732061}
   - eid: 1882776689
     gameObject: {fileID: 24804774611147725}
   - eid: 2784529920
@@ -95,6 +94,8 @@ MonoBehaviour:
     gameObject: {fileID: 3343984526759939425}
   - eid: 3355531277
     gameObject: {fileID: 8894408903209023054}
+  - eid: 2011170038
+    gameObject: {fileID: 3565701299419301335}
 --- !u!1001 &672868952123467876
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -186,10 +187,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3403565854399508635, guid: 3c7785f4e8826cf49a5509facef7c72b, type: 3}
-      propertyPath: m_FontData.m_MaxSize
-      value: 131
-      objectReference: {fileID: 0}
     - target: {fileID: 5358353858931872515, guid: 3c7785f4e8826cf49a5509facef7c72b, type: 3}
       propertyPath: m_Name
       value: Title
@@ -229,11 +226,6 @@ GameObject:
 --- !u!1 &8778738237651429214 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8107276841895546682, guid: 3c7785f4e8826cf49a5509facef7c72b, type: 3}
-  m_PrefabInstance: {fileID: 672868952123467876}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &2087846977338732061 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1562475827597182585, guid: 3c7785f4e8826cf49a5509facef7c72b, type: 3}
   m_PrefabInstance: {fileID: 672868952123467876}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &24804774611147725 stripped
@@ -279,5 +271,10 @@ GameObject:
 --- !u!1 &8894408903209023054 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8230833522826092074, guid: 3c7785f4e8826cf49a5509facef7c72b, type: 3}
+  m_PrefabInstance: {fileID: 672868952123467876}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &3565701299419301335 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4048006881174367667, guid: 3c7785f4e8826cf49a5509facef7c72b, type: 3}
   m_PrefabInstance: {fileID: 672868952123467876}
   m_PrefabAsset: {fileID: 0}

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: e8397c8cb8ff9284cb5f8cd00714c8bf
+guid: d53d6478256e8024cb086c88512d94ae
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -139,6 +139,6 @@ TextureImporter:
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: '{"hash":1648959103,"source_width":600,"source_height":222}'
+  userData: '{"hash":1649050409,"source_width":600,"source_height":222}'
   assetBundleName: 
   assetBundleVariant: 

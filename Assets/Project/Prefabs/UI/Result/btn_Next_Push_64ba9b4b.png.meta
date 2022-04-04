@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 2b6031509db23944c88c14ce791c8492
+guid: 499dd849a7ca84246b30f7680de1777e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -65,7 +65,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 108
+    maxTextureSize: 400
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
@@ -139,6 +139,6 @@ TextureImporter:
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
-  userData: '{"hash":1648980438,"source_width":222,"source_height":222}'
+  userData: '{"hash":1649050411,"source_width":600,"source_height":222}'
   assetBundleName: 
   assetBundleVariant: 

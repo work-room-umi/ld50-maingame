@@ -603,6 +603,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: play
       objectReference: {fileID: 0}
+    - target: {fileID: 6006407407760707328, guid: bf4d686840832e04787d35e412545077, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: b8be30c624584b4478b314b12a8d1787, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bf4d686840832e04787d35e412545077, type: 3}
 --- !u!224 &1470771144 stripped
@@ -673,7 +677,7 @@ MonoBehaviour:
     m_FadeDuration: 0.1
   m_SpriteState:
     m_HighlightedSprite: {fileID: 0}
-    m_PressedSprite: {fileID: 21300000, guid: 2b6031509db23944c88c14ce791c8492, type: 3}
+    m_PressedSprite: {fileID: 21300000, guid: 7337de6c7bce9a2469edfcc52ccc6a99, type: 3}
     m_SelectedSprite: {fileID: 0}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
