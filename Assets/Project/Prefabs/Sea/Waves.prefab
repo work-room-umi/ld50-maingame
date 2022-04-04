@@ -66,7 +66,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackPower: 0.1
   _attackableCount: 999999
-  _attackInterval: 1
+  _attackInterval: 30
   _repeatAttack: 1
 --- !u!23 &8629195084732712276
 MeshRenderer:
