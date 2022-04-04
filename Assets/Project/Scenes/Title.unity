@@ -512,6 +512,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 4239151883797074013, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6689601739725922848, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
       propertyPath: m_LocalPosition.y
       value: 1.5
