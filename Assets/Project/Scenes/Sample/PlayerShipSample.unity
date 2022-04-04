@@ -286,41 +286,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1531873056 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5083775355753591943, guid: d2104e1875271db458e52639f77f8036, type: 3}
-  m_PrefabInstance: {fileID: 4624150287902544518}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1531873061
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531873056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6c01d302f9d1d8f4683b7ea3d20a90b8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _attackPower: 20
-  _attackableCount: 1000
---- !u!54 &1531873062
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1531873056}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 126
-  m_CollisionDetection: 0
 --- !u!4 &1588418162 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5564380973635577394, guid: 7090fd908c9172c468667fc5cf944a7c, type: 3}
@@ -502,6 +467,26 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7076301539272926006, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076301539437602892, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076301540381668906, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7076301540560534511, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7149185988541870148, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
+      propertyPath: m_Convex
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
 --- !u!1001 &4564865145931054305
@@ -673,10 +658,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 129249793}
     m_Modifications:
-    - target: {fileID: 819344178, guid: d2104e1875271db458e52639f77f8036, type: 3}
-      propertyPath: _wave
-      value: 
-      objectReference: {fileID: 1454302860}
     - target: {fileID: 1225920825133976326, guid: d2104e1875271db458e52639f77f8036, type: 3}
       propertyPath: m_Name
       value: Shark
@@ -725,16 +706,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5083775355753591943, guid: d2104e1875271db458e52639f77f8036, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6724196984263275509, guid: d2104e1875271db458e52639f77f8036, type: 3}
       propertyPath: _target
       value: 
       objectReference: {fileID: 139035497}
-    m_RemovedComponents:
-    - {fileID: 1739198903841715040, guid: d2104e1875271db458e52639f77f8036, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d2104e1875271db458e52639f77f8036, type: 3}
 --- !u!1001 &4695543182618644849
 PrefabInstance:
