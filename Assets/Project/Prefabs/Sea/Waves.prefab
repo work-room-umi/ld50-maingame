@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8629195084732712277}
   - component: {fileID: 8629195084732712267}
+  - component: {fileID: 1468063132560264941}
   - component: {fileID: 8629195084732712276}
   m_Layer: 0
   m_Name: Waves
@@ -51,6 +52,20 @@ MonoBehaviour:
     scale: {x: 11.16, y: 7}
     height: 5.36
     alternate: 0
+--- !u!114 &1468063132560264941
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8629195084732712279}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c01d302f9d1d8f4683b7ea3d20a90b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _attackPower: 10
+  _attackableCount: 1
 --- !u!23 &8629195084732712276
 MeshRenderer:
   m_ObjectHideFlags: 0
