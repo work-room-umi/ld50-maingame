@@ -15,8 +15,14 @@ namespace umi.ld50
         public event Action AttackedAction;
         public event Action BreakPartsAction;
 
+        private float defaultHP = 20f;
+
         public float Hp => _parts.Select(p => p.Hp).Sum();
-        public float NormalizedHp => _parts.Select(p => p.Hp).Sum() / _parts.Select(p => p.MaxHp).Sum();
+        public float NormalizedHp()
+        {
+            var sum = _parts.Select(p => p.Hp).Sum();
+            return Mathf.Clamp01(sum / defaultHP);
+        }
 
         #region Adjust
         [SerializeField, Range(0, 1)]
@@ -36,6 +42,8 @@ namespace umi.ld50
             //子にあるFixをデフォルトのパーツとして登録/初期化
             var fixes = GetComponentsInChildren<Fix>().ToArray();
             _parts = new Stack<Fix>(fixes);
+            defaultHP = Hp;
+            
             if (shipCollider == null)
                 shipCollider = FindObjectOfType<PlayerShipCollider>();
             InitShipCollider(shipCollider);
