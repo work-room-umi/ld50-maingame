@@ -28,13 +28,10 @@ namespace umi.ld50{
         async void AsyncSelectLevelBundle(){
             int bundleIndex = 0;
             while(bundleIndex<_levelSetting.levelBundles.Count){
-                Debug.Log(1);
                 var bundle = _levelSetting.levelBundles[bundleIndex];
                 _drifterManager.drifterSetting = bundle.drifterSetting;
                 _enemyManager.enemyManagerValues = bundle.enemySetting;
-                Debug.Log(2);
                 await Task.Delay((int)(bundle.duration*1000f));
-                Debug.Log(3);
                 bundleIndex++;
             }
         }
