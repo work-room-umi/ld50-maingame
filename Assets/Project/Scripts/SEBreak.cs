@@ -16,17 +16,12 @@ namespace umi.ld50
         public void Awake()
         {
             emitter = GetComponent<StudioEventEmitter>();
+            playerShip.BreakPartsAction += PlaySound;
         }
 
-        void Update()
+        void PlaySound()
         {
-            if (playerShip != null)
-            {
-                if (playerShip.NormalizedHp <= 0)
-                {
-                    emitter.Play();
-                }
-            }
+            emitter.Play();
         }
     }
 }
