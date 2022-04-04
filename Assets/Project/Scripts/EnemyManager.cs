@@ -27,6 +27,7 @@ namespace umi.ld50 {
         }
 
         async void AsyncSpawnWithInterval(){
+            await Task.Delay((int)(enemyManagerValues.firstSpawnDeley*1000f));
             while(true){
                 if (this.transform.childCount < enemyManagerValues.numberOfPrefabsToCreate)
                 {
