@@ -12,8 +12,11 @@ public class PlayerShipLocomoter : MonoBehaviour
     [SerializeField]
     float _speedIntensity;
 
+    Transform _child;
+
     void Start()
     {
+        _child= transform.GetChild(0);
         _agent = GetComponent<NavMeshAgent>();
         NavMeshHit hit;
         if (NavMesh.SamplePosition(transform.position, out hit, 1.0f, NavMesh.AllAreas))
@@ -37,5 +40,13 @@ public class PlayerShipLocomoter : MonoBehaviour
 
         _agent.SetDestination(nextPoint);
         _agent.nextPosition = transform.position;
+    }
+
+    public float CurrentSpeedRate(){
+        return Mathf.Clamp01(_agent.velocity.magnitude/_agent.speed);
+    }
+
+    public float CurrentTiltingRate(){
+        return Mathf.Clamp01(1f-_child.transform.up.y);
     }
 }
