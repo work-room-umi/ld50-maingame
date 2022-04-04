@@ -1,5 +1,50 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6170170299963027887
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6460812961591591658}
+  - component: {fileID: 887817621888305664}
+  m_Layer: 0
+  m_Name: VFX_HitRock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6460812961591591658
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170170299963027887}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1888200505604933616}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &887817621888305664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6170170299963027887}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79b5a902fb98eb458d8527f900d251a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 263751180895495865, guid: a4b43a8d06ec3dd41a626274ffab327b, type: 3}
+  lifeTime: 3
 --- !u!1001 &2143296872808636443
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -82,6 +127,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 11975d5199181a244ab052f545b8d240, type: 3}
   m_PrefabInstance: {fileID: 2143296872808636443}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1888200505604933616 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 11975d5199181a244ab052f545b8d240, type: 3}
+  m_PrefabInstance: {fileID: 2143296872808636443}
+  m_PrefabAsset: {fileID: 0}
 --- !u!54 &4642796985604917618
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -158,6 +208,7 @@ MonoBehaviour:
   _attackableCount: 1000
   _attackInterval: 1
   _repeatAttack: 0
+  vfxEmitter: {fileID: 887817621888305664}
 --- !u!114 &6957086335094542081
 MonoBehaviour:
   m_ObjectHideFlags: 0
