@@ -63,7 +63,7 @@ namespace umi.ld50 {
             GameObject enemy = Instantiate (prefab, spawnPosition, Quaternion.identity);
             enemy.transform.parent = gameObject.transform;
             enemy.transform.LookAt(_ship.gameObject.transform);
-
+            enemy.layer = LayerMask.NameToLayer("Obstacle");
             // Sharklocomoterにshipを追従させる
             SharkLocomoter sharkLocomoter = enemy.GetComponent<SharkLocomoter>();
             sharkLocomoter.SetTarget(_ship.gameObject.transform);
