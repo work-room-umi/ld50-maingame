@@ -10,8 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8637630741356210627}
   - component: {fileID: 763072991297502632}
-  - component: {fileID: 8930112391288362770}
-  - component: {fileID: 8930112391288362773}
+  - component: {fileID: 2993751660985739617}
   m_Layer: 0
   m_Name: SharkSound
   m_TagString: Untagged
@@ -54,8 +53,8 @@ MonoBehaviour:
       Data4: -89505851
     Path: event:/SE/INGAME/attack
   Event: 
-  PlayEvent: 3
-  StopEvent: 4
+  PlayEvent: 7
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -63,32 +62,16 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
---- !u!54 &8930112391288362770
-Rigidbody:
+--- !u!114 &2993751660985739617
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 278928307301547426}
-  serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
-  m_UseGravity: 0
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
---- !u!135 &8930112391288362773
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 278928307301547426}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
   m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 0.2
-  m_Center: {x: 0, y: 0, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc304f894f5e6eb45b7d8fcc62337980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seTrigger: {fileID: 0}
