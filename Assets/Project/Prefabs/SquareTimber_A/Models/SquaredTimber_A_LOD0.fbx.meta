@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 92036132dfff7bb41a1dc791ed4fa2e0
+guid: 232965a2c9552f04fb2f469b7b4e9641
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
@@ -7,23 +7,8 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: Log_A_LOD0
-    second: {fileID: 2100000, guid: 22770f905796acb4fab32abec10fdf0d, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: Ship_Sail_LOD0
-    second: {fileID: 2100000, guid: d83e51f2f6e7a564788e626602141d91, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
       name: SquaredTimber_A_LOD0
     second: {fileID: 2100000, guid: 952427a4d54a6c6489ced64abc26e70b, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: WoodenBoard_A_LOD0
-    second: {fileID: 2100000, guid: 3a0b91d202a80c84896bc61948bcc947, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
@@ -108,7 +93,7 @@ ModelImporter:
     globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
-    hasExtraRoot: 1
+    hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1

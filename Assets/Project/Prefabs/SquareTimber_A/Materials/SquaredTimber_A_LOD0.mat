@@ -7,36 +7,25 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Ship_Sail_LOD0
-  m_Shader: {fileID: -6465566751694194690, guid: 482ba97aea5cdb04f80fedc7dc786390, type: 3}
-  m_ShaderKeywords: _ALPHATEST_ON
+  m_Name: SquaredTimber_A_LOD0
+  m_Shader: {fileID: 4800000, guid: 933532a4fcc9baf4fa0491de14d08ed7, type: 3}
+  m_ShaderKeywords: _NORMALMAP _SPECULAR_SETUP
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
-  stringTagMap: {}
+  m_CustomRenderQueue: 2000
+  stringTagMap:
+    RenderType: Opaque
   disabledShaderPasses: []
   m_SavedProperties:
     serializedVersion: 3
     m_TexEnvs:
-    - Texture2D_27e062b7da5e401586efb2888a121b3c:
-        m_Texture: {fileID: 2800000, guid: 7af89138a7911bc41a629deb73b906e9, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_438055e6cbbe4242be9624154e5413fd:
-        m_Texture: {fileID: 2800000, guid: 418ad688a24753c4796ee52943aea15a, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
-    - Texture2D_bb28fae0374c47e3b1894926c130f08e:
-        m_Texture: {fileID: 2800000, guid: efc8d6d0b6649c945914b1655c92c462, type: 3}
-        m_Scale: {x: 1, y: 1}
-        m_Offset: {x: 0, y: 0}
     - _BaseMap:
-        m_Texture: {fileID: 2800000, guid: 7af89138a7911bc41a629deb73b906e9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2b7ff86b2fef7c24d9c7da5592d5077d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _BumpMap:
-        m_Texture: {fileID: 0}
+        m_Texture: {fileID: 2800000, guid: de08698255071964ca73b31627d929e6, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -56,7 +45,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 7af89138a7911bc41a629deb73b906e9, type: 3}
+        m_Texture: {fileID: 2800000, guid: 2b7ff86b2fef7c24d9c7da5592d5077d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
@@ -88,15 +77,12 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - Vector1_1: 0
-    - Vector1_59efdb3ddd564c32853e9cf5335fe4a6: 0
-    - Vector1_e7b6dd1a025f4054928e553cef5d6b35: 0
-    - _AlphaClip: 1
+    - _AlphaClip: 0
     - _Blend: 0
     - _BumpScale: 1
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
-    - _Cull: 0
+    - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
     - _DetailNormalMapScale: 1
@@ -110,23 +96,20 @@ Material:
     - _Parallax: 0.005
     - _QueueOffset: 0
     - _ReceiveShadows: 1
-    - _Smoothness: 0.5
+    - _Smoothness: 0.033
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Surface: 0
-    - _WorkflowMode: 1
+    - _WorkflowMode: 0
     - _ZWrite: 1
     m_Colors:
-    - Color_e43996d393484cab8ae29c8cec3fd526: {r: 1, g: 1, b: 1, a: 0}
-    - Color_e719d58b3a994774bd98bfb7f40bf170: {r: 0, g: 0, b: 0, a: 0}
-    - Vector4_f562a13f50cd4575b7d0260007fdf60b: {r: 3.55, g: 1, b: 0, a: 0}
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _SpecColor: {r: 0.19999996, g: 0.19999996, b: 0.19999996, a: 1}
   m_BuildTextureStacks: []
---- !u!114 &1544453296573172875
+--- !u!114 &8540745223662195163
 MonoBehaviour:
   m_ObjectHideFlags: 11
   m_CorrespondingSourceObject: {fileID: 0}
