@@ -10,8 +10,6 @@ namespace umi.ld50
     {
         private Stack<Fix> _parts;
         [SerializeField] private PlayerShipCollider shipCollider;
-        [SerializeField]
-        private int growthLevel = 0;
 
         public event Action GetPartsAction;
         public event Action AttackedAction;
@@ -21,9 +19,6 @@ namespace umi.ld50
         public float NormalizedHp => _parts.Select(p => p.Hp).Sum() / _parts.Select(p => p.MaxHp).Sum();
 
         #region Adjust
-
-        [SerializeField] private float growthWidth = 0.1f;
-        [SerializeField] private int colliderGrowthPartsCount = 90;
         [SerializeField, Range(0, 1)]
         private float shipCenterYOffset = 0.3f;
         [SerializeField,Range(-90,90)]
@@ -55,8 +50,7 @@ namespace umi.ld50
         
         private void FinalizeFix(Fix fix)
         {
-            // _parts.Pop(fix);
-            // Destroy(fix.gameObject);
+            Destroy(fix.gameObject);
         }
 
         private void AddFix(Fix newFix)
@@ -75,14 +69,9 @@ namespace umi.ld50
             OnGetPartsAction();
             
             //Collider Growth
-            var newLevel = _parts.Count / colliderGrowthPartsCount;
-            growthLevel = newLevel;
-            var width = 1.75f;
-            var targetWidth = width + growthWidth * newLevel;
             var maxCount = 1000f;
             var maxScaleX = 6f;
-            var maxScaleZ = 4f;
-            // var scale = targetWidth / width;
+            var maxScaleZ = 3f;
             var normalizedScale = Mathf.Clamp01((_parts.Count-20) / maxCount);
             normalizedScale = Mathf.Pow(normalizedScale, 1f);
             var scaleX = 1f + normalizedScale*(maxScaleX-1f);
@@ -131,41 +120,34 @@ namespace umi.ld50
         private void OnAttacked(Attack attack)
         {
             OnAttackedAction();
-            // if (attack._attackableCount <= 0) return;
-            // attack._attackableCount--;
-            //
-            // var targets = new List<Fix> {touchFix};
-            // var targetNum = attack.AttackTargetNum-1;
-            // var power = attack.AttackPower;
-            //
-            // //接触したFixに近いFixから攻撃ターゲット数個ピックアップする
-            // for (var i = 0; i < targetNum; i++)
-            // {
-            //     Fix nearestFix = null;
-            //     var minDist = float.PositiveInfinity;
-            //     //近いfixを検索
-            //     foreach (var fix in _parts)
-            //     {
-            //         if (targets.Contains(fix)) continue;
-            //         var d = Vector3.Distance(fix.transform.position, touchFix.transform.position);
-            //         if (d < minDist)
-            //         {
-            //             minDist = d;
-            //             nearestFix = fix;
-            //         }
-            //     }
-            //     targets.Add(nearestFix);
-            // }
-            //
-            // foreach (var t in targets)
-            // {
-            //     if (t == null) continue;
-            //     var isCrushed = t.AddDamage(power);
-            //     if (isCrushed)
-            //     {
-            //         FinalizeFix(t);
-            //     }
-            // }
+            OnBreakPartsAction();
+            
+            if (attack._attackableCount <= 0) return;
+            if (_parts.Count == 0) return;
+            attack._attackableCount--;
+            
+            bool emitBreakEvent = false;
+            var damage = attack.AttackPower;
+            while (0 < damage)
+            {
+                if (_parts.Count == 0) break;
+                var latest = _parts.Pop();
+                var hp = latest.Hp;
+                var isCrushed = latest.AddDamage(damage);
+                
+                if (isCrushed)
+                {
+                    damage -= hp;
+                    emitBreakEvent = true;
+                    FinalizeFix(latest);
+                }
+                else
+                {
+                    _parts.Push(latest);
+                }
+            }
+            if(emitBreakEvent) OnBreakPartsAction();
+            
         }
 
         #region Debug
