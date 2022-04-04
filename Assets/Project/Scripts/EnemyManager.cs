@@ -1,6 +1,7 @@
 using umi.ld50;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -11,7 +12,13 @@ namespace umi.ld50 {
         private PlayerShip _ship;
         [SerializeField]
         private EnemyManagerScriptableObject enemyManagerValues;
+        private List<GameObject> enemies = new List<GameObject>();
 
+        public Vector3[] EnemiesPositions()
+        {
+            enemies = enemies.Where(e => e != null).ToList();
+            return enemies.Select(e => e.transform.position).ToArray();
+        }
         // Start is called before the first frame update
         void Start()
         {
@@ -29,6 +36,7 @@ namespace umi.ld50 {
 
         async void AsyncSpawnWithInterval(){
             while(true){
+                if (enemyManagerValues == null) return; 
                 if (this.transform.childCount < enemyManagerValues.numberOfPrefabsToCreate)
                 {
                     SpawnEnemy();
@@ -70,6 +78,8 @@ namespace umi.ld50 {
             enemy.transform.parent = gameObject.transform;
             enemy.transform.LookAt(_ship.gameObject.transform);
             enemy.layer = LayerMask.NameToLayer("Obstacle");
+            enemies.Add(enemy);
+            
             // Sharklocomoterにshipを追従させる
             SharkLocomoter sharkLocomoter = enemy.GetComponent<SharkLocomoter>();
             sharkLocomoter.SetTarget(_ship.gameObject.transform);
