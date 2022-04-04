@@ -35,6 +35,7 @@ namespace umi.ld50 {
 
         async void AsyncSpawnWithInterval(){
             while(true){
+                if(this == null) return;
                 if (this.transform.childCount < drifterSetting.maxDrifterNum)
                 {
                     Spawn();
