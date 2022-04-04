@@ -358,6 +358,10 @@ PrefabInstance:
       propertyPath: seTrigger
       value: 
       objectReference: {fileID: 1190458620965294374}
+    - target: {fileID: 3726858679851428398, guid: 4807abfd63e28704dadcdb52c9548dfc, type: 3}
+      propertyPath: seTrigger
+      value: 
+      objectReference: {fileID: 1190458620965294374}
     - target: {fileID: 8637630741356210627, guid: 4807abfd63e28704dadcdb52c9548dfc, type: 3}
       propertyPath: m_RootOrder
       value: 1
