@@ -17,6 +17,7 @@ namespace umi.ld50{
 
         [SerializeField]
         Attack _wavesAttack;
+        Waves _waves;
         // Start is called before the first frame update
         // async Task Start()
         // {
@@ -24,6 +25,7 @@ namespace umi.ld50{
         // }
 
         void Start(){
+            _waves = _wavesAttack.GetComponent<Waves>();
             AsyncSelectLevelBundle();
             AsyncIncrementWave();
         }
@@ -31,6 +33,7 @@ namespace umi.ld50{
         async void AsyncIncrementWave(){
             while(true){
                 _wavesAttack.SetAttackPower(_wavesAttack.AttackPower + _levelSetting.waveAttackStrengthInc);
+                _waves.Octaves[0].height = _wavesAttack.AttackPower*4f + 0.5f;
                 await Task.Delay((int)(1000f));
             }
         }

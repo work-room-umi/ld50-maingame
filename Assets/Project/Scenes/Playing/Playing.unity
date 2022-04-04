@@ -139,6 +139,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af22659a7a9c7d48a775903b5c04774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1227130839 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8863674983759301477, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
+  m_PrefabInstance: {fileID: 2018082858223581075}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c01d302f9d1d8f4683b7ea3d20a90b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1454302862 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1773448476486336707, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
@@ -160,10 +171,6 @@ PrefabInstance:
     - target: {fileID: 527148473541552394, guid: c183dfb7d153c724485836cacfa3ffb1, type: 3}
       propertyPath: m_Name
       value: '[Level]'
-      objectReference: {fileID: 0}
-    - target: {fileID: 527148473541552394, guid: c183dfb7d153c724485836cacfa3ffb1, type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5907451621207227365, guid: c183dfb7d153c724485836cacfa3ffb1, type: 3}
       propertyPath: m_RootOrder
@@ -210,13 +217,13 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5915787792054807238, guid: c183dfb7d153c724485836cacfa3ffb1, type: 3}
+      propertyPath: _wavesAttack
+      value: 
+      objectReference: {fileID: 1227130839}
+    - target: {fileID: 5915787792054807238, guid: c183dfb7d153c724485836cacfa3ffb1, type: 3}
       propertyPath: _enemyManager
       value: 
       objectReference: {fileID: 3649156942616304401}
-    - target: {fileID: 5915787792054807238, guid: c183dfb7d153c724485836cacfa3ffb1, type: 3}
-      propertyPath: _levelSetting
-      value: 
-      objectReference: {fileID: 11400000, guid: e6917c78ffdbe68469f1ca16d93e686f, type: 2}
     - target: {fileID: 5915787792054807238, guid: c183dfb7d153c724485836cacfa3ffb1, type: 3}
       propertyPath: _drifterManager
       value: 
