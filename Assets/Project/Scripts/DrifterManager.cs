@@ -93,7 +93,6 @@ namespace umi.ld50 {
             int index = UnityEngine.Random.Range(0, _drifterPrefabs.Count);
             GameObject prefab = _drifterPrefabs[index];
 
-            // TODO ランダムで大きさ&向きを変える
             var randomAngle = UnityEngine.Random.Range(-180f,180f);
             var randomOrientation = Quaternion.AngleAxis(randomAngle, Vector3.up);
             var randomScale = UnityEngine.Random.Range(-1,2.5f);
