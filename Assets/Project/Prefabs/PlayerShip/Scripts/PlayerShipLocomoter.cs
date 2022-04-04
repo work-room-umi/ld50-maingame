@@ -11,6 +11,7 @@ public class PlayerShipLocomoter : MonoBehaviour
     Transform _camera;
     [SerializeField]
     float _speedIntensity;
+    [SerializeField] private Waves wave;
 
     Transform _child;
 
@@ -40,6 +41,11 @@ public class PlayerShipLocomoter : MonoBehaviour
 
         _agent.SetDestination(nextPoint);
         _agent.nextPosition = transform.position;
+
+        var pos = transform.position;
+        pos.x -= wave.Dimension / 2;
+        pos.z -= wave.Dimension / 2;
+        wave.gameObject.transform.position = pos;
     }
 
     public float CurrentSpeedRate(){

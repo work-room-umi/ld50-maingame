@@ -255,6 +255,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1773448476486336735, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
   m_PrefabInstance: {fileID: 2018082858223581075}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1454302862 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1773448476486336707, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
+  m_PrefabInstance: {fileID: 2018082858223581075}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1454302860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90fd16dc82338a24383e414a794431ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1454744704
 GameObject:
   m_ObjectHideFlags: 0
@@ -402,10 +413,6 @@ PrefabInstance:
     - target: {fileID: 1679178184482639824, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1773448476486336707, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
-      propertyPath: Dimension
-      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 1773448476486336735, guid: c02f2ee5c77e102419c663de14d072f0, type: 3}
       propertyPath: m_IsActive
@@ -580,6 +587,10 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 7170370358958123887, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+      propertyPath: wave
+      value: 
+      objectReference: {fileID: 1454302862}
     - target: {fileID: 7170370358958123887, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
       propertyPath: _camera
       value: 
