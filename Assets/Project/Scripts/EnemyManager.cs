@@ -21,28 +21,43 @@ namespace umi.ld50 {
         // Update is called once per frame
         void Update()
         {
-            SpawnEnemy();
+            if (this.transform.childCount < enemyManagerValues.numberOfPrefabsToCreate)
+            {
+                SpawnEnemy();
+            }
         }
 
+        Vector3 PointOncircle(in float angle, in float radius){
+            var dirRotated = Quaternion.AngleAxis(angle, Vector3.up)*Vector3.forward;
+            return radius * dirRotated;
+        }
 
         void SpawnEnemy()
         {
-            // 原点からの距離が一定の場合のみスポーン
-            Vector3 shipPosition = _ship.gameObject.transform.position;
-            float distanceFromOrigin = Vector3.Distance(shipPosition, new Vector3(0, 0, 0));
-            if (distanceFromOrigin > enemyManagerValues.spawnDist && this.transform.childCount < enemyManagerValues.numberOfPrefabsToCreate){
-                int index = UnityEngine.Random.Range(0, enemyManagerValues.prefabs.Count);
-                GameObject prefab = enemyManagerValues.prefabs[index];
+            // スポーン位置を計算
+            var shipPosition = _ship.gameObject.transform.position;
+            var spawnZoneCenter = shipPosition + _ship.gameObject.transform.forward * enemyManagerValues.spawnDist;
+            var spawnPosition = spawnZoneCenter + PointOncircle(UnityEngine.Random.Range(-180f,180f), UnityEngine.Random.Range(0f, enemyManagerValues.spawnDist));
 
-                // スポーン位置を計算
-                Vector3 spanwPosition = -shipPosition;
-                GameObject enemy = Instantiate (prefab, spanwPosition, Quaternion.identity);
-                enemy.transform.parent = gameObject.transform;
-
-                // Sharklocomoterにshipを追従させる
-                SharkLocomoter sharkLocomoter = enemy.GetComponent<SharkLocomoter>();
-                sharkLocomoter.SetTarget(_ship.gameObject.transform);
+            // コライダーと干渉している場合スポーンのpositionをずらす
+            RaycastHit hit;
+            Ray ray = new Ray(spawnPosition, new Vector3(0, 1, 0));
+            int layerMask = LayerMask.GetMask(new string[] { "Obstacle"});
+            Physics.queriesHitBackfaces = true;
+            if (Physics.Raycast(ray, out hit, 10f, layerMask)){
+                MeshCollider collider = hit.transform.gameObject.GetComponent<MeshCollider>();
+                spawnPosition += new Vector3(collider.bounds.max.x, 0, collider.bounds.max.z);
             }
+
+            int index = UnityEngine.Random.Range(0, enemyManagerValues.prefabs.Count);
+            GameObject prefab = enemyManagerValues.prefabs[index];
+            GameObject enemy = Instantiate (prefab, spawnPosition, Quaternion.identity);
+            enemy.transform.parent = gameObject.transform;
+            enemy.transform.LookAt(_ship.gameObject.transform);
+
+            // Sharklocomoterにshipを追従させる
+            SharkLocomoter sharkLocomoter = enemy.GetComponent<SharkLocomoter>();
+            sharkLocomoter.SetTarget(_ship.gameObject.transform);
         }
     }
 }
