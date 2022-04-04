@@ -40,14 +40,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 8161256040685470762}
     m_Modifications:
-    - target: {fileID: 8629195084732712267, guid: 03cbfb766bb9e66448e77d5f3783d56b, type: 3}
-      propertyPath: Octaves.Array.data[0].height
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 8629195084732712276, guid: 03cbfb766bb9e66448e77d5f3783d56b, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 51d3efcdde3a4df47ac9fbe1b09bc8e0, type: 2}
     - target: {fileID: 8629195084732712277, guid: 03cbfb766bb9e66448e77d5f3783d56b, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -95,14 +87,6 @@ PrefabInstance:
     - target: {fileID: 8629195084732712279, guid: 03cbfb766bb9e66448e77d5f3783d56b, type: 3}
       propertyPath: m_Name
       value: Waves
-      objectReference: {fileID: 0}
-    - target: {fileID: 8629195084732712279, guid: 03cbfb766bb9e66448e77d5f3783d56b, type: 3}
-      propertyPath: m_Layer
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 8629195084732712279, guid: 03cbfb766bb9e66448e77d5f3783d56b, type: 3}
-      propertyPath: m_StaticEditorFlags
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 03cbfb766bb9e66448e77d5f3783d56b, type: 3}

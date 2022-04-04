@@ -34,17 +34,44 @@ jobs:
       - name: UnityBuild-${{ matrix.targetPlatform }}
         shell: powershell
         run: |
+          '::group::Metafile check' | Out-Host
+          $asset = Get-ChildItem -LiteralPath 'Assets' -Recurse | Where-Object {
+              if($_.Name.StartsWith('.')) {
+                  return $false
+              }
+              $ext = $_.Extension
+              if($ext.ToLower() -eq '.meta') {
+                  $isDir = $null -ne (Get-Content $_.FullName | Where-Object {$_ -eq 'folderAsset: yes'})
+                  if($isDir) {
+                      return $false
+                  }
+                  $asset = "$($_.Directory.FullName)\$($_.BaseName)"
+                  return !(Test-Path $asset)
+              }
+              $meta = "$($_.FullName).meta"
+              return !(Test-Path $meta)
+          }
+          $base = "$PWD\"
+          $asset | ForEach-Object {$_.FullName.Replace($base, '')}
+          '::endgroup::' | Out-Host
+          if($null -ne $asset) {
+              throw 'metafile check failed'
+          }
+
           $UNITY_VERSION = Get-Content '.\ProjectSettings\ProjectVersion.txt' | Where-Object {$_ -match '^m_EditorVersion: .+'} | ForEach-Object {$_ -replace 'm_EditorVersion: (.+)', '$1'}
           if($null -eq $UNITY_VERSION) {
               throw 'Could not detect Unity version'
           }
+
           $UNITY_EXECUTABLE = "C:\Program Files\Unity\Hub\Editor\${UNITY_VERSION}\Editor\Unity.exe"
           if(!(Test-Path $UNITY_EXECUTABLE)) {
               throw "Could not found Installed Unity version: ${UNITY_VERSION}"
           }
+
+          "::group::UnityBuild" | Out-Host
           & $UNITY_EXECUTABLE -quit -batchmode -nographics -executeMethod 'CI.Builder.Build' | Out-Host
+          "::endgroup::" | Out-Host
           $BUILD_PATH = "Build/${{ matrix.targetPlatform }}"
-          $BUILD_PATH | Out-Host
           if(!(Test-Path $BUILD_PATH)) {
               throw 'Artifact not found'
           }
