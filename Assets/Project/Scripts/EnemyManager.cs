@@ -12,17 +12,13 @@ namespace umi.ld50 {
         private PlayerShip _ship;
         [SerializeField]
         private EnemyManagerScriptableObject enemyManagerValues;
-
-        [SerializeField] private float enemyNormalizedMaxDistance = 25f;
         private List<GameObject> enemies = new List<GameObject>();
-        public float NormalizedShipDistance()
+
+        public Vector3[] EnemiesPositions()
         {
             enemies = enemies.Where(e => e != null).ToList();
-            var  nearestDist = enemies.Select(e => Vector3.Distance(e.transform.position, _ship.transform.position)).Min();
-            var normalizedDist = Mathf.Clamp01(nearestDist / enemyNormalizedMaxDistance);
-            return normalizedDist;
+            return enemies.Select(e => e.transform.position).ToArray();
         }
-
         // Start is called before the first frame update
         void Start()
         {

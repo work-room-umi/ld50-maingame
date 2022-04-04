@@ -7,13 +7,12 @@ namespace umi.ld50
 {
     public class Test : MonoBehaviour
     {
-        public PlayerShip Ship;
+        public EnemyManager Manager;
 
-        private void Start()
+        private void Update()
         {
-            Ship.AttackedAction += () => Debug.Log("attack");
-            Ship.BreakPartsAction += () => Debug.Log("break");
-            Ship.GetPartsAction += () => Debug.Log("get");
+            if (Manager == null) Manager = FindObjectOfType<EnemyManager>();
+            Debug.Log(Manager.NormalizedShipDistance());
         }
     }
 }
