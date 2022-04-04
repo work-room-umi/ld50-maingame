@@ -121,6 +121,7 @@ namespace umi.ld50
         {
             OnAttackedAction();
             OnBreakPartsAction();
+            attack.InformDoneAttacking();
             
             if (attack._attackableCount <= 0) return;
             if (_parts.Count == 0) return;
@@ -148,8 +149,6 @@ namespace umi.ld50
                 }
             }
             if(emitBreakEvent) OnBreakPartsAction();
-
-            attack.InformDoneAttacking();
         }
 
         public void AddDamage(Attack attack)
