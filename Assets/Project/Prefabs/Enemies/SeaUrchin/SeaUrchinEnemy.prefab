@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2719409297663952537}
   - component: {fileID: 8186693577740022239}
   m_Layer: 0
-  m_Name: SeaUrchinEnemy_A
+  m_Name: SeaUrchinEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -119,6 +119,10 @@ PrefabInstance:
     - target: {fileID: 155842585835102940, guid: d8f4c17b1e86aaf42b4a1b8a6f1c7326, type: 3}
       propertyPath: m_Name
       value: SeaUrchin_A_LOD0
+      objectReference: {fileID: 0}
+    - target: {fileID: 333390092329501477, guid: d8f4c17b1e86aaf42b4a1b8a6f1c7326, type: 3}
+      propertyPath: _attackPower
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 676237777693849702, guid: d8f4c17b1e86aaf42b4a1b8a6f1c7326, type: 3}
       propertyPath: m_RootOrder
