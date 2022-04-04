@@ -43,3 +43,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03457af74b746564f8a401b81238443a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _levelSetting: {fileID: 11400000, guid: e6917c78ffdbe68469f1ca16d93e686f, type: 2}
+  _drifterManager: {fileID: 0}
+  _enemyManager: {fileID: 0}
+  _wavesAttack: {fileID: 0}

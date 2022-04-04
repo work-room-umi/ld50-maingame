@@ -136,6 +136,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2570031494361256162}
+  - component: {fileID: 7409405200300800767}
   m_Layer: 0
   m_Name: PlayingEnvironment
   m_TagString: Untagged
@@ -162,6 +163,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7409405200300800767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3507594215629186655}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 172515602e62fb746b5d573b38a5fe58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isGlobal: 1
+  priority: 0
+  blendDistance: 0
+  weight: 1
+  sharedProfile: {fileID: 11400000, guid: 3fa24d5240a784440b3a768da219eb58, type: 2}
 --- !u!1 &8024713921859621279
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,18 +1272,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2570031494361256162}
     m_Modifications:
-    - target: {fileID: 5014854567089307252, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
-      propertyPath: _attackPower
-      value: 0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 5014854567089307252, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
-      propertyPath: _attackInterval
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5014854567089307252, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
-      propertyPath: _attackableCount
-      value: -1
-      objectReference: {fileID: 0}
     - target: {fileID: 8161256040685470761, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
       propertyPath: m_Name
       value: Sea

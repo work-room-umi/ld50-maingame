@@ -8,6 +8,9 @@ namespace umi.ld50
     public class Fix : MonoBehaviour
     {
         [SerializeField]
+        public VFXEmitterComponent _emitter;
+
+        [SerializeField]
         private float _hp = 5;
 
         [SerializeField] private float _maxHp = 5;
@@ -68,5 +71,10 @@ namespace umi.ld50
         //     // onTouchAttack = null;
         //     // onTouchFix = null;
         // }
+
+        public void EmitVFX()
+        {
+            _emitter.Emit();
+        }
     }
 }
