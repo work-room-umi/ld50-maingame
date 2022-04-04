@@ -123,9 +123,13 @@ namespace umi.ld50
             OnBreakPartsAction();
             attack.InformDoneAttacking();
             
-            if (attack._attackableCount <= 0) return;
+            if (attack._attackableCount != -1) {
+                if (attack._attackableCount == 0) return;
+            }
             if (_parts.Count == 0) return;
-            attack._attackableCount--;
+            if (attack._attackableCount != -1) {
+                attack._attackableCount--;
+            }
             
             bool emitBreakEvent = false;
             var damage = attack.AttackPower;

@@ -11,7 +11,7 @@ namespace umi.ld50 {
         [SerializeField]
         private PlayerShip _ship;
         [SerializeField]
-        private EnemyManagerScriptableObject enemyManagerValues;
+        public EnemyManagerScriptableObject enemyManagerValues;
         private List<GameObject> enemies = new List<GameObject>();
 
         public Vector3[] EnemiesPositions()
@@ -35,6 +35,7 @@ namespace umi.ld50 {
         }
 
         async void AsyncSpawnWithInterval(){
+            await Task.Delay((int)(enemyManagerValues.firstSpawnDeley*1000f));
             while(true){
                 if (enemyManagerValues == null) return; 
                 if (this.transform.childCount < enemyManagerValues.numberOfPrefabsToCreate)
@@ -48,6 +49,47 @@ namespace umi.ld50 {
         Vector3 PointOncircle(in float angle, in float radius){
             var dirRotated = Quaternion.AngleAxis(angle, Vector3.up)*Vector3.forward;
             return radius * dirRotated;
+        }
+        GameObject SelectSpawnObjectRandomly(in EnemyManagerScriptableObject setting){
+            int index = GetRandomWeightedIndex(setting.prefabs.Select(pair => pair.weight).ToArray());
+            return setting.prefabs[index].prefab;
+        }
+
+        // cf. https://forum.unity.com/threads/random-numbers-with-a-weighted-chance.442190/
+        int GetRandomWeightedIndex(float[] weights)
+        {
+            if (weights == null || weights.Length == 0) return -1;
+ 
+            float w;
+            float t = 0;
+            int i;
+            for (i = 0; i < weights.Length; i++)
+            {
+                w = weights[i];
+ 
+                if (float.IsPositiveInfinity(w))
+                {
+                    return i;
+                }
+                else if (w >= 0f && !float.IsNaN(w))
+                {
+                    t += weights[i];
+                }
+            }
+ 
+            float r = UnityEngine.Random.value;
+            float s = 0f;
+ 
+            for (i = 0; i < weights.Length; i++)
+            {
+                w = weights[i];
+                if (float.IsNaN(w) || w <= 0f) continue;
+ 
+                s += w / t;
+                if (s >= r) return i;
+            }
+ 
+            return -1;
         }
 
         void SpawnEnemy()
@@ -73,7 +115,8 @@ namespace umi.ld50 {
             }
 
             int index = UnityEngine.Random.Range(0, enemyManagerValues.prefabs.Count);
-            GameObject prefab = enemyManagerValues.prefabs[index];
+            // GameObject prefab = enemyManagerValues.prefabs[index].prefab;
+            GameObject prefab = SelectSpawnObjectRandomly(enemyManagerValues);
             GameObject enemy = Instantiate (prefab, spawnPosition, Quaternion.identity);
             enemy.transform.parent = gameObject.transform;
             enemy.transform.LookAt(_ship.gameObject.transform);

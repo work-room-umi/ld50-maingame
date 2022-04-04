@@ -26,12 +26,13 @@ namespace umi.ld50
         void Start()
         {
             // 船へ連続的なダメージを与えるためにshipを取得する
-            if (_ship==null)
-                _ship =  (PlayerShip)FindObjectOfType(typeof(PlayerShip));
         }
 
         void Update()
         {
+            if (_ship==null){
+                _ship =  (PlayerShip)FindObjectOfType(typeof(PlayerShip));
+            }
             float t = Time.time;
             if (_repeatAttack && t > _attackTrigger)
             {
@@ -40,6 +41,9 @@ namespace umi.ld50
             }
         }
 
+        public void SetAttackPower(float p){
+            _attackPower = p;
+        }
         public void InformDoneAttacking()
         {
             OnAttacked?.Invoke();

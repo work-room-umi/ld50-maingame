@@ -10,10 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 08b4b02fd1471a04bb7917ad44d3eaa5, type: 3}
-  m_Name: EmenyManager
+  m_Name: EmenySetting 2
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 8406264064703807918, guid: 78d1af0547c07294cb295015f2950ef1, type: 3}
-  - {fileID: 1225920825133976326, guid: d2104e1875271db458e52639f77f8036, type: 3}
+  - prefab: {fileID: 1225920825133976326, guid: d2104e1875271db458e52639f77f8036, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 8406264064703807918, guid: 78d1af0547c07294cb295015f2950ef1, type: 3}
+    weight: 1
   numberOfPrefabsToCreate: 5
   spawnDist: 30
+  firstSpawnDeley: 0
+  spawnInterval: 4
