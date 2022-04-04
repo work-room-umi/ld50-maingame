@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using System.Threading.Tasks;
 
 namespace umi.ld50 {
     public class DrifterManager : MonoBehaviour
@@ -14,18 +15,32 @@ namespace umi.ld50 {
         private float _deleteDist;
         [SerializeField]
         private float _spawnDist;
-        [SerializeField]
-        private int _maxDrifterNum;
+        // [SerializeField]
+        // private int _maxDrifterNum;
         [SerializeField]
         private List<GameObject> _drifterPrefabs;
         [SerializeField]
         float _spawnZoneCenterRadius;
+
+        [SerializeField]
+        public DrifterSetting drifterSetting;
 
         // Start is called before the first frame update
         private void Start()
         {
             if (_ship==null)
                 _ship =  (PlayerShip)FindObjectOfType(typeof(PlayerShip));
+            AsyncSpawnWithInterval();
+        }
+
+        async void AsyncSpawnWithInterval(){
+            while(true){
+                if (this.transform.childCount < drifterSetting.maxDrifterNum)
+                {
+                    Spawn();
+                }
+                await Task.Delay((int)(drifterSetting.spawnInterval*1000f));
+            }
         }
 
         private Vector3 GenerateRandomBasePosition()
@@ -58,6 +73,48 @@ namespace umi.ld50 {
             return radius * dirRotated;
         }
 
+        GameObject SelectSpawnObjectRandomly(DrifterSetting setting){
+            int index = GetRandomWeightedIndex(setting.prefabs.Select(pair => pair.weight).ToArray());
+            return setting.prefabs[index].prefab;
+        }
+
+        // cf. https://forum.unity.com/threads/random-numbers-with-a-weighted-chance.442190/
+        int GetRandomWeightedIndex(float[] weights)
+        {
+            if (weights == null || weights.Length == 0) return -1;
+ 
+            float w;
+            float t = 0;
+            int i;
+            for (i = 0; i < weights.Length; i++)
+            {
+                w = weights[i];
+ 
+                if (float.IsPositiveInfinity(w))
+                {
+                    return i;
+                }
+                else if (w >= 0f && !float.IsNaN(w))
+                {
+                    t += weights[i];
+                }
+            }
+ 
+            float r = UnityEngine.Random.value;
+            float s = 0f;
+ 
+            for (i = 0; i < weights.Length; i++)
+            {
+                w = weights[i];
+                if (float.IsNaN(w) || w <= 0f) continue;
+ 
+                s += w / t;
+                if (s >= r) return i;
+            }
+ 
+            return -1;
+        }
+
         void GC(in Vector3 shipPosition)
         {
             //削除対象を集める(for/foreachの中で要素を削除するとエラーで怒られたり、要素数がずれたりするので、2周に分ける)
@@ -75,13 +132,13 @@ namespace umi.ld50 {
         // Update is called once per frame
         void Update()
         {
-            Vector3 shipPosition = _ship.gameObject.transform.position;
+            // Vector3 shipPosition = _ship.gameObject.transform.position;
             // GC(shipPosition);
             
-            if (this.transform.childCount<_maxDrifterNum)
-            {
-                Spawn();
-            }
+            // if (this.transform.childCount<_maxDrifterNum)
+            // {
+            //     Spawn();
+            // }
         }
 
         void Spawn(){
@@ -92,8 +149,8 @@ namespace umi.ld50 {
             // Vector3 position = SpawnPosition();
 
             int index = UnityEngine.Random.Range(0, _drifterPrefabs.Count);
-            GameObject prefab = _drifterPrefabs[index];
-
+            // GameObject prefab = _drifterPrefabs[index];
+            GameObject prefab = SelectSpawnObjectRandomly(drifterSetting);
             var randomAngle = UnityEngine.Random.Range(-180f,180f);
             var randomOrientation = Quaternion.AngleAxis(randomAngle, Vector3.up);
             var randomScale = UnityEngine.Random.Range(-1,2.5f);
@@ -121,4 +178,5 @@ namespace umi.ld50 {
              return resultPosition;
         }
     }
+
 }
