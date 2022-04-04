@@ -15,4 +15,7 @@ MonoBehaviour:
   levelBundles:
   - enemySetting: {fileID: 11400000, guid: 25d8ab2ef83b3024d9b1d5c1c765ee20, type: 2}
     drifterSetting: {fileID: 11400000, guid: 3718367c0b55bc34587ba81c6490d711, type: 2}
+    duration: 60
+  - enemySetting: {fileID: 11400000, guid: ecdeaa9a1ffd524459ed42f9a6b614ce, type: 2}
+    drifterSetting: {fileID: 11400000, guid: bd174b3420c5b594fa55dd8153542fbf, type: 2}
     duration: 30
