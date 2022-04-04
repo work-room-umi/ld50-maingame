@@ -117,7 +117,7 @@ namespace umi.ld50
             return new Vector3(x, y, z).normalized * deployMaxRange;
         }
 
-        private void OnAttacked(Attack attack)
+        public void OnAttacked(Attack attack)
         {
             OnAttackedAction();
             OnBreakPartsAction();
