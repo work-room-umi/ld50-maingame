@@ -10,7 +10,7 @@ namespace umi.ld50
     {
         private Stack<Fix> _parts;
         [SerializeField] private PlayerShipCollider shipCollider;
-
+        [SerializeField] private VFXEmitterComponent vfxEmitter;
         public event Action GetPartsAction;
         public event Action AttackedAction;
         public event Action BreakPartsAction;
@@ -40,6 +40,9 @@ namespace umi.ld50
                 shipCollider = FindObjectOfType<PlayerShipCollider>();
             InitShipCollider(shipCollider);
             Physics.queriesHitBackfaces = true;
+            
+            if (vfxEmitter == null)
+                vfxEmitter = GetComponentInChildren<VFXEmitterComponent>();
         }
 
         private void InitShipCollider(PlayerShipCollider playerShipCollider)
@@ -96,6 +99,7 @@ namespace umi.ld50
             fixTrans.LookAt(hit.point + hit.normal * 5f);
             //少しランダム回転を付ける
             fixTrans.rotation = Quaternion.Lerp(fixTrans.rotation, Random.rotation, deployRotationRandomContribution);
+            fix.EmitVFX();
         }
         
         private Vector3 CalCastStart()
@@ -152,12 +156,22 @@ namespace umi.ld50
                     break;
                 }
             }
-            if(emitBreakEvent) OnBreakPartsAction();
+
+            if (emitBreakEvent)
+            {
+                EmitDamageVFX();
+                OnBreakPartsAction();
+            }
         }
 
         public void AddDamage(Attack attack)
         {
             OnAttacked(attack);
+        }
+
+        private void EmitDamageVFX()
+        {
+            vfxEmitter.Emit();
         }
 
         #region Debug
