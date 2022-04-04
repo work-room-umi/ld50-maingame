@@ -208,7 +208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 69fbf33cfbf94544c8e70c7090d581c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerShip: {fileID: 4564865145931054310}
+  playerShip: {fileID: 4564865145931054306}
   moveScene: {fileID: 330362666}
 --- !u!114 &330362666
 MonoBehaviour:
@@ -279,7 +279,7 @@ Transform:
   m_Children:
   - {fileID: 1020336965}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &699784106
 GameObject:
@@ -643,6 +643,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+--- !u!114 &4564865145931054306 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 512906214234191186, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+  m_PrefabInstance: {fileID: 4564865145931054305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6af22659a7a9c7d48a775903b5c04774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4624150287902544518
 PrefabInstance:
   m_ObjectHideFlags: 0
