@@ -11,7 +11,7 @@ namespace umi.ld50
         [SerializeField] float lifeTime;
 
         private GameObject instance;
-        public void EmitVFX()
+        public void Emit()
         {
             if (prefab == null)
             {
