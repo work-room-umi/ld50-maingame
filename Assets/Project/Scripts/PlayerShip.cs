@@ -9,10 +9,13 @@ namespace umi.ld50
     public class PlayerShip : MonoBehaviour
     {
         private Stack<Fix> _parts;
-        private Drifter _shipDrifter;
         [SerializeField] private PlayerShipCollider shipCollider;
         [SerializeField]
         private int growthLevel = 0;
+
+        public event Action GetPartsAction;
+        public event Action AttackedAction;
+        public event Action BreakPartsAction;
 
         public float Hp => _parts.Select(p => p.Hp).Sum();
         public float NormalizedHp => _parts.Select(p => p.Hp).Sum() / _parts.Select(p => p.MaxHp).Sum();
@@ -31,7 +34,6 @@ namespace umi.ld50
         [SerializeField] private float deployMaxRange = 20;
         [SerializeField] private float deployRotationRandomContribution = 0f;
         [SerializeField] private bool debug;
-        [SerializeField] private GameObject[] debugPrefabs;
         #endregion
         
         private void Start()
@@ -39,7 +41,6 @@ namespace umi.ld50
             //子にあるFixをデフォルトのパーツとして登録/初期化
             var fixes = GetComponentsInChildren<Fix>().ToArray();
             _parts = new Stack<Fix>(fixes);
-            _shipDrifter = GetComponent<Drifter>();
             if (shipCollider == null)
                 shipCollider = FindObjectOfType<PlayerShipCollider>();
             InitShipCollider(shipCollider);
@@ -70,14 +71,23 @@ namespace umi.ld50
             DeployFix(newFix);//位置/回転計算
             _parts.Push(newFix);
             newFix.GetComponent<Collider>().enabled = false;
+
+            OnGetPartsAction();
             
             //Collider Growth
             var newLevel = _parts.Count / colliderGrowthPartsCount;
             growthLevel = newLevel;
-            var width = shipCollider.gameObject.GetComponent<MeshRenderer>().bounds.extents.x * 2f;
+            var width = 1.75f;
             var targetWidth = width + growthWidth * newLevel;
-            var scale = targetWidth / width;
-            shipCollider.gameObject.transform.localScale = new Vector3(scale, scale,scale);
+            var maxCount = 1000f;
+            var maxScaleX = 6f;
+            var maxScaleZ = 4f;
+            // var scale = targetWidth / width;
+            var normalizedScale = Mathf.Clamp01((_parts.Count-20) / maxCount);
+            normalizedScale = Mathf.Pow(normalizedScale, 1f);
+            var scaleX = 1f + normalizedScale*(maxScaleX-1f);
+            var scaleZ = 1f + normalizedScale*(maxScaleZ-1f);
+            shipCollider.gameObject.transform.localScale = new Vector3(scaleX, 1,scaleZ);
         }
 
         private void DeployFix(Fix fix)
@@ -92,8 +102,6 @@ namespace umi.ld50
                 Debug.Log("レイは当たりませんでした");
                 return;
             }
-            Debug.Log(hit.collider.gameObject.layer);
-            Debug.Log(hit.collider.gameObject.name);
             var fixTrans = fix.transform;
             fixTrans.position = hit.point;
             fixTrans.LookAt(hit.point + hit.normal * 5f);
@@ -122,6 +130,7 @@ namespace umi.ld50
 
         private void OnAttacked(Attack attack)
         {
+            OnAttackedAction();
             // if (attack._attackableCount <= 0) return;
             // attack._attackableCount--;
             //
@@ -160,26 +169,6 @@ namespace umi.ld50
         }
 
         #region Debug
-        
-        // [ContextMenu("AddFix")]
-        // public void AddRandomFix()
-        // {
-        //     if (debugPrefabs.Length == 0)
-        //     {
-        //         Debug.LogError("Debug Prefabsが設定されていないので、Fixの設置テストが出来ません。PlayerShipのInspectorからDebugPrefabsを設定して下さい。");
-        //         return;
-        //     }
-        //     var index = Random.Range(0, debugPrefabs.Length);
-        //     var gameObject = Instantiate(debugPrefabs[index]);;
-        //     var fix = gameObject.GetComponent<Fix>();
-        //     if (fix == null){
-        //         Debug.LogError("DebugPrefabsにFixコンポーネントがアタッチされていないので付けてね！");
-        //         Destroy(gameObject);
-        //         return;
-        //     }
-        //     
-        //     AddFix(fix);
-        // }
         private void OnDrawGizmos()
         {
             if(!debug) return;
@@ -199,5 +188,20 @@ namespace umi.ld50
             }
         }
         #endregion
+
+        private void OnGetPartsAction()
+        {
+            GetPartsAction?.Invoke();
+        }
+
+        private void OnAttackedAction()
+        {
+            AttackedAction?.Invoke();
+        }
+
+        protected virtual void OnBreakPartsAction()
+        {
+            BreakPartsAction?.Invoke();
+        }
     }
 }
