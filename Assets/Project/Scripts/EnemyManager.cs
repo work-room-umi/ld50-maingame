@@ -15,15 +15,16 @@ namespace umi.ld50 {
         // Start is called before the first frame update
         void Start()
         {
-            if (_ship==null){
-                _ship =  (PlayerShip)FindObjectOfType(typeof(PlayerShip));
-            }
+            
             AsyncSpawnWithInterval();
         }
 
         // Update is called once per frame
         void Update()
         {
+            if (_ship == null){
+                _ship = FindObjectOfType<PlayerShip>();
+            }
         }
 
         async void AsyncSpawnWithInterval(){
@@ -43,6 +44,7 @@ namespace umi.ld50 {
 
         void SpawnEnemy()
         {
+            if (_ship == null) return;
             // スポーン位置を計算
             var shipPosition = _ship.gameObject.transform.position;
             var spawnZoneCenter = shipPosition + _ship.gameObject.transform.forward * enemyManagerValues.spawnDist;
