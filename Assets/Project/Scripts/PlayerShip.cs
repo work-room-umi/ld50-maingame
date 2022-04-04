@@ -117,7 +117,7 @@ namespace umi.ld50
             return new Vector3(x, y, z).normalized * deployMaxRange;
         }
 
-        public void OnAttacked(Attack attack)
+        private void OnAttacked(Attack attack)
         {
             OnAttackedAction();
             OnBreakPartsAction();
@@ -148,6 +148,36 @@ namespace umi.ld50
             }
             if(emitBreakEvent) OnBreakPartsAction();
             
+        }
+
+        public void AddDamage(Attack attack)
+        {
+            if (attack._attackableCount <= 0) return;
+            if (_parts.Count == 0) return;
+            attack._attackableCount--;
+            
+            bool emitBreakEvent = false;
+            var damage = attack.AttackPower;
+            while (0 < damage)
+            {
+                if (_parts.Count == 0) break;
+                var latest = _parts.Pop();
+                var hp = latest.Hp;
+                var isCrushed = latest.AddDamage(damage);
+                
+                if (isCrushed)
+                {
+                    damage -= hp;
+                    emitBreakEvent = true;
+                    FinalizeFix(latest);
+                }
+                else
+                {
+                    damage = 0;
+                    _parts.Push(latest);
+                }
+            }
+            if(emitBreakEvent) OnBreakPartsAction();
         }
 
         #region Debug

@@ -34,7 +34,7 @@ namespace umi.ld50
             float t = Time.time;
             if (_repeatAttack && t > _attackTrigger)
             {
-                _ship.OnAttacked(this);
+                _ship.AddDamage(this);
                 _attackTrigger = t + _attackInterval;
             }
         }
