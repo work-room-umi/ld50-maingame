@@ -49,13 +49,17 @@ namespace umi.ld50 {
             var spawnPosition = spawnZoneCenter + PointOncircle(UnityEngine.Random.Range(-180f,180f), UnityEngine.Random.Range(0f, enemyManagerValues.spawnDist));
 
             // コライダーと干渉している場合スポーンのpositionをずらす
-            RaycastHit hit;
-            Ray ray = new Ray(spawnPosition, new Vector3(0, 1, 0));
-            int layerMask = LayerMask.GetMask(new string[] { "Obstacle"});
+            //上から下にSphereCast
+            Ray ray = new Ray(spawnPosition + Vector3.up*20f, Vector3.down);
+            int layerMask = LayerMask.GetMask("Obstacle");
             Physics.queriesHitBackfaces = true;
-            if (Physics.Raycast(ray, out hit, 10f, layerMask)){
-                MeshCollider collider = hit.transform.gameObject.GetComponent<MeshCollider>();
-                spawnPosition += new Vector3(collider.bounds.max.x, 0, collider.bounds.max.z);
+            var hits = new RaycastHit[1];            
+            var hitNum = Physics.SphereCastNonAlloc(ray, 0.5f, hits, 10f, layerMask);
+            if (hitNum != 0)
+            {
+                var col = hits[0].collider;
+                var bounds = col.bounds;
+                spawnPosition += new Vector3(bounds.max.x, 0, bounds.max.z);    
             }
 
             int index = UnityEngine.Random.Range(0, enemyManagerValues.prefabs.Count);
