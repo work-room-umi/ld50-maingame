@@ -2,6 +2,7 @@ using umi.ld50;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace umi.ld50 {
@@ -96,25 +97,28 @@ namespace umi.ld50 {
             var randomAngle = UnityEngine.Random.Range(-180f,180f);
             var randomOrientation = Quaternion.AngleAxis(randomAngle, Vector3.up);
             var randomScale = UnityEngine.Random.Range(-1,2.5f);
+            var pos = SpawnPosition();
             GameObject driftObj = Instantiate (prefab, SpawnPosition(), Quaternion.identity);
             driftObj.transform.rotation   = randomOrientation;
-            driftObj.transform.position   = SpawnPosition();
+            driftObj.transform.position   = pos;
             // スケールは可変のオブジェクトとそうでないものがあるのでPrefab側でバリエーションを設定した方が良さそうです
             // driftObj.transform.localScale = dirft*randomScale;
             driftObj.transform.parent = gameObject.transform;
         }
 
          Vector3 AdjustedSpawnPosition(in Vector3 spawnPosition){
-            RaycastHit hit;
-            Ray ray = new Ray(spawnPosition, new Vector3(0, 1, 0));
-            int layerMask = LayerMask.GetMask(new string[] { "Obstacle"});
-            Physics.queriesHitBackfaces = true;
-            var result = spawnPosition;
-            if (Physics.Raycast(ray, out hit, 10f, layerMask)){
-                MeshCollider collider = hit.transform.gameObject.GetComponent<MeshCollider>();
-                result += new Vector3(collider.bounds.max.x, 0, collider.bounds.max.z);
-            }
-            return result;
+             //上から下にSphereCast
+             Ray ray = new Ray(spawnPosition + Vector3.up*20f, Vector3.down);
+             int layerMask = LayerMask.GetMask("Obstacle");
+             Physics.queriesHitBackfaces = true;
+             var resultPosition = spawnPosition;
+             var hits = new RaycastHit[1];            
+             var hitNum = Physics.SphereCastNonAlloc(ray, 0.5f, hits, 10f, layerMask);
+             if (hitNum == 0) return resultPosition;
+             var col = hits[0].collider;
+             var bounds = col.bounds;
+             resultPosition += new Vector3(bounds.max.x, 0, bounds.max.z);
+             return resultPosition;
         }
     }
 }
