@@ -41,15 +41,15 @@ jobs:
               }
               $ext = $_.Extension
               if($ext.ToLower() -eq '.meta') {
-                  $isDir = $null -ne (Get-Content $_.FullName | Where-Object {$_ -eq 'folderAsset: yes'})
+                  $isDir = $null -ne (Get-Content -LiteralPath $_.FullName | Where-Object {$_ -eq 'folderAsset: yes'})
                   if($isDir) {
                       return $false
                   }
                   $asset = "$($_.Directory.FullName)\$($_.BaseName)"
-                  return !(Test-Path $asset)
+                  return !(Test-Path -LiteralPath $asset)
               }
               $meta = "$($_.FullName).meta"
-              return !(Test-Path $meta)
+              return !(Test-Path -LiteralPath $meta)
           }
           $base = "$PWD\"
           $asset | ForEach-Object {$_.FullName.Replace($base, '')}

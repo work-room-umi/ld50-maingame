@@ -16,8 +16,8 @@ namespace umi.ld50
         public float waitFade = 0.5f;
         public float fadeinTime = 0.5f;
         public float fadeoutTime = 0.5f;
-        private static bool isFadeIn = false;
-        private static bool isFadeOut = false;
+        private bool isFadeIn = false;
+        private bool isFadeOut = false;
 
         public void OnClickButton()
         {
