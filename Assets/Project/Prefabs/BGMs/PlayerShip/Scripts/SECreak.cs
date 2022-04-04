@@ -10,20 +10,19 @@ namespace umi.ld50
         private StudioEventEmitter emitter;
 
         [SerializeField]
-        public PlayerShip playerShip;
+        public PlayerShipLocomoter playerShipLocomoter;
 
         public void Awake()
         {
             emitter = GetComponent<StudioEventEmitter>();
         }
 
-        //TODO playerShip.CurrentTiltingRateを実装してもらったらコメント解除
         void Update()
         {
-            if (playerShip != null)
+            if (playerShipLocomoter != null)
             {
-                //float value = playerShip.CurrentTiltingRate();
-                //emitter.EventInstance.setParameterByName("creak_sound", value);
+                float value = playerShipLocomoter.CurrentTiltingRate();
+                emitter.EventInstance.setParameterByName("creak_sound", value);
             }
         }
     }
