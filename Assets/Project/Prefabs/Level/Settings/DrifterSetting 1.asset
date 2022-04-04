@@ -27,5 +27,5 @@ MonoBehaviour:
     weight: 0.2
   - prefab: {fileID: 3676617205916090451, guid: 10ab2620ff291b74aa6f8be58a8bb1b4, type: 3}
     weight: 0.2
-  maxDrifterNum: 50
+  maxDrifterNum: 100
   spawnInterval: 1

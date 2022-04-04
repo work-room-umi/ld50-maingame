@@ -31,3 +31,4 @@ MonoBehaviour:
   - enemySetting: {fileID: 11400000, guid: 594771c918f173840ae10719ed9b4190, type: 2}
     drifterSetting: {fileID: 11400000, guid: 4746233304dab2d4daa58969978afec9, type: 2}
     duration: 180
+  waveAttackStrengthInc: 0.0022
