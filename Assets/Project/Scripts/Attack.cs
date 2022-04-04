@@ -22,7 +22,7 @@ namespace umi.ld50
 
         PlayerShip _ship;
         float _attackTrigger=0;
-        public event Action OnDonAttacked;
+        public event Action OnAttacked;
         void Start()
         {
             // 船へ連続的なダメージを与えるためにshipを取得する
@@ -42,7 +42,7 @@ namespace umi.ld50
 
         public void InformDoneAttacking()
         {
-            OnDonAttacked?.Invoke();
+            OnAttacked?.Invoke();
         }
     }
 }
