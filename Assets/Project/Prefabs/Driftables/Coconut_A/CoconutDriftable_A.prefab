@@ -303,6 +303,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ad47383fb6ff44e9b4ef01e8e14f9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _emitter: {fileID: 0}
+  _emitter: {fileID: 6617609427725236567}
   _hp: 2
   _maxHp: 2
