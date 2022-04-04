@@ -68,6 +68,10 @@ PrefabInstance:
       value: Rock_A_LOD0
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 11975d5199181a244ab052f545b8d240, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 11975d5199181a244ab052f545b8d240, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 4294967295
       objectReference: {fileID: 0}
@@ -122,3 +126,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _attackPower: 40
   _attackableCount: 1000
+  _attackInterval: 1
+  _repeatAttack: 0
