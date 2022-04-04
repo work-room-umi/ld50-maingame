@@ -41,6 +41,9 @@ namespace umi.ld50
             }
         }
 
+        public void SetAttackPower(float p){
+            _attackPower = p;
+        }
         public void InformDoneAttacking()
         {
             OnAttacked?.Invoke();

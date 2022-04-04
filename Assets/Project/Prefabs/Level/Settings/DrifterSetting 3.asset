@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7cd395d4caeb4843a0a435d113834d4, type: 3}
-  m_Name: DrifterSetting 1
+  m_Name: DrifterSetting 3
   m_EditorClassIdentifier: 
   prefabs:
   - prefab: {fileID: 4257319326840755587, guid: 76322590742d3c045a5e1c9c66acabd6, type: 3}
@@ -26,6 +26,18 @@ MonoBehaviour:
   - prefab: {fileID: 8592673305249967923, guid: af68a316a632e214fbf67020aacb74bf, type: 3}
     weight: 0.2
   - prefab: {fileID: 3676617205916090451, guid: 10ab2620ff291b74aa6f8be58a8bb1b4, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 4888442445150468747, guid: b3f1ac21443826240ba43b362503e839, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 5894586988633452944, guid: 2982c381de8998f41a0abdd7c7a48112, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 6016309797382267156, guid: d3f3c8e6691df664a8513194aea68b49, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 5923680622560523221, guid: 7384267d033644144b1d140f29a9e25a, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 6595143493621935062, guid: 47ea2ad14e149804eb6bde1c68d35168, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 9056478619107283954, guid: 7e83e74a10800434b92637803e3e57a3, type: 3}
     weight: 0.2
   maxDrifterNum: 50
   spawnInterval: 1

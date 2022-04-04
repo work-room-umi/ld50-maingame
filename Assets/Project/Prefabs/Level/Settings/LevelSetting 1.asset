@@ -15,7 +15,19 @@ MonoBehaviour:
   levelBundles:
   - enemySetting: {fileID: 11400000, guid: 25d8ab2ef83b3024d9b1d5c1c765ee20, type: 2}
     drifterSetting: {fileID: 11400000, guid: 3718367c0b55bc34587ba81c6490d711, type: 2}
-    duration: 30
+    duration: 180
   - enemySetting: {fileID: 11400000, guid: ecdeaa9a1ffd524459ed42f9a6b614ce, type: 2}
     drifterSetting: {fileID: 11400000, guid: bd174b3420c5b594fa55dd8153542fbf, type: 2}
-    duration: 30
+    duration: 180
+  - enemySetting: {fileID: 11400000, guid: 95a7a295000573e4db957c6d5d59ca12, type: 2}
+    drifterSetting: {fileID: 11400000, guid: 99a01b280fcdfc844b3917e62779dadc, type: 2}
+    duration: 180
+  - enemySetting: {fileID: 11400000, guid: 95a7a295000573e4db957c6d5d59ca12, type: 2}
+    drifterSetting: {fileID: 11400000, guid: 99a01b280fcdfc844b3917e62779dadc, type: 2}
+    duration: 180
+  - enemySetting: {fileID: 11400000, guid: dd2333b5c8338454a9c350ae8d120220, type: 2}
+    drifterSetting: {fileID: 11400000, guid: c5a4f38d898c4bb4b896e05af74b4f09, type: 2}
+    duration: 180
+  - enemySetting: {fileID: 11400000, guid: 594771c918f173840ae10719ed9b4190, type: 2}
+    drifterSetting: {fileID: 11400000, guid: 4746233304dab2d4daa58969978afec9, type: 2}
+    duration: 180

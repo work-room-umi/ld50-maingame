@@ -9,5 +9,7 @@ namespace umi.ld50
     public class LevelSetting : ScriptableObject
     {
         public List<LevelBundle> levelBundles;
+        [Tooltip("1/s")]
+        public float waveAttackStrengthInc;
     }
 }

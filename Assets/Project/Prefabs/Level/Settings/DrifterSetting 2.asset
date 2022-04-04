@@ -19,5 +19,19 @@ MonoBehaviour:
     weight: 1
   - prefab: {fileID: 8857290779404909022, guid: ef2b133056e13814c896fae8fc2c6c1e, type: 3}
     weight: 1
+  - prefab: {fileID: 1137168828699124432, guid: 4c77976f8dfb28147913bcf65df9a870, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 8812029712122666895, guid: cdb9dee3462674b498e9a6d1e0f3a6a1, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 8592673305249967923, guid: af68a316a632e214fbf67020aacb74bf, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 3676617205916090451, guid: 10ab2620ff291b74aa6f8be58a8bb1b4, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 4888442445150468747, guid: b3f1ac21443826240ba43b362503e839, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 5894586988633452944, guid: 2982c381de8998f41a0abdd7c7a48112, type: 3}
+    weight: 0.2
+  - prefab: {fileID: 6016309797382267156, guid: d3f3c8e6691df664a8513194aea68b49, type: 3}
+    weight: 0.2
   maxDrifterNum: 50
   spawnInterval: 1

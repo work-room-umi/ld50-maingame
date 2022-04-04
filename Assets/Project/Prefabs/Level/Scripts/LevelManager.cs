@@ -14,6 +14,9 @@ namespace umi.ld50{
 
         [SerializeField]
         EnemyManager _enemyManager;
+
+        [SerializeField]
+        Attack _wavesAttack;
         // Start is called before the first frame update
         // async Task Start()
         // {
@@ -22,8 +25,15 @@ namespace umi.ld50{
 
         void Start(){
             AsyncSelectLevelBundle();
+            AsyncIncrementWave();
         }
 
+        async void AsyncIncrementWave(){
+            while(true){
+                _wavesAttack.SetAttackPower(_wavesAttack.AttackPower + _levelSetting.waveAttackStrengthInc);
+                await Task.Delay((int)(1000f));
+            }
+        }
 
         async void AsyncSelectLevelBundle(){
             int bundleIndex = 0;

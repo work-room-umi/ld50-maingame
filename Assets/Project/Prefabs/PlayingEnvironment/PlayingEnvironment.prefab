@@ -1254,6 +1254,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2570031494361256162}
     m_Modifications:
+    - target: {fileID: 5014854567089307252, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
+      propertyPath: _attackPower
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014854567089307252, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
+      propertyPath: _attackInterval
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5014854567089307252, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
+      propertyPath: _attackableCount
+      value: -1
+      objectReference: {fileID: 0}
     - target: {fileID: 8161256040685470761, guid: 2902355f9b1601648ab612f079d928bb, type: 3}
       propertyPath: m_Name
       value: Sea
