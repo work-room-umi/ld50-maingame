@@ -17,12 +17,10 @@ namespace umi.ld50
             {
                 return;
             }
-            instance = Instantiate(prefab, this.transform.position, Quaternion.identity); 
-        }
-        void PlayParticle()
-        {
+            instance = Instantiate(prefab, this.transform.position, Quaternion.identity);
             StartCoroutine(DelayAction(lifeTime));
         }
+
         IEnumerator DelayAction(float lifeTime)
         {
             yield return new WaitForSeconds(lifeTime);
