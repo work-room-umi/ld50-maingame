@@ -64,7 +64,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6c01d302f9d1d8f4683b7ea3d20a90b8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _attackPower: 0.1
+  _attackPower: 0.01
   _attackableCount: 999999
   _attackInterval: 1
   _repeatAttack: 1
