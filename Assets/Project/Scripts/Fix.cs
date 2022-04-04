@@ -22,6 +22,7 @@ namespace umi.ld50
 
         private void Start()
         {
+            gameObject.layer = LayerMask.NameToLayer("Obstacle");
             _maxHp = _hp;
         }
 
