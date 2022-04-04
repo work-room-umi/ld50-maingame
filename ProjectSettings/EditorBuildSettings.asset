@@ -12,21 +12,6 @@ EditorBuildSettings:
     path: Assets/Project/Scenes/Playing/Playing.unity
     guid: c51f9dc12e6c4c54fb240ccc6d44f0dd
   - enabled: 1
-    path: Assets/Project/Scenes/AssetView.unity
-    guid: c892a87b587b15b488271ea47d2c9b7a
-  - enabled: 1
-    path: Assets/Project/Scenes/3dModelSample/3dModelSample.unity
-    guid: aa2a1d3aee649344ca595adbc2b78a76
-  - enabled: 1
-    path: Assets/Scenes/noribenTestScene.unity
-    guid: 0f9f5c2c51d10ea43838b05649421c5c
-  - enabled: 1
-    path: Assets/Project/Scenes/Ending.unity
-    guid: aa48d1b5f66568a43905aea3f80fadc9
-  - enabled: 1
-    path: Assets/Project/Scenes/Playing.unity
-    guid: e70e0a792dc9ab8438957ceed04b0590
-  - enabled: 1
     path: Assets/Project/Scenes/Result.unity
     guid: 2a7d3b70fc7684f47bc352a5ec149c3e
   - enabled: 1
