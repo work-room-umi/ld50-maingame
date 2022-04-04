@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 9221903351825541710}
   - component: {fileID: 9221903351825541705}
+  - component: {fileID: 4670649580096631781}
   m_Layer: 0
   m_Name: ObstacleSound
   m_TagString: Untagged
@@ -61,3 +62,16 @@ MonoBehaviour:
   OverrideAttenuation: 0
   OverrideMinDistance: 1
   OverrideMaxDistance: 20
+--- !u!114 &4670649580096631781
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9221903351825541709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc304f894f5e6eb45b7d8fcc62337980, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attack: {fileID: 0}

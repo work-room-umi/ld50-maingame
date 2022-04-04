@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace umi.ld50
 {
-    public class SEShark : MonoBehaviour
+    public class SEAttack : MonoBehaviour
     {
         private StudioEventEmitter emitter;
 
