@@ -55,8 +55,7 @@ namespace umi.ld50
         
         private void FinalizeFix(Fix fix)
         {
-            // _parts.Pop(fix);
-            // Destroy(fix.gameObject);
+            Destroy(fix.gameObject);
         }
 
         private void AddFix(Fix newFix)
@@ -131,41 +130,32 @@ namespace umi.ld50
         private void OnAttacked(Attack attack)
         {
             OnAttackedAction();
-            // if (attack._attackableCount <= 0) return;
-            // attack._attackableCount--;
-            //
-            // var targets = new List<Fix> {touchFix};
-            // var targetNum = attack.AttackTargetNum-1;
-            // var power = attack.AttackPower;
-            //
-            // //接触したFixに近いFixから攻撃ターゲット数個ピックアップする
-            // for (var i = 0; i < targetNum; i++)
-            // {
-            //     Fix nearestFix = null;
-            //     var minDist = float.PositiveInfinity;
-            //     //近いfixを検索
-            //     foreach (var fix in _parts)
-            //     {
-            //         if (targets.Contains(fix)) continue;
-            //         var d = Vector3.Distance(fix.transform.position, touchFix.transform.position);
-            //         if (d < minDist)
-            //         {
-            //             minDist = d;
-            //             nearestFix = fix;
-            //         }
-            //     }
-            //     targets.Add(nearestFix);
-            // }
-            //
-            // foreach (var t in targets)
-            // {
-            //     if (t == null) continue;
-            //     var isCrushed = t.AddDamage(power);
-            //     if (isCrushed)
-            //     {
-            //         FinalizeFix(t);
-            //     }
-            // }
+            OnBreakPartsAction();
+            
+            if (attack._attackableCount <= 0) return;
+            attack._attackableCount--;
+            
+            bool emitBreakEvent = false;
+            var damage = attack.AttackPower;
+            while (0 < damage)
+            {
+                var latest = _parts.Pop();
+                var hp = latest.Hp;
+                var isCrushed = latest.AddDamage(damage);
+                
+                if (isCrushed)
+                {
+                    damage -= hp;
+                    emitBreakEvent = true;
+                    FinalizeFix(latest);
+                }
+                else
+                {
+                    _parts.Push(latest);
+                }
+            }
+            if(emitBreakEvent) OnBreakPartsAction();
+            
         }
 
         #region Debug
