@@ -5,7 +5,7 @@
 			<value>bgm003</value>
 		</property>
 		<property name="outputFormat">
-			<value>0</value>
+			<value>1</value>
 		</property>
 		<relationship name="folder">
 			<destination>{34426070-b5a0-4257-9b6f-bfdf83957379}</destination>
@@ -90,7 +90,11 @@
 			<destination>{797c7575-94d2-4372-8098-9b50dddebe56}</destination>
 		</relationship>
 	</object>
-	<object class="MultiSound" id="{b8f3e304-99b2-47c1-b57d-2ef38aef9c91}" />
+	<object class="MultiSound" id="{b8f3e304-99b2-47c1-b57d-2ef38aef9c91}">
+		<relationship name="sounds">
+			<destination>{593f75f3-34a7-4a47-aac4-49c165b04d56}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusEffectChain" id="{c0b190e8-f485-43c9-9c45-cfd28dda1dbe}">
 		<relationship name="effects">
 			<destination>{b4311c47-1029-4bcf-832f-73d0f738ce07}</destination>
@@ -117,6 +121,14 @@
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{4edf17fa-2572-48be-b805-1d7f3bc6c5a5}" />
+	<object class="SingleSound" id="{593f75f3-34a7-4a47-aac4-49c165b04d56}">
+		<property name="looping">
+			<value>true</value>
+		</property>
+		<relationship name="audioFile">
+			<destination>{ce4a63c6-29e2-4090-b7a8-854f00876e68}</destination>
+		</relationship>
+	</object>
 	<object class="MixerBusFader" id="{b4311c47-1029-4bcf-832f-73d0f738ce07}" />
 	<object class="MixerBusEffectChain" id="{ca4fc1cd-09e9-4376-a504-3d68b1e05b3b}">
 		<relationship name="effects">
