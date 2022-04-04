@@ -132,11 +132,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6180546641775040005, guid: 7090fd908c9172c468667fc5cf944a7c, type: 3}
   m_PrefabInstance: {fileID: 865033698173477883}
   m_PrefabAsset: {fileID: 0}
---- !u!4 &4699946647610901961 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5564380973635577394, guid: 7090fd908c9172c468667fc5cf944a7c, type: 3}
-  m_PrefabInstance: {fileID: 865033698173477883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!114 &5559935860638554859
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,14 +156,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
-    - target: {fileID: 7170370358958123887, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
-      propertyPath: wave
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 7170370358958123887, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
-      propertyPath: _camera
-      value: 
-      objectReference: {fileID: 4699946647610901961}
     - target: {fileID: 8828864462284321624, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
       propertyPath: m_RootOrder
       value: 0

@@ -78,20 +78,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 359751e1be8927740be1065f3bff829d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!64 &196374191766049151
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3543653842162382388}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 1
-  m_CookingOptions: 30
-  m_Mesh: {fileID: -3683217093807963363, guid: 3e292872988a5324cb496cbf7e42ded8, type: 3}
 --- !u!1001 &7207215713752018861
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -171,9 +157,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6af22659a7a9c7d48a775903b5c04774, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shipCollider: {fileID: 196374191766049151}
-  deployYAngleRange: 45
+  shipCollider: {fileID: 0}
+  shipCenterYOffset: 0.3
+  rayYnMin: -8
+  rayYnMax: 20
   deployMaxRange: 20
   deployRotationRandomContribution: 0.1
   debug: 0
-  debugPrefabs: []
