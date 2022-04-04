@@ -205,6 +205,10 @@ PrefabInstance:
       propertyPath: playerShip
       value: 
       objectReference: {fileID: 8462054676008696633}
+    - target: {fileID: 7577551199711154788, guid: 59b2c1284feaffc44966d5b47a10c7ec, type: 3}
+      propertyPath: distanceMeasure
+      value: 
+      objectReference: {fileID: 1692909266898821931}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59b2c1284feaffc44966d5b47a10c7ec, type: 3}
 --- !u!4 &6165762974933609390 stripped
@@ -223,6 +227,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 7282066186774392128, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+      propertyPath: _ship
+      value: 
+      objectReference: {fileID: 8462054676008696633}
     - target: {fileID: 8828864462284321624, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -288,5 +296,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6af22659a7a9c7d48a775903b5c04774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1692909266898821931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7282066186774392128, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+  m_PrefabInstance: {fileID: 8246500619610394219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4d02fa9507a004b94b769be4ab8223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
