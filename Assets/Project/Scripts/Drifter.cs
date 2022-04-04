@@ -24,6 +24,7 @@ public class Drifter : MonoBehaviour
 		_child = transform.GetChild(0);
 		_childObject = _child.gameObject;
     	_wave = (Waves)FindObjectOfType(typeof(Waves));
+        UpdatePosition();
 	}
 
 	public Transform GetChild()
@@ -40,18 +41,19 @@ public class Drifter : MonoBehaviour
 		return dir;
 	}
 
-	// Update is called once per frame
-	void Update()
+	void UpdatePosition()
 	{
+		//横移動
 		// var transform = this.transform;
 		// transform.rotation = Quaternion.identity;
 		Vector3 moveDir = GetNoiseDir(_child.position);
 		// Quaternion targetRorationNoise = Quaternion.FromToRotation(_frontDir, moveDir * (_noiseRotate? 1f : 0f));
 		// transform.rotation = targetRorationNoise;
 		transform.position = new Vector3(transform.position.x + moveDir.x * _noiseMoveAmp, transform.position.y,  transform.position.z + moveDir.z * _noiseMoveAmp);
-
+		
 		try
 		{
+			//縦揺れ
 			_child.rotation = Quaternion.identity;
 			float height = _wave.GetHeight(_child.position);
 			Vector3 normal = _wave.GetNormal(_child.position);
@@ -71,5 +73,11 @@ public class Drifter : MonoBehaviour
 			_childObject.SetActive(false);
 			_visible = false;
 		}
+	} 
+
+	// Update is called once per frame
+	void Update()
+	{
+		UpdatePosition();
 	}
 }
