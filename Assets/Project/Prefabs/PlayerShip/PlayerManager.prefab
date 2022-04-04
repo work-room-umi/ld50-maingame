@@ -77,6 +77,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CameraRig
       objectReference: {fileID: 0}
+    - target: {fileID: 5559935860638554859, guid: 7090fd908c9172c468667fc5cf944a7c, type: 3}
+      propertyPath: _playerShipAgent
+      value: 
+      objectReference: {fileID: 8246500620576035708}
     - target: {fileID: 6180546641775040005, guid: 7090fd908c9172c468667fc5cf944a7c, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -123,29 +127,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7090fd908c9172c468667fc5cf944a7c, type: 3}
---- !u!1 &2767218719833292060 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3055152843731640039, guid: 7090fd908c9172c468667fc5cf944a7c, type: 3}
-  m_PrefabInstance: {fileID: 865033698173477883}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &6468437884258186750 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6180546641775040005, guid: 7090fd908c9172c468667fc5cf944a7c, type: 3}
   m_PrefabInstance: {fileID: 865033698173477883}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &5559935860638554859
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
+--- !u!4 &4699946647610901961 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5564380973635577394, guid: 7090fd908c9172c468667fc5cf944a7c, type: 3}
+  m_PrefabInstance: {fileID: 865033698173477883}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2767218719833292060}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 25f36e2de499a7e45914d4dace3a4edb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _playerShipAgent: {fileID: 8246500620576035708}
 --- !u!1001 &5863416507003498361
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -205,6 +196,10 @@ PrefabInstance:
       propertyPath: playerShip
       value: 
       objectReference: {fileID: 8462054676008696633}
+    - target: {fileID: 7577551199711154788, guid: 59b2c1284feaffc44966d5b47a10c7ec, type: 3}
+      propertyPath: distanceMeasure
+      value: 
+      objectReference: {fileID: 1692909266898821931}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 59b2c1284feaffc44966d5b47a10c7ec, type: 3}
 --- !u!4 &6165762974933609390 stripped
@@ -223,6 +218,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerShip
       objectReference: {fileID: 0}
+    - target: {fileID: 7170370358958123887, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 4699946647610901961}
     - target: {fileID: 8828864462284321624, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -288,5 +287,16 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6af22659a7a9c7d48a775903b5c04774, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1692909266898821931 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7282066186774392128, guid: f75820df256d38c4bbb5558eac075b16, type: 3}
+  m_PrefabInstance: {fileID: 8246500619610394219}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9a4d02fa9507a004b94b769be4ab8223, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
