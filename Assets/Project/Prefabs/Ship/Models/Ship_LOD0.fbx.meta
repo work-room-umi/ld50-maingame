@@ -17,6 +17,11 @@ ModelImporter:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
+      name: SquaredTimber_A_LOD0
+    second: {fileID: 2100000, guid: 952427a4d54a6c6489ced64abc26e70b, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
       name: WoodenBoard_A_LOD0
     second: {fileID: 2100000, guid: 3a0b91d202a80c84896bc61948bcc947, type: 2}
   materials:
