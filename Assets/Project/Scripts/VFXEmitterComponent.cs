@@ -10,21 +10,23 @@ namespace umi.ld50
 
         [SerializeField] float lifeTime;
 
-        private GameObject instance;
+        private List<GameObject> instances = new List<GameObject>();
         public void Emit()
         {
             if (prefab == null)
             {
                 return;
             }
-            instance = Instantiate(prefab, this.transform.position, Quaternion.identity);
-            StartCoroutine(DelayAction(lifeTime));
+
+            var instance = Instantiate(prefab, this.transform.position, Quaternion.identity);
+            instances.Add(instance);
+            StartCoroutine(DelayAction(lifeTime, instance));
         }
 
-        IEnumerator DelayAction(float lifeTime)
+        IEnumerator DelayAction(float lifeTime, GameObject gameObject)
         {
             yield return new WaitForSeconds(lifeTime);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
     }
 }
