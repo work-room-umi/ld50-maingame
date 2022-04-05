@@ -45,4 +45,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _enemyManager: {fileID: 0}
   _ship: {fileID: 0}
-  enemyNormalizedMaxDistance: 25
+  enemyNormalizedMaxDistance: 50

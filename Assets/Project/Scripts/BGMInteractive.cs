@@ -24,7 +24,7 @@ namespace umi.ld50
         {
             if (playerShip != null)
             {
-                float value = 1 - playerShip.NormalizedHp;
+                float value = 1 - playerShip.NormalizedHp();
                 emitter.EventInstance.setParameterByName("interactive_bgm", value);
                 float dist = 1 - distanceMeasure.NormalizedShipDistance();
                 emitter.EventInstance.setParameterByName("battle_bgm", dist);
