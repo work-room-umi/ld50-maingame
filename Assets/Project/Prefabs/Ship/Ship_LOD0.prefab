@@ -45,6 +45,63 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefab: {fileID: 6148609054584442901, guid: 46a8b9e556f6a4f4a983737a38bbd7a0, type: 3}
   lifeTime: 3
+--- !u!1001 &2841852239841206135
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 7174117644938774598}
+    m_Modifications:
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_RootOrder
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7116417463908323578, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7782143955812865130, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
+      propertyPath: m_Name
+      value: BoatSplash
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d795152397bb49d4e8862c611bb1753c, type: 3}
 --- !u!1001 &4462222483956976485
 PrefabInstance:
   m_ObjectHideFlags: 0
