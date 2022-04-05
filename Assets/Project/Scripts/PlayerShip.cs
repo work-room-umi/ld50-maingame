@@ -17,9 +17,10 @@ namespace umi.ld50
 
         private float defaultHP = 20f;
 
-        public float Hp => _parts.Select(p => p.Hp).Sum();
+        public float Hp => _parts == null ? 20 : _parts.Select(p => p.Hp).Sum();
         public float NormalizedHp()
         {
+            if (_parts == null) return 1;
             var sum = _parts.Select(p => p.Hp).Sum();
             return Mathf.Clamp01(sum / defaultHP);
         }
