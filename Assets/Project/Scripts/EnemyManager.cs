@@ -38,6 +38,8 @@ namespace umi.ld50 {
             await Task.Delay((int)(enemyManagerValues.firstSpawnDeley*1000f));
             while(true){
                 if (enemyManagerValues == null) return; 
+                if (gameObject == null) return; 
+                if (this == null) return; 
                 if (this.transform.childCount < enemyManagerValues.numberOfPrefabsToCreate)
                 {
                     SpawnEnemy();
