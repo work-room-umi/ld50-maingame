@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662952d9203559f4f9d7bf709761fe52, type: 3}
+  m_Name: LevelSetting 1
+  m_EditorClassIdentifier: 
+  levelBundles:
+  - enemySetting: {fileID: 11400000, guid: 25d8ab2ef83b3024d9b1d5c1c765ee20, type: 2}
+    drifterSetting: {fileID: 11400000, guid: 3718367c0b55bc34587ba81c6490d711, type: 2}
+    duration: 60
+  - enemySetting: {fileID: 11400000, guid: ecdeaa9a1ffd524459ed42f9a6b614ce, type: 2}
+    drifterSetting: {fileID: 11400000, guid: bd174b3420c5b594fa55dd8153542fbf, type: 2}
+    duration: 60
+  - enemySetting: {fileID: 11400000, guid: 95a7a295000573e4db957c6d5d59ca12, type: 2}
+    drifterSetting: {fileID: 11400000, guid: 99a01b280fcdfc844b3917e62779dadc, type: 2}
+    duration: 60
+  - enemySetting: {fileID: 11400000, guid: 95a7a295000573e4db957c6d5d59ca12, type: 2}
+    drifterSetting: {fileID: 11400000, guid: 99a01b280fcdfc844b3917e62779dadc, type: 2}
+    duration: 60
+  - enemySetting: {fileID: 11400000, guid: dd2333b5c8338454a9c350ae8d120220, type: 2}
+    drifterSetting: {fileID: 11400000, guid: c5a4f38d898c4bb4b896e05af74b4f09, type: 2}
+    duration: 60
+  - enemySetting: {fileID: 11400000, guid: 594771c918f173840ae10719ed9b4190, type: 2}
+    drifterSetting: {fileID: 11400000, guid: 4746233304dab2d4daa58969978afec9, type: 2}
+    duration: 60
+  waveAttackStrengthInc: 0.0066

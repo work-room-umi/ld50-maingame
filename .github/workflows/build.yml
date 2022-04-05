@@ -34,29 +34,56 @@ jobs:
       - name: UnityBuild-${{ matrix.targetPlatform }}
         shell: powershell
         run: |
+          '::group::Metafile check' | Out-Host
+          $asset = Get-ChildItem -LiteralPath 'Assets' -Recurse | Where-Object {
+              if($_.Name.StartsWith('.')) {
+                  return $false
+              }
+              $ext = $_.Extension
+              if($ext.ToLower() -eq '.meta') {
+                  $isDir = $null -ne (Get-Content -LiteralPath $_.FullName | Where-Object {$_ -eq 'folderAsset: yes'})
+                  if($isDir) {
+                      return $false
+                  }
+                  $asset = "$($_.Directory.FullName)\$($_.BaseName)"
+                  return !(Test-Path -LiteralPath $asset)
+              }
+              $meta = "$($_.FullName).meta"
+              return !(Test-Path -LiteralPath $meta)
+          }
+          $base = "$PWD\"
+          $asset | ForEach-Object {$_.FullName.Replace($base, '')}
+          '::endgroup::' | Out-Host
+          if($null -ne $asset) {
+              throw 'metafile check failed'
+          }
+
           $UNITY_VERSION = Get-Content '.\ProjectSettings\ProjectVersion.txt' | Where-Object {$_ -match '^m_EditorVersion: .+'} | ForEach-Object {$_ -replace 'm_EditorVersion: (.+)', '$1'}
           if($null -eq $UNITY_VERSION) {
               throw 'Could not detect Unity version'
           }
+
           $UNITY_EXECUTABLE = "C:\Program Files\Unity\Hub\Editor\${UNITY_VERSION}\Editor\Unity.exe"
           if(!(Test-Path $UNITY_EXECUTABLE)) {
               throw "Could not found Installed Unity version: ${UNITY_VERSION}"
           }
+
+          "::group::UnityBuild" | Out-Host
           & $UNITY_EXECUTABLE -quit -batchmode -nographics -executeMethod 'CI.Builder.Build' | Out-Host
+          "::endgroup::" | Out-Host
           $BUILD_PATH = "Build/${{ matrix.targetPlatform }}"
-          $BUILD_PATH | Out-Host
           if(!(Test-Path $BUILD_PATH)) {
               throw 'Artifact not found'
           }
           $BUILD_ZIP = "Build/Build-${{ matrix.targetPlatform }}.zip"
           Compress-Archive -Path $BUILD_PATH -DestinationPath "$BUILD_ZIP"
           if(!(Test-Path $BUILD_ZIP)) {
-              throw 'Artifact not found'
+              throw 'Release artifact not found'
           }
       - uses: actions/upload-artifact@v2
         with:
           name: Build-${{ matrix.targetPlatform }}
-          path: Build/Build-${{ matrix.targetPlatform }}.zip
+          path: Build/${{ matrix.targetPlatform }}
       - name: Release
         uses: softprops/action-gh-release@v1
         if: startsWith(github.ref, 'refs/tags/')
