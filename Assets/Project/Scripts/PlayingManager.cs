@@ -22,8 +22,11 @@ namespace umi.ld50
         void Update()
         {
             score.AddScore(Time.deltaTime);
+            if(!playerShip.IsInitialized) return;
             if(playerShip.Hp == 0 && !isGameOver)
             {
+                Debug.Log(playerShip.IsInitialized);
+                Debug.Log(playerShip.Hp);
                 moveScene.OnClickButton();
                 isGameOver = true;
             }

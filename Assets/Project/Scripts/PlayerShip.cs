@@ -15,7 +15,10 @@ namespace umi.ld50
         public event Action AttackedAction;
         public event Action BreakPartsAction;
 
-        private float defaultHP = 20f;
+        private float defaultHP = 100f;
+
+        private bool isInitialized = false;
+        public bool IsInitialized => isInitialized;
 
         public float Hp => _parts.Select(p => p.Hp).Sum();
         public float NormalizedHp()
@@ -52,6 +55,8 @@ namespace umi.ld50
             
             if (vfxEmitter == null)
                 vfxEmitter = GetComponentInChildren<VFXEmitterComponent>();
+
+            isInitialized = true;
         }
 
         private void InitShipCollider(PlayerShipCollider playerShipCollider)
