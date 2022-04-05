@@ -31,6 +31,7 @@ namespace umi.ld50
 
         public bool AddDamage(float damage)
         {
+            EmitVFX();
             _hp -= damage;
             var isCrushed = _hp < 0;
             if (isCrushed) _hp = 0;
