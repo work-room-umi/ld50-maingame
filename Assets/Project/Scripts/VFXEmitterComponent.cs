@@ -8,7 +8,7 @@ namespace umi.ld50
     {
         [SerializeField] GameObject prefab;
 
-        [SerializeField] float lifeTime;
+        [SerializeField] float lifeTime = 3;
 
         private GameObject instance;
         public void Emit()
