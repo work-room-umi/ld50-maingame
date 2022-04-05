@@ -22,8 +22,6 @@ namespace umi.ld50
 
         PlayerShip _ship;
         float _attackTrigger=0;
-
-        private Collider collider;
         public event Action OnAttacked;
 
         [SerializeField] private VFXEmitterComponent vfxEmitter;
@@ -31,7 +29,6 @@ namespace umi.ld50
         {
             if (vfxEmitter == null)
                 vfxEmitter = GetComponentInChildren<VFXEmitterComponent>();
-            collider = GetComponent<Collider>();
         }
 
         void Update()
