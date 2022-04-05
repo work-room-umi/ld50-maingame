@@ -133,7 +133,6 @@ namespace umi.ld50
         private void OnAttacked(Attack attack)
         {
             OnAttackedAction();
-            OnBreakPartsAction();
             attack.InformDoneAttacking();
             
             if (attack._attackableCount != -1) {
