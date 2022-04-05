@@ -53,7 +53,22 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1203385535270022181, guid: cd4ffc5473210454b87459d2480138bf, type: 3}
       propertyPath: m_Name
-      value: WoodenBoardDriftable_A
+      value: WoodenBoardDriftableSmall
       objectReference: {fileID: 0}
+    - target: {fileID: 3334888101430560124, guid: cd4ffc5473210454b87459d2480138bf, type: 3}
+      propertyPath: _emitter
+      value: 
+      objectReference: {fileID: 2955922883703749027}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd4ffc5473210454b87459d2480138bf, type: 3}
+--- !u!114 &2955922883703749027 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4854229479197076568, guid: cd4ffc5473210454b87459d2480138bf, type: 3}
+  m_PrefabInstance: {fileID: 7662914131751163387}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e79b5a902fb98eb458d8527f900d251a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

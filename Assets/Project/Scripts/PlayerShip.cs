@@ -8,15 +8,25 @@ namespace umi.ld50
 {
     public class PlayerShip : MonoBehaviour
     {
-        private Stack<Fix> _parts;
+        private Stack<Fix> _parts = new Stack<Fix>();
         [SerializeField] private PlayerShipCollider shipCollider;
-
+        [SerializeField] private VFXEmitterComponent vfxEmitter;
         public event Action GetPartsAction;
         public event Action AttackedAction;
         public event Action BreakPartsAction;
 
+        private float defaultHP = 100f;
+
+        private bool isInitialized = false;
+        public bool IsInitialized => isInitialized;
+
         public float Hp => _parts.Select(p => p.Hp).Sum();
-        public float NormalizedHp => _parts.Select(p => p.Hp).Sum() / _parts.Select(p => p.MaxHp).Sum();
+        public float NormalizedHp()
+        {
+            //if (_parts == null) return 1;
+            var sum = _parts.Select(p => p.Hp).Sum();
+            return Mathf.Clamp01(sum / defaultHP);
+        }
 
         #region Adjust
         [SerializeField, Range(0, 1)]
@@ -36,10 +46,17 @@ namespace umi.ld50
             //子にあるFixをデフォルトのパーツとして登録/初期化
             var fixes = GetComponentsInChildren<Fix>().ToArray();
             _parts = new Stack<Fix>(fixes);
+            defaultHP = Hp;
+            
             if (shipCollider == null)
                 shipCollider = FindObjectOfType<PlayerShipCollider>();
             InitShipCollider(shipCollider);
             Physics.queriesHitBackfaces = true;
+            
+            if (vfxEmitter == null)
+                vfxEmitter = GetComponentInChildren<VFXEmitterComponent>();
+
+            isInitialized = true;
         }
 
         private void InitShipCollider(PlayerShipCollider playerShipCollider)
@@ -96,6 +113,7 @@ namespace umi.ld50
             fixTrans.LookAt(hit.point + hit.normal * 5f);
             //少しランダム回転を付ける
             fixTrans.rotation = Quaternion.Lerp(fixTrans.rotation, Random.rotation, deployRotationRandomContribution);
+            fix.EmitVFX();
         }
         
         private Vector3 CalCastStart()
@@ -120,7 +138,6 @@ namespace umi.ld50
         private void OnAttacked(Attack attack)
         {
             OnAttackedAction();
-            OnBreakPartsAction();
             attack.InformDoneAttacking();
             
             if (attack._attackableCount != -1) {
@@ -139,7 +156,7 @@ namespace umi.ld50
                 var latest = _parts.Pop();
                 var hp = latest.Hp;
                 var isCrushed = latest.AddDamage(damage);
-                
+                                
                 if (isCrushed)
                 {
                     damage -= hp;
@@ -152,12 +169,22 @@ namespace umi.ld50
                     break;
                 }
             }
-            if(emitBreakEvent) OnBreakPartsAction();
+
+            if (emitBreakEvent)
+            {
+                EmitDamageVFX();
+                OnBreakPartsAction();
+            }
         }
 
         public void AddDamage(Attack attack)
         {
             OnAttacked(attack);
+        }
+
+        private void EmitDamageVFX()
+        {
+            vfxEmitter.Emit();
         }
 
         #region Debug

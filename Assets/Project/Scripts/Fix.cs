@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 namespace umi.ld50
@@ -27,10 +26,12 @@ namespace umi.ld50
         {
             gameObject.layer = LayerMask.NameToLayer("Obstacle");
             _maxHp = _hp;
+            _emitter = GetComponentInChildren<VFXEmitterComponent>();
         }
 
         public bool AddDamage(float damage)
         {
+            EmitVFX();
             _hp -= damage;
             var isCrushed = _hp < 0;
             if (isCrushed) _hp = 0;
@@ -74,6 +75,7 @@ namespace umi.ld50
 
         public void EmitVFX()
         {
+            if(_emitter == null) return; 
             _emitter.Emit();
         }
     }

@@ -14,6 +14,8 @@ namespace umi.ld50{
         }
 
         async void AsyncDestroy(){
+            if(this == null) return;
+            if(gameObject == null) return;
             await Task.Delay((int)(time*1000f));
             Destroy(gameObject);
         }

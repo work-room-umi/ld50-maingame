@@ -14,7 +14,8 @@ namespace umi.ld50
         public float NormalizedShipDistance()
         {
             var positions = _enemyManager.EnemiesPositions();
-            var shipPos = _ship.transform.position;
+            if (positions == null || positions.Length == 0) return 1;
+            var shipPos = _ship.transform.position;   
             var nearestDist = positions.Select(p => Vector3.Distance(p, shipPos)).Min();
             var normalizedDist = Mathf.Clamp01(nearestDist / enemyNormalizedMaxDistance);
             return normalizedDist;
