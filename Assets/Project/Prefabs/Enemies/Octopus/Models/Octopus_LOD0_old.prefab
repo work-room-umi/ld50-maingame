@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4885577296500964751}
   - component: {fileID: 7217574633249687877}
   m_Layer: 0
-  m_Name: Octopus_LOD0
+  m_Name: Octopus_LOD0_old
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
