@@ -51,9 +51,76 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+      propertyPath: m_DirtyAABB
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+      propertyPath: m_AABB.m_Center.x
+      value: 0.00000011920929
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+      propertyPath: m_AABB.m_Center.y
+      value: 0.6637856
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+      propertyPath: m_AABB.m_Center.z
+      value: 0.049491346
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+      propertyPath: m_AABB.m_Extent.x
+      value: 0.585514
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+      propertyPath: m_AABB.m_Extent.y
+      value: 0.6637856
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+      propertyPath: m_AABB.m_Extent.z
+      value: 0.4959671
+      objectReference: {fileID: 0}
+    - target: {fileID: -3887185075125053422, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+      propertyPath: m_BlendShapeWeights.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
       propertyPath: m_Name
       value: Drifter_LOD0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+--- !u!1 &638048900065502688 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7c5a2a518e0b2e94986cabb1e2f3f17d, type: 3}
+  m_PrefabInstance: {fileID: 296014686308440241}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &1951929991983344130
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638048900065502688}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 878111560e883394ba1f23b2c8330fc8, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 878111560e883394ba1f23b2c8330fc8, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!114 &4878825392328326097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 638048900065502688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8f5b19e1cf26aad41ae3bb478179b36c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ship: {fileID: 0}
+  animation: {fileID: 1951929991983344130}
