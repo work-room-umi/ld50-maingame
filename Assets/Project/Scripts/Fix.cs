@@ -75,7 +75,7 @@ namespace umi.ld50
 
         public void EmitVFX()
         {
-            _emitter.Emit();
+            if(_emitter != null) _emitter.Emit();
         }
     }
 }

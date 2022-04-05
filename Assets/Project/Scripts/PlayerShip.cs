@@ -8,7 +8,7 @@ namespace umi.ld50
 {
     public class PlayerShip : MonoBehaviour
     {
-        private Stack<Fix> _parts;
+        private Stack<Fix> _parts = new Stack<Fix>();
         [SerializeField] private PlayerShipCollider shipCollider;
         [SerializeField] private VFXEmitterComponent vfxEmitter;
         public event Action GetPartsAction;
@@ -17,7 +17,7 @@ namespace umi.ld50
 
         private float defaultHP = 20f;
 
-        public float Hp => _parts == null ? 20 : _parts.Select(p => p.Hp).Sum();
+        public float Hp => _parts.Select(p => p.Hp).Sum();
         public float NormalizedHp()
         {
             //if (_parts == null) return 1;
@@ -151,7 +151,7 @@ namespace umi.ld50
                 var latest = _parts.Pop();
                 var hp = latest.Hp;
                 var isCrushed = latest.AddDamage(damage);
-                
+                                
                 if (isCrushed)
                 {
                     damage -= hp;
